@@ -41,7 +41,7 @@ public class Joke : MonoBehaviour
                 }
             }
 
-            Destroy(gameObject); // Destroy the joke object
+            Destroy(gameObject); 
         }
     }
 }

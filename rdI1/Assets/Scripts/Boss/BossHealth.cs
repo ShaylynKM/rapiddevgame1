@@ -44,9 +44,9 @@ public class BossHealth : MonoBehaviour
 
     private IEnumerator ChangeColor()
     {
-        spriteRenderer.color = hurtColor; // 改变颜色
-        yield return new WaitForSeconds(colorChangeDuration); // 等待一段时间
-        spriteRenderer.color = originalColor; // 恢复原始颜色
+        spriteRenderer.color = hurtColor; // change color
+        yield return new WaitForSeconds(colorChangeDuration); // wait for seconds
+        spriteRenderer.color = originalColor; // back original color
     }
 
     private void Defeated()

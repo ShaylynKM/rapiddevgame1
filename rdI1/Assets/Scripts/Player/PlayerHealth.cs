@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         if (hitPlayerEffectPrefab != null)
         {
             GameObject effect = Instantiate(hitPlayerEffectPrefab, transform.position, Quaternion.identity);
-            Destroy(effect, effect.GetComponent<ParticleSystem>().main.duration); // 根据粒子系统的持续时间来销毁
+            Destroy(effect, effect.GetComponent<ParticleSystem>().main.duration); 
         }
 
 
@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
 
-        // Log player's health change
+        
         Debug.Log("Player Health Decreased by: " + damage);
     }
 
@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
         Application.Quit();
     }
 
-    // Optional: Method to heal the player
+    //to heal the player
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = maxHealth;
         }
 
-        // Log player's health change
+      
         Debug.Log("Player Health Increased by: " + healAmount);
     }
 }
