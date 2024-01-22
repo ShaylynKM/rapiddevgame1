@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,17 +11,28 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     public GameObject hitPlayerEffectPrefab;
 
+    public Slider healthBar;
+
     void Start()
     {
         // Initialize health
         currentHealth = maxHealth;
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
-        
+        // Make sure the health value never drops below 0
+        currentHealth = Mathf.Max(currentHealth, 0);
+
+        // Update health bar
+        healthBar.value = currentHealth;
+
+
+        //Instantiate particle effects
         if (hitPlayerEffectPrefab != null)
         {
             GameObject effect = Instantiate(hitPlayerEffectPrefab, transform.position, Quaternion.identity);
@@ -35,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
         
         Debug.Log("Player Health Decreased by: " + damage);
     }
+
 
     private void Die()
     {
@@ -55,12 +69,12 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
+        currentHealth = Mathf.Min(currentHealth, maxHealth);
 
-      
+        // update health bar
+        healthBar.value = currentHealth;
+
         Debug.Log("Player Health Increased by: " + healAmount);
     }
+    
 }

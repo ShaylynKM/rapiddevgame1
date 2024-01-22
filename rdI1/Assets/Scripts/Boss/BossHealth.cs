@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
 {
@@ -11,9 +14,15 @@ public class BossHealth : MonoBehaviour
     private Color originalColor; 
     public float colorChangeDuration = 0.5f;
 
+    public Slider healthBar; 
+
+
     void Start()
     {
         currentHealth = maxHealth;
+
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
 
         spriteRenderer = GetComponent<SpriteRenderer>(); // Get SpriteRenderer component
         if (spriteRenderer != null)
@@ -26,6 +35,12 @@ public class BossHealth : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log("Boss current health is" + currentHealth);
+
+        //Make sure the health value never drops below 0
+        currentHealth = Mathf.Max(currentHealth, 0);
+
+        // Update health bar
+        healthBar.value = currentHealth;
 
         // Update boss health UI here
 
