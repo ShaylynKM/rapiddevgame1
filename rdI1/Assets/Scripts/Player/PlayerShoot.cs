@@ -13,22 +13,22 @@ public class PlayerShoot : MonoBehaviour
     void Update()
     {
         // Detect player's rotation
-        if (Input.GetKeyDown(KeyCode.A)) // Rotate left
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) // Rotate left
         {
             shootDirection = Vector2.left;
             RotatePlayer(shootDirection);
         }
-        else if (Input.GetKeyDown(KeyCode.D)) // Rotate right
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) // Rotate right
         {
             shootDirection = Vector2.right;
             RotatePlayer(shootDirection);
         }
-        else if (Input.GetKeyDown(KeyCode.W)) // Rotate upward
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) // Rotate upward
         {
             shootDirection = Vector2.up;
             RotatePlayer(shootDirection);
         }
-        else if (Input.GetKeyDown(KeyCode.S)) // Rotate downward
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) // Rotate downward
         {
             shootDirection = Vector2.down;
             RotatePlayer(shootDirection);
@@ -40,6 +40,7 @@ public class PlayerShoot : MonoBehaviour
             Shoot(shootDirection);
         }
     }
+
 
     void Shoot(Vector2 direction)
     {
