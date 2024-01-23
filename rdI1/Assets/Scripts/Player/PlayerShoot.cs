@@ -12,6 +12,8 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
+
+
         // Detect player's rotation
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) // Rotate left
         {

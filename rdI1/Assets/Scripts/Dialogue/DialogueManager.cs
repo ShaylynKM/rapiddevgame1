@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
+
+    public GameObject dialogueBox;
 
     public Image characterIcon;
     public TextMeshProUGUI characterName;
@@ -16,23 +18,30 @@ public class DialogueManager : MonoBehaviour
 
     public bool isDialogueActive = false;
 
-    public float typingSpeed = 0.2f;
+    public float typingSpeed = 0.05f;
 
-    public Animator animator;
+    private bool isTyping;
 
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+        }
 
         lines = new Queue<DialogueLine>();
+    }
+
+    public bool IsDialogueActive()
+    {
+        return isDialogueActive;
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         isDialogueActive = true;
-
-        animator.Play("show");
+        dialogueBox.SetActive(true);
+        Time.timeScale = 0;//pause game
 
         lines.Clear();
 
@@ -52,29 +61,81 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        DialogueLine currentLine = lines.Dequeue();
+        if (isTyping)
+        {
+            CompleteSentence();
+            return;
+        }
 
+        DialogueLine currentLine = lines.Dequeue();
         characterIcon.sprite = currentLine.character.icon;
         characterName.text = currentLine.character.name;
 
         StopAllCoroutines();
-
         StartCoroutine(TypeSentence(currentLine));
     }
 
     IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
         dialogueArea.text = "";
+        isTyping = true;
+
         foreach (char letter in dialogueLine.line.ToCharArray())
         {
             dialogueArea.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSecondsRealtime(typingSpeed);
+        }
+
+        isTyping = false;
+    }
+
+
+    private void CompleteSentence()
+    {
+        StopAllCoroutines();
+        if (lines.Count > 0)
+        {
+            DialogueLine currentLine = lines.Peek();
+            dialogueArea.text = currentLine.line;
+        }
+        isTyping = false;
+    }
+
+    void Update()
+    {
+        
+        if (Input.GetKeyDown(KeyCode.Z) && isDialogueActive)
+        {
+            DisplayNextDialogueLine();
         }
     }
+
 
     void EndDialogue()
     {
         isDialogueActive = false;
-        animator.Play("hide");
+        dialogueBox.SetActive(false);
+        Time.timeScale = 1; // Resume game
     }
+}
+
+[System.Serializable]
+public class DialogueLine
+{
+    public DialogueCharacter character;
+    [TextArea(3, 10)]
+    public string line;
+}
+
+[System.Serializable]
+public class DialogueCharacter
+{
+    public string name;
+    public Sprite icon;
+}
+
+[System.Serializable]
+public class Dialogue
+{
+    public List<DialogueLine> dialogueLines = new List<DialogueLine>();
 }
