@@ -8,12 +8,14 @@ using UnityEngine.UI;
 public class BossHealth : MonoBehaviour
 {
     public int maxHealth = 100;
+    public int health;
     private int currentHealth;
     private SpriteRenderer spriteRenderer; 
     public Color hurtColor = Color.red;
     private Color originalColor; 
     public float colorChangeDuration = 0.5f;
 
+    public GameObject winScreen;
     public Slider healthBar; 
 
 
@@ -51,6 +53,14 @@ public class BossHealth : MonoBehaviour
         }
     }
 
+   
+
+    void Win()
+    {
+        winScreen.SetActive(true);
+        Time.timeScale = 0f; 
+    }
+
     public void TriggerColorChange()
     {
         StartCoroutine(ChangeColor());
@@ -66,9 +76,14 @@ public class BossHealth : MonoBehaviour
 
     private void Defeated()
     {
-     
         Debug.Log("Boss Defeated");
         Destroy(gameObject);
-        
+        ShowWinScreen();
+    }
+
+    private void ShowWinScreen()
+    {
+        winScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

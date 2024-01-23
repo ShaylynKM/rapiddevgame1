@@ -9,7 +9,7 @@ public class BossAI : MonoBehaviour
 
     public float initialSpeed = 3.0f; 
     public float maxSpeed = 10.0f; 
-    public float speedIncreaseInterval = 60.0f; 
+    public float speedIncreaseInterval = 100.0f; 
     private float speedIncreaseTimer = 0; 
     private float currentSpeed;
 
