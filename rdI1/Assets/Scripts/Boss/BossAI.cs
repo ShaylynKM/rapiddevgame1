@@ -5,8 +5,19 @@ using UnityEngine;
 public class BossAI : MonoBehaviour
 {
     public GameObject badJokePrefab; 
-    public GameObject goodJokePrefab; 
-    public float attackInterval = 2.0f; 
+    public GameObject goodJokePrefab;
+
+    public float initialSpeed = 3.0f; 
+    public float maxSpeed = 10.0f; 
+    public float speedIncreaseInterval = 60.0f; 
+    private float speedIncreaseTimer = 0; 
+    private float currentSpeed;
+
+    public float attackInterval = 2.0f;
+    public float minAttackInterval = 0.5f; 
+    public float intervalDecreaseRate = 0.5f; 
+
+
     public Transform playerTransform; // Player's Transform
     public Transform attackPositionsParent; // Empty GameObject that contains four child positions
 
@@ -21,18 +32,37 @@ public class BossAI : MonoBehaviour
         {
             attackPositions[i] = attackPositionsParent.GetChild(i);
         }
+
+        currentSpeed = initialSpeed;
     }
 
     void Update()
     {
         timer += Time.deltaTime;
+        speedIncreaseTimer += Time.deltaTime;
 
+        if (speedIncreaseTimer >= speedIncreaseInterval && currentSpeed < maxSpeed)
+        {
+            currentSpeed += 1.0f; 
+            speedIncreaseTimer = 0;
+            Debug.Log("Current Speed: " + currentSpeed);
+        }
+
+        if (attackInterval > minAttackInterval)
+        {
+            attackInterval -= intervalDecreaseRate * Time.deltaTime;
+            attackInterval = Mathf.Max(attackInterval, minAttackInterval);
+            Debug.Log("Current Attack Interval: " + attackInterval);
+        }
+
+        
         if (timer >= attackInterval)
         {
             Attack();
-            timer = 0;
+            timer = 0; 
         }
     }
+
 
     void Attack()
     {
@@ -53,6 +83,7 @@ public class BossAI : MonoBehaviour
         // Create and launch the joke
         GameObject joke = Instantiate(jokePrefab, chosenPosition.position, Quaternion.identity);
         Rigidbody2D rb = joke.GetComponent<Rigidbody2D>();
-        rb.velocity = attackDirection * Random.Range(3.0f, 5.0f); // Random speed
+
+        rb.velocity = attackDirection * currentSpeed;
     }
 }

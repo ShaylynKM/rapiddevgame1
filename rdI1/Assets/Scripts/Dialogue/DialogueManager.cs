@@ -93,13 +93,23 @@ public class DialogueManager : MonoBehaviour
     private void CompleteSentence()
     {
         StopAllCoroutines();
+
         if (lines.Count > 0)
         {
             DialogueLine currentLine = lines.Peek();
             dialogueArea.text = currentLine.line;
+            isTyping = false;
+
+            // remove the current row and prepare to display the next row
+            lines.Dequeue();
+
+            if (lines.Count == 0)
+            {
+                EndDialogue();
+            }
         }
-        isTyping = false;
     }
+
 
     void Update()
     {
