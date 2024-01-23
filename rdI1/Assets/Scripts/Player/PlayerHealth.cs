@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 15;
     private int currentHealth;
+    public GameObject gameOverMenu;
+
     public GameObject hitPlayerEffectPrefab;
 
     public Slider healthBar;
@@ -55,15 +57,18 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player Died");
-            GameOver(); 
+            gameOverMenu.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 
+   
     private void GameOver()
     {
         Debug.Log("Game Over");
-        Application.Quit();
+        
     }
+
 
     //to heal the player
     public void Heal(int healAmount)
