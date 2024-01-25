@@ -6,7 +6,7 @@ public class BossAI : MonoBehaviour
 {
     public GameObject badJokePrefab; 
     public GameObject goodJokePrefab;
-    public GameObject invincibleJokePrefab;
+    
 
     public float initialSpeed = 3.0f; 
     public float maxSpeed = 10.0f; 
@@ -79,11 +79,7 @@ public class BossAI : MonoBehaviour
 
         // Randomly decide the probability of generating a bad joke over a good one
         float jokeTypeRandom = Random.Range(0f, 1f);
-        
-        bool shootInvincibleJoke = Random.Range(0f, 1f) < 0.05f; 
-
-        
-        GameObject selectedJokePrefab = shootInvincibleJoke ? invincibleJokePrefab : (jokeTypeRandom < 0.7f ? badJokePrefab : goodJokePrefab);
+        GameObject selectedJokePrefab = jokeTypeRandom < 0.7f ? badJokePrefab : goodJokePrefab;
 
         GameObject joke = Instantiate(selectedJokePrefab, chosenPosition.position, Quaternion.identity);
         Rigidbody2D rb = joke.GetComponent<Rigidbody2D>();

@@ -6,8 +6,7 @@ public class Joke : MonoBehaviour
 {
     public BossHealth bossHealth;
     public bool isGoodJoke; // indicates if it's a good joke
-    public bool isInvincibleJoke;
-
+    
 
     void Start()
     {
@@ -36,11 +35,7 @@ public class Joke : MonoBehaviour
                 {
                     playerHealth.Heal(1); // Heal the player
                 }
-                else if (isInvincibleJoke)
-                {
-                    
-                    playerHealth.BecomeInvincible();
-                }
+                
                 else
                 {
                     playerHealth.TakeDamage(1); // Inflict damage
