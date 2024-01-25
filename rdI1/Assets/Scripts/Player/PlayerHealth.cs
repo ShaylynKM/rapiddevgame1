@@ -9,6 +9,9 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 15;
     private int currentHealth;
+    private bool isInvincible = false;
+    private float invincibleDuration = 5f;
+
     public GameObject gameOverMenu;
 
     public GameObject hitPlayerEffectPrefab;
@@ -23,8 +26,29 @@ public class PlayerHealth : MonoBehaviour
         healthBar.value = currentHealth;
     }
 
+    public void BecomeInvincible()
+    {
+        if (!isInvincible)
+        {
+            isInvincible = true;
+            StartCoroutine(InvincibilityCountdown());
+            Debug.Log("Player invincibility");
+        }
+    }
+
+    private IEnumerator InvincibilityCountdown()
+    {
+        yield return new WaitForSeconds(invincibleDuration);
+        isInvincible = false;
+    }
+
+
     public void TakeDamage(int damage)
     {
+        if (isInvincible)
+            return;
+        
+
         currentHealth -= damage;
 
         // Make sure the health value never drops below 0
@@ -33,9 +57,9 @@ public class PlayerHealth : MonoBehaviour
         // Update health bar
         healthBar.value = currentHealth;
 
-
-        //Instantiate particle effects
-        if (hitPlayerEffectPrefab != null)
+        
+            //Instantiate particle effects
+            if (hitPlayerEffectPrefab != null)
         {
             GameObject effect = Instantiate(hitPlayerEffectPrefab, transform.position, Quaternion.identity);
             Destroy(effect, effect.GetComponent<ParticleSystem>().main.duration); 
@@ -51,6 +75,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player Health Decreased by: " + damage);
     }
 
+    
 
     private void Die()
     {

@@ -269,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49450554}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.29, y: 0.077718794, z: -0.050622765}
+  m_LocalPosition: {x: 6.31, y: 0.077718794, z: -0.050622765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -311,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   badJokePrefab: {fileID: 3878426461021889871, guid: 15844e10a9bab4a33b0821556dca3803, type: 3}
   goodJokePrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
+  invincibleJokePrefab: {fileID: 2915985567459786945, guid: 1bf29335998ba4e25b5da398ea8ef473, type: 3}
   initialSpeed: 5
   maxSpeed: 10
   speedIncreaseInterval: 30
@@ -354,7 +355,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.25, y: 2.25}
+    oldSize: {x: 5.76, y: 5.76}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -425,7 +426,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b3703bc499d84be0945055d4f94589a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0948805d0141b4f1685d83e4338ebe35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -444,8 +445,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115602706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.99, y: 2.79, z: 0}
-  m_LocalScale: {x: 3.2112412, y: 2.8581676, z: 1.4331}
+  m_LocalPosition: {x: -6.25, y: 2.93, z: 0}
+  m_LocalScale: {x: 0.4980222, y: 0.4232974, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -475,7 +476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157400712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.23161718, y: 2.86, z: -0.050622765}
+  m_LocalPosition: {x: -0.23161718, y: 3.56, z: -0.050622765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1499,7 +1500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451914104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.23161718, y: -3.11, z: -0.050622765}
+  m_LocalPosition: {x: -0.23161718, y: -3.96, z: -0.050622765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4489,8 +4490,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729118125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.11, z: 0}
-  m_LocalScale: {x: 0.2601302, y: 0.22564426, z: 1}
+  m_LocalPosition: {x: -0.0504, y: 0.2551, z: 0}
+  m_LocalScale: {x: 0.379, y: 0.34964, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4510,7 +4511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   gameOverMenu: {fileID: 1310303564}
-  hitPlayerEffectPrefab: {fileID: 595411960111437867, guid: f1b7afbd8b642428eb1fff7d83f20e05, type: 3}
+  hitPlayerEffectPrefab: {fileID: 4670963651202351220, guid: 5bd8d64b9418c4bb1ad561f1ee623620, type: 3}
   healthBar: {fileID: 1873749218}
 --- !u!114 &1729118129
 MonoBehaviour:
@@ -4619,7 +4620,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 643b6c1688f89754ebcf047ea1f63ed6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4866,7 +4867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839035755}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.42, y: 0.077718794, z: -0.050622765}
+  m_LocalPosition: {x: -6.73, y: 0.077718794, z: -0.050622765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5444,7 +5445,7 @@ MonoBehaviour:
       line: Press" Z " to continue.......
     - character:
         name: GameName
-        icon: {fileID: 21300000, guid: 4b3703bc499d84be0945055d4f94589a, type: 3}
+        icon: {fileID: 21300000, guid: 0948805d0141b4f1685d83e4338ebe35, type: 3}
       line: I want kill you!!!!
     - character:
         name: GameName
@@ -5452,7 +5453,7 @@ MonoBehaviour:
       line: Don't...
     - character:
         name: GameName
-        icon: {fileID: 21300000, guid: 4b3703bc499d84be0945055d4f94589a, type: 3}
+        icon: {fileID: 21300000, guid: 0948805d0141b4f1685d83e4338ebe35, type: 3}
       line: 'NO WAY
 
 '

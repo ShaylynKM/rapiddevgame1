@@ -6,6 +6,7 @@ public class BossAI : MonoBehaviour
 {
     public GameObject badJokePrefab; 
     public GameObject goodJokePrefab;
+    public GameObject invincibleJokePrefab;
 
     public float initialSpeed = 3.0f; 
     public float maxSpeed = 10.0f; 
@@ -45,14 +46,14 @@ public class BossAI : MonoBehaviour
         {
             currentSpeed += 1.0f; 
             speedIncreaseTimer = 0;
-            Debug.Log("Current Speed: " + currentSpeed);
+            //Debug.Log("Current Speed: " + currentSpeed);
         }
 
         if (attackInterval > minAttackInterval)
         {
             attackInterval -= intervalDecreaseRate * Time.deltaTime;
             attackInterval = Mathf.Max(attackInterval, minAttackInterval);
-            Debug.Log("Current Attack Interval: " + attackInterval);
+            //Debug.Log("Current Attack Interval: " + attackInterval);
         }
 
         
@@ -78,12 +79,14 @@ public class BossAI : MonoBehaviour
 
         // Randomly decide the probability of generating a bad joke over a good one
         float jokeTypeRandom = Random.Range(0f, 1f);
-        GameObject jokePrefab = jokeTypeRandom < 0.7f ? badJokePrefab : goodJokePrefab; // 70% chance to generate a bad joke
+        
+        bool shootInvincibleJoke = Random.Range(0f, 1f) < 0.05f; 
 
-        // Create and launch the joke
-        GameObject joke = Instantiate(jokePrefab, chosenPosition.position, Quaternion.identity);
+        
+        GameObject selectedJokePrefab = shootInvincibleJoke ? invincibleJokePrefab : (jokeTypeRandom < 0.7f ? badJokePrefab : goodJokePrefab);
+
+        GameObject joke = Instantiate(selectedJokePrefab, chosenPosition.position, Quaternion.identity);
         Rigidbody2D rb = joke.GetComponent<Rigidbody2D>();
-
         rb.velocity = attackDirection * currentSpeed;
     }
 }
