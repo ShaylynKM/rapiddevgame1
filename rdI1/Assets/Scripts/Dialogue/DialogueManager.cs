@@ -32,6 +32,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         lines = new Queue<DialogueLine>();
+
     }
 
     public bool IsDialogueActive()
@@ -47,6 +48,7 @@ public class DialogueManager : MonoBehaviour
             isDialogueActive = true;
             dialogueBox.SetActive(true);
             Time.timeScale = 0; // 暂停游戏
+            AudioManager.Instance.Play(0, "bg", false);
 
             lines.Clear();
 
@@ -133,6 +135,11 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         dialogueBox.SetActive(false);
         Time.timeScale = 1; // Resume game
+
+        AudioManager.Instance.Stop(0);
+        AudioManager.Instance.Play(0, "bossFight", false);
+
+
     }
 }
 
