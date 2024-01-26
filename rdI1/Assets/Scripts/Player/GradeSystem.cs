@@ -34,7 +34,7 @@ public class GradeSystem : MonoBehaviour
 
     string CalculateGrade()
     {
-        int[] gradeThresholds = { 0, 1, 5, 8, 10 }; 
+        int[] gradeThresholds = { 0, 1, 5, 8, 10, 30 }; 
         string[] letterGrades = { "S", "A", "B", "C", "D", "F" };
 
         for (int i = 0; i < gradeThresholds.Length; i++)

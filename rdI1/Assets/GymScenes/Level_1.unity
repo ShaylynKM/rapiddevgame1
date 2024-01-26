@@ -159,6 +159,7 @@ RectTransform:
   - {fileID: 1099772631}
   - {fileID: 248168515}
   - {fileID: 1713733242}
+  - {fileID: 1565895983}
   m_Father: {fileID: 930736184}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -245,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreenDisplay: {fileID: 12650050}
   mainMenuSceneName: MainMenuGym
+  gradeImage: {fileID: 1565895984}
 --- !u!1 &49450554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,7 +2142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.6348877, y: -13.174591}
+  m_AnchoredPosition: {x: 2.6348877, y: -13.174561}
   m_SizeDelta: {x: 36.889, y: 31.6191}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &805847998
@@ -3708,6 +3710,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464779905}
   m_CullTransparentMesh: 1
+--- !u!1 &1565895982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1565895983}
+  - component: {fileID: 1565895985}
+  - component: {fileID: 1565895984}
+  m_Layer: 5
+  m_Name: GradeImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1565895983
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565895982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 12650051}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -51, y: -151}
+  m_SizeDelta: {x: 144.0724, y: 144.0724}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1565895984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565895982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1565895985
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565895982}
+  m_CullTransparentMesh: 1
 --- !u!224 &1597975851 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 811988019787687459, guid: 72ee36b9a9b2a44dcbdff106af930668, type: 3}
@@ -4074,6 +4152,7 @@ GameObject:
   - component: {fileID: 1729118130}
   - component: {fileID: 1729118129}
   - component: {fileID: 1729118128}
+  - component: {fileID: 1729118133}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4112,6 +4191,7 @@ MonoBehaviour:
   gameOverMenu: {fileID: 1310303564}
   hitPlayerEffectPrefab: {fileID: 8757404166330872304, guid: b63031f9621b1bd41a22d551614988c0, type: 3}
   healthBar: {fileID: 1873749218}
+  gradeSystem: {fileID: 1729118133}
 --- !u!114 &1729118129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4231,6 +4311,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1729118133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729118125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b003b5ddc271d46bf2a7a3d84f7249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitCounter: 0
+  winMenu: {fileID: 12650056}
 --- !u!1 &1762554147
 GameObject:
   m_ObjectHideFlags: 0
