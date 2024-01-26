@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
             if (bossHealth != null)
             {
                 bossHealth.TriggerColorChange();
+                //AudioManager.Instance.Play(0, "PlayerShoot", false);
             }
 
             GameObject hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);

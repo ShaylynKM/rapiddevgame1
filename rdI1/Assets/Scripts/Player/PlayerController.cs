@@ -15,8 +15,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 shootDirection = Vector2.up;
 
+    void Start()
+    {
+        AudioManager.Instance.Play(0, "bossFight", true);
+    }
+
     void Update()
     {
+        
         HandleMovement();
         HandleShooting();
     }
@@ -52,6 +58,8 @@ public class PlayerController : MonoBehaviour
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = shootDirection * projectileSpeed;
+
+            AudioManager.Instance.Play(1, "PlayerShoot", false);
 
             float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

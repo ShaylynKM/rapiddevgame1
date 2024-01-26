@@ -21,6 +21,7 @@ public class Joke : MonoBehaviour
             if (bossHealth != null)
             {
                 bossHealth.TakeDamage(1);
+                //AudioManager.Instance.Play(0, "bg", false);
             }
 
             Destroy(gameObject);
