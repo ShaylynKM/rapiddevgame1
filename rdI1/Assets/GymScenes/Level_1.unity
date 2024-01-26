@@ -2119,7 +2119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &805847997
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4110,7 +4110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   gameOverMenu: {fileID: 1310303564}
-  hitPlayerEffectPrefab: {fileID: 4670963651202351220, guid: 5bd8d64b9418c4bb1ad561f1ee623620, type: 3}
+  hitPlayerEffectPrefab: {fileID: 8757404166330872304, guid: b63031f9621b1bd41a22d551614988c0, type: 3}
   healthBar: {fileID: 1873749218}
 --- !u!114 &1729118129
 MonoBehaviour:
@@ -4432,7 +4432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 445, y: -207}
+  m_AnchoredPosition: {x: 306.15, y: -92.314}
   m_SizeDelta: {x: 302.5904, y: 46.649}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1849235285

@@ -6,6 +6,8 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    private static bool dialoguePlayed = false;
+
     public static DialogueManager Instance;
 
     public GameObject dialogueBox;
@@ -15,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueArea;
 
     private Queue<DialogueLine> lines;
-
+    
     public bool isDialogueActive = false;
 
     public float typingSpeed = 0.05f;
@@ -39,19 +41,24 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        isDialogueActive = true;
-        dialogueBox.SetActive(true);
-        Time.timeScale = 0;//pause game
-
-        lines.Clear();
-
-        foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
+        if (!dialoguePlayed)
         {
-            lines.Enqueue(dialogueLine);
-        }
+            dialoguePlayed = true;
+            isDialogueActive = true;
+            dialogueBox.SetActive(true);
+            Time.timeScale = 0; // 暂停游戏
 
-        DisplayNextDialogueLine();
+            lines.Clear();
+
+            foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
+            {
+                lines.Enqueue(dialogueLine);
+            }
+
+            DisplayNextDialogueLine();
+        }
     }
+
 
     public void DisplayNextDialogueLine()
     {
