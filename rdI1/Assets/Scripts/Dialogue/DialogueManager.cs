@@ -47,8 +47,8 @@ public class DialogueManager : MonoBehaviour
             dialoguePlayed = true;
             isDialogueActive = true;
             dialogueBox.SetActive(true);
-            Time.timeScale = 0; // 暂停游戏
-            AudioManager.Instance.Play(0, "bg", false);
+            Time.timeScale = 0; 
+            AudioManager.Instance.Play(0, "bg", true);
 
             lines.Clear();
 
@@ -57,6 +57,14 @@ public class DialogueManager : MonoBehaviour
                 lines.Enqueue(dialogueLine);
             }
 
+            DisplayNextDialogueLine();
+        }
+    }
+
+    public void OnButtonClick()
+    {
+        if (isDialogueActive)
+        {
             DisplayNextDialogueLine();
         }
     }
