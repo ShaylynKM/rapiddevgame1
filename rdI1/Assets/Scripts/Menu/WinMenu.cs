@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class WinMenu : MonoBehaviour
@@ -11,6 +12,9 @@ public class WinMenu : MonoBehaviour
     [SerializeField]
     private string mainMenuSceneName = "MainMenuGym";
 
+
+    public Image gradeImage;
+    
     void Start()
     {
         winScreenDisplay.SetActive(false);
@@ -22,6 +26,28 @@ public class WinMenu : MonoBehaviour
         winScreenDisplay.SetActive(true);
         Time.timeScale = 0f;
     }
+
+    public void UpdateImage(string grade)
+    {
+        if (GradeSystem.gradeToImage.TryGetValue(grade, out string imageName))
+        {
+            Sprite sprite = Resources.Load<Sprite>(imageName);
+
+            if (sprite != null)
+            {
+                gradeImage.sprite = sprite;
+            }
+            else
+            {
+                Debug.LogError($"Failed to load image for grade {grade}: {imageName}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"No image found for grade {grade}");
+        }
+    }
+
 
     #region Button Actions
 
@@ -42,6 +68,5 @@ public class WinMenu : MonoBehaviour
         Debug.Log("Quitting game...");
         Application.Quit();
     }
-
     #endregion
-}
+ }

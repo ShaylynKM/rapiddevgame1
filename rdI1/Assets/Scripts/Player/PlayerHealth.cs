@@ -16,6 +16,8 @@ public class PlayerHealth : MonoBehaviour
 
     public Slider healthBar;
 
+    public GradeSystem gradeSystem;
+
     void Start()
     {
         // Initialize health
@@ -43,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
             Destroy(effect, effect.GetComponent<ParticleSystem>().main.duration); 
         }
 
+        gradeSystem.CounterTakeHit();
 
         if (currentHealth <= 0)
         {
