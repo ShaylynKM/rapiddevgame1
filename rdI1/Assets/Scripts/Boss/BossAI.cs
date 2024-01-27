@@ -4,30 +4,28 @@ using UnityEngine;
 
 public class BossAI : MonoBehaviour
 {
-    public GameObject badJokePrefab; 
+    public GameObject badJokePrefab;
     public GameObject goodJokePrefab;
-    
+    public GameObject hintPrefab; // 提示图片预制体
 
-    public float initialSpeed = 3.0f; 
-    public float maxSpeed = 10.0f; 
-    public float speedIncreaseInterval = 100.0f; 
-    private float speedIncreaseTimer = 0; 
+    public float initialSpeed = 3.0f;
+    public float maxSpeed = 10.0f;
+    public float speedIncreaseInterval = 100.0f;
+    private float speedIncreaseTimer = 0;
     private float currentSpeed;
 
     public float attackInterval = 2.0f;
-    public float minAttackInterval = 0.5f; 
-    public float intervalDecreaseRate = 0.5f; 
+    public float minAttackInterval = 0.5f;
+    public float intervalDecreaseRate = 0.5f;
 
+    public Transform playerTransform;
+    public Transform attackPositionsParent;
 
-    public Transform playerTransform; // Player's Transform
-    public Transform attackPositionsParent; // Empty GameObject that contains four child positions
-
-    private Transform[] attackPositions; // Array for the four child positions
+    private Transform[] attackPositions;
     private float timer;
 
     void Start()
     {
-        // Retrieve the four child positions
         attackPositions = new Transform[attackPositionsParent.childCount];
         for (int i = 0; i < attackPositionsParent.childCount; i++)
         {
@@ -44,45 +42,39 @@ public class BossAI : MonoBehaviour
 
         if (speedIncreaseTimer >= speedIncreaseInterval && currentSpeed < maxSpeed)
         {
-            currentSpeed += 1.0f; 
+            currentSpeed += 1.0f;
             speedIncreaseTimer = 0;
-            //Debug.Log("Current Speed: " + currentSpeed);
         }
 
         if (attackInterval > minAttackInterval)
         {
             attackInterval -= intervalDecreaseRate * Time.deltaTime;
             attackInterval = Mathf.Max(attackInterval, minAttackInterval);
-            //Debug.Log("Current Attack Interval: " + attackInterval);
         }
 
-        
         if (timer >= attackInterval)
         {
-            Attack();
-            timer = 0; 
+            StartCoroutine(PrepareAndAttack());
+            timer = 0;
         }
     }
 
-
-    void Attack()
+    IEnumerator PrepareAndAttack()
     {
-        // Get the player's position
-        Vector2 playerPosition = playerTransform.position;
-
-        // Randomly select one of the child positions
         int randomIndex = Random.Range(0, attackPositions.Length);
         Transform chosenPosition = attackPositions[randomIndex];
 
-        // Calculate the direction towards the player
-        Vector2 attackDirection = (playerPosition - (Vector2)chosenPosition.position).normalized;
+        // 先显示提示图片
+        GameObject hint = Instantiate(hintPrefab, chosenPosition.position, Quaternion.identity);
+        yield return new WaitForSeconds(1f); // 等待时间，可以调整
 
-        // Randomly decide the probability of generating a bad joke over a good one
-        float jokeTypeRandom = Random.Range(0f, 1f);
-        GameObject selectedJokePrefab = jokeTypeRandom < 0.7f ? badJokePrefab : goodJokePrefab;
+        Destroy(hint); // 销毁提示图片
 
-        GameObject joke = Instantiate(selectedJokePrefab, chosenPosition.position, Quaternion.identity);
+        // 发射笑话
+        Vector2 attackDirection = (playerTransform.position - chosenPosition.position).normalized;
+        GameObject jokePrefab = Random.Range(0f, 1f) < 0.7f ? badJokePrefab : goodJokePrefab;
+        GameObject joke = Instantiate(jokePrefab, chosenPosition.position, Quaternion.identity);
         Rigidbody2D rb = joke.GetComponent<Rigidbody2D>();
-        rb.velocity = attackDirection * currentSpeed;
+        rb.velocity = attackDirection * currentSpeed; // 调整笑话的速度
     }
 }
