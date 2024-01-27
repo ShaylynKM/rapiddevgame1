@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour
     {
         _pauseMenuDisplay.SetActive(false); // Hides the pause menu
         _gamePaused = false;
+        
     }
 
     void Update()
@@ -63,6 +64,7 @@ public class PauseMenu : MonoBehaviour
     public void OnMainMenuPress()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.Stop(0);
         SceneManager.LoadScene("MainMenuGym"); // Loads the Main Menu scene
     }
 
@@ -81,6 +83,7 @@ public class PauseMenu : MonoBehaviour
 
         OpenMenu();
 
+
         Time.timeScale = 0f; // Freezes time
 
 
@@ -95,6 +98,7 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f; // Resumes time
 
+        AudioManager.Instance.Play(0, "bossFight", true);
     }
 
     private void OpenMenu()

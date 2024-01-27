@@ -13,7 +13,10 @@ public class GameOverMenu : MonoBehaviour
 
     void Start()
     {
-        gameOverMenuDisplay.SetActive(false); 
+        gameOverMenuDisplay.SetActive(false);
+
+        //AudioManager.Instance.Play(0, "bg", true);
+
     }
 
     

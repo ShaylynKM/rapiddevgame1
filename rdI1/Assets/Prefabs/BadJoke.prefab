@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a3b305e7324fd489e953000edafe0523, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50d03979e4e3d45c29b49faf429d86ff, type: 3}
   m_Color: {r: 0.9433962, g: 0.86774653, b: 0.891224, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,4 +138,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealth: {fileID: 0}
   isGoodJoke: 0
-  isInvincibleJoke: 0
