@@ -36,6 +36,7 @@ public class BossHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        
         Debug.Log("Boss current health is" + currentHealth);
 
         //Make sure the health value never drops below 0
@@ -77,6 +78,7 @@ public class BossHealth : MonoBehaviour
     private void Defeated()
     {
         Debug.Log("Boss Defeated");
+        AudioManager.Instance.Play(4, "bossKill", false);
         Destroy(gameObject);
         ShowWinScreen();
     }

@@ -30,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        AudioManager.Instance.Play(7, "hurt", false);
 
         // Make sure the health value never drops below 0
         currentHealth = Mathf.Max(currentHealth, 0);
@@ -50,6 +51,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+
         }
 
         
@@ -62,6 +64,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            AudioManager.Instance.Play(5, "playerKill", false);
             Debug.Log("Player Died");
             gameOverMenu.SetActive(true);
             Time.timeScale = 0f;
@@ -80,6 +83,8 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
+        AudioManager.Instance.Play(6, "heal", false);
+
         currentHealth = Mathf.Min(currentHealth, maxHealth);
 
         // update health bar

@@ -55,6 +55,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (DialogueManager.Instance.isDialogueActive)
+            {
+                return; 
+            }
+
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = shootDirection * projectileSpeed;

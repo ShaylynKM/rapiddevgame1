@@ -9,7 +9,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip bg;
     public AudioClip playerShoot;
     public AudioClip bossFight;
-    public AudioClip destroy;
+    public AudioClip bossKill;
+    public AudioClip playerKill;
+    public AudioClip heal;
+    public AudioClip hurt;
 
     List<AudioSource> audios = new List<AudioSource>();
 
@@ -32,7 +35,7 @@ public class AudioManager : MonoBehaviour
     {
         Play(0, "bossFight", true);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 8; i++)
         {
             var audio = gameObject.AddComponent<AudioSource>();
             audios.Add(audio);
@@ -68,8 +71,14 @@ public class AudioManager : MonoBehaviour
                 return playerShoot;
             case "bossFight":
                 return bossFight;
-            case "Destroy":
-                return destroy;
+            case "bossKill":
+                return bossKill;
+            case "playerKill":
+                return playerKill;
+            case "heal":
+                return heal;
+            case "hurt":
+                return hurt;
             default:
                 return null;
         }
