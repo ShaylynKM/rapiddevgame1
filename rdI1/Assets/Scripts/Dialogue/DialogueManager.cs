@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class DialogueManager : MonoBehaviour
 
     public static DialogueManager Instance;
 
+    private static Dictionary<string, bool> playedDialogues = new Dictionary<string, bool>();
+
+    
     public GameObject dialogueBox;
 
     public Image characterIcon;
@@ -20,7 +24,7 @@ public class DialogueManager : MonoBehaviour
     
     public bool isDialogueActive = false;
 
-    public float typingSpeed = 0.05f;
+    public float typingSpeed = 0.01f;
 
     private bool isTyping;
 
@@ -42,16 +46,19 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        if (!dialoguePlayed)
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        
+        if (!playedDialogues.ContainsKey(sceneName) || !playedDialogues[sceneName])
         {
-            dialoguePlayed = true;
+            playedDialogues[sceneName] = true; 
+
             isDialogueActive = true;
             dialogueBox.SetActive(true);
-            Time.timeScale = 0; 
+            Time.timeScale = 0;
             AudioManager.Instance.Play(0, "bg", true);
 
             lines.Clear();
-
             foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
             {
                 lines.Enqueue(dialogueLine);
@@ -60,6 +67,7 @@ public class DialogueManager : MonoBehaviour
             DisplayNextDialogueLine();
         }
     }
+
 
     public void OnButtonClick()
     {

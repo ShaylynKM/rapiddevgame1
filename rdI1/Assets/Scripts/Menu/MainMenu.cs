@@ -44,7 +44,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlayPress()
     {
-        SceneManager.LoadScene("Level_1"); // Loads the first level
+        SceneManager.LoadScene("Home"); // Loads the first level
     }
 
     public void OnControlsPress()

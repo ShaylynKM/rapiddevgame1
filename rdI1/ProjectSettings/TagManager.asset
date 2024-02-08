@@ -7,6 +7,8 @@ TagManager:
   - Boss
   - PlayerBullet
   - Jokes
+  - Enemy
+  - Boundary
   layers:
   - Default
   - TransparentFX

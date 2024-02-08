@@ -6,11 +6,12 @@ public class Joke : MonoBehaviour
 {
     public BossHealth bossHealth;
     public bool isGoodJoke; // indicates if it's a good joke
-    
+    public Transform playerTransform;// Player's Transform
 
     void Start()
     {
         bossHealth = FindObjectOfType<BossHealth>();
+
     }
 
 
