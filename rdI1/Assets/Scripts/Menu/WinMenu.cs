@@ -17,14 +17,14 @@ public class WinMenu : MonoBehaviour
     
     void Start()
     {
-        winScreenDisplay.SetActive(false);
+        //winScreenDisplay.SetActive(false);
     }
 
 
     public void ShowGameOverMenu()
     {
-        winScreenDisplay.SetActive(true);
-        Time.timeScale = 0f;
+        //winScreenDisplay.SetActive(true);
+        //Time.timeScale = 0f;
     }
 
     public void UpdateImage(string grade)

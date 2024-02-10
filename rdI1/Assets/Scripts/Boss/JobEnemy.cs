@@ -16,7 +16,7 @@ public class JobEnemy : MonoBehaviour
     public float initialSpeed = 3.0f;
     public float maxSpeed = 10.0f;
     public float speedIncreaseInterval = 100.0f;
-    private float speedIncreaseTimer = 0;
+    //private float speedIncreaseTimer = 0;
     private float currentSpeed;
 
     public float attackInterval = 2.0f;

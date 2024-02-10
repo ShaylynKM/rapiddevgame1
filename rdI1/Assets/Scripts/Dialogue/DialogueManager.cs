@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public class DialogueManager : MonoBehaviour
 {
-    private static bool dialoguePlayed = false;
+    //private static bool dialoguePlayed = false;
 
     public static DialogueManager Instance;
 
@@ -19,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     public Image characterIcon;
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
+    public event Action OnDialogueComplete;
 
     private Queue<DialogueLine> lines;
     
@@ -155,7 +158,7 @@ public class DialogueManager : MonoBehaviour
         AudioManager.Instance.Stop(0);
         AudioManager.Instance.Play(0, "bossFight", false);
 
-
+        OnDialogueComplete?.Invoke();
     }
 }
 

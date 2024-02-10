@@ -1,76 +1,125 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager Instance;
 
-    public GameObject winCanvas;
+    public GameObject winScreen;
+    public TextMeshProUGUI countdownText;
 
     public bool CanMove { get; private set; }
     public bool CanShoot { get; private set; }
     public bool CanFreeze { get; private set; }
 
-    public float baseSurvivalTime = 30f; 
-    public float[] levelTimeMultipliers = { 1, 2, 3, 4 }; 
-
-    private int currentLevelIndex = 0; 
+    public float baseSurvivalTime = 30f;
+    public float[] levelSurvivalTimes; 
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
-            Destroy(gameObject);
+           // Destroy(gameObject);
         }
 
-        if (winCanvas != null)
+        if (winScreen != null)
         {
-            winCanvas.SetActive(false); 
+            winScreen.SetActive(false);
         }
     }
 
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.OnDialogueComplete += StartCountdownAfterDialogue;
+        }
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.OnDialogueComplete -= StartCountdownAfterDialogue;
+        }
     }
+
+    private void StartCountdownAfterDialogue()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+        if (sceneIndex >= 0 && sceneIndex < levelSurvivalTimes.Length)
+        {
+            StartCoroutine(CountdownToNextLevel(levelSurvivalTimes[sceneIndex]));
+        }
+    }
+
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        GameObject TextTime = GameObject.Find("TextTime");
+        if (TextTime != null)
+        {
+            countdownText = TextTime.GetComponent<TextMeshProUGUI>();
+        }
+
+        int sceneIndex = scene.buildIndex - 1;
+        if (sceneIndex >= 0 && sceneIndex < levelSurvivalTimes.Length)
+        {
+            StartCoroutine(CountdownToNextLevel(levelSurvivalTimes[sceneIndex]));
+        }
         SetAbilitiesBasedOnScene(scene.name);
-        float survivalTime = baseSurvivalTime * levelTimeMultipliers[currentLevelIndex];
-        StartCoroutine(CountdownToNextLevel(survivalTime));
     }
 
     IEnumerator CountdownToNextLevel(float time)
     {
-        yield return new WaitForSeconds(time);
-
-        if (currentLevelIndex >= levelTimeMultipliers.Length - 1)
+        while (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive)
         {
+            yield return null;
+        }
+
+        while (time > 0)
+        {
+            if (countdownText != null)
+            {
+                countdownText.text = $"Time Left: {time}";
+            }
+            yield return new WaitForSeconds(1f);
+            time -= 1f;
+        }
+        
+        
+        if (countdownText != null)
+        {
+            countdownText.text = "";
+        }
+        
+
+        if (SceneManager.GetActiveScene().buildIndex == levelSurvivalTimes.Length)
+        {
+            Defeated();
             ShowWinScreen();
         }
         else
         {
-            currentLevelIndex++;
             LoadNextLevel();
         }
     }
 
+
     private void SetAbilitiesBasedOnScene(string sceneName)
     {
-       
-        CanMove = CanShoot = CanFreeze = false; 
+        CanMove = CanShoot = CanFreeze = false;
 
         switch (sceneName)
         {
@@ -102,11 +151,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Defeated()
+    {
+        Debug.Log("winnn");
+        //AudioManager.Instance.Play(4, "bossKill", false);
+        
+        ShowWinScreen();
+    }
+
     private void ShowWinScreen()
     {
-        if (winCanvas != null)
-        {
-            winCanvas.SetActive(true); 
-        }
+        winScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
