@@ -3749,7 +3749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 0}
   countdownText: {fileID: 1550827447}
-  baseSurvivalTime: 10
+  baseSurvivalTime: 30
   levelSurvivalTimes:
   - 20
   - 25
@@ -4122,8 +4122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowRect: {fileID: 1840040198}
-  fillSpeed: 0.1
-  freezeTime: 5
+  fillSpeed: 0.3
+  freezeTime: 2
+  currentFill: 0
 --- !u!1 &1854192257
 GameObject:
   m_ObjectHideFlags: 0

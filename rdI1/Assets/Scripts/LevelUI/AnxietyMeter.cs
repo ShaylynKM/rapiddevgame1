@@ -8,7 +8,7 @@ public class AnxietyMeter : MonoBehaviour
     public float fillSpeed = 0.1f;
     public float freezeTime = 5f;
 
-    private float currentFill = 0f;
+    public float currentFill = 0f;
     private PlayerController playerController;
 
     void Start()
@@ -48,5 +48,10 @@ public class AnxietyMeter : MonoBehaviour
         {
             playerController.UnfreezePlayer();
         }
+    }
+
+    public float GetCurrentFill()
+    {
+        return currentFill;
     }
 }
