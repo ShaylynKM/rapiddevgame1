@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 70854237787463924}
   - component: {fileID: 70854237787463925}
   - component: {fileID: 70854237787463926}
-  - component: {fileID: -8394518957389561089}
+  - component: {fileID: -169532806832676531}
   - component: {fileID: 70854237787463927}
   m_Layer: 0
-  m_Name: JobEnemy
+  m_Name: SchoolEnemy
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-8394518957389561089
+--- !u!114 &-169532806832676531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,15 +144,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 70854237787463921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b867f19126dba4926a385a07a61eb666, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c0c17e1473694381a767eb2d0635bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  naggingJokePrefab: {fileID: 0}
+  naggingJokePrefab: {fileID: 3878426461021889871, guid: 15844e10a9bab4a33b0821556dca3803, type: 3}
+  cornerPoints: []
+  initialSpeed: 2
+  maxSpeed: 6
+  speedIncreaseInterval: 20
   attackInterval: 3
   playerTransform: {fileID: 0}
-  leftBound: {fileID: 0}
-  rightBound: {fileID: 0}
 --- !u!114 &70854237787463927
 MonoBehaviour:
   m_ObjectHideFlags: 0

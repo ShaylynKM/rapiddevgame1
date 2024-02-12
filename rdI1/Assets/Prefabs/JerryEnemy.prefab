@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 70854237787463924}
   - component: {fileID: 70854237787463925}
   - component: {fileID: 70854237787463926}
-  - component: {fileID: -8394518957389561089}
+  - component: {fileID: 117405230349017046}
+  - component: {fileID: 6470394562871723815}
   - component: {fileID: 70854237787463927}
   m_Layer: 0
-  m_Name: JobEnemy
+  m_Name: JerryEnemy
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +120,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -135,7 +136,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-8394518957389561089
+--- !u!114 &117405230349017046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,15 +145,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 70854237787463921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b867f19126dba4926a385a07a61eb666, type: 3}
+  m_Script: {fileID: 11500000, guid: 21b494124a92849c4bc4e5aa9eab1980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  badJokePrefab: {fileID: 0}
+  goodJokePrefab: {fileID: 0}
+  hintPrefab: {fileID: 0}
   moveSpeed: 2
-  naggingJokePrefab: {fileID: 0}
-  attackInterval: 3
+  moveDistance: 5
+  initialSpeed: 3
+  maxSpeed: 10
+  speedIncreaseInterval: 100
+  attackInterval: 2
+  minAttackInterval: 0.5
+  intervalDecreaseRate: 0.5
   playerTransform: {fileID: 0}
-  leftBound: {fileID: 0}
-  rightBound: {fileID: 0}
+  attackPositionsParent: {fileID: 0}
+--- !u!114 &6470394562871723815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70854237787463921}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1caa358f7a47a4d93bb710158c43521d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  isFrozen: 0
+  badJokePrefab: {fileID: 0}
+  goodJokePrefab: {fileID: 0}
+  hintPrefab: {fileID: 0}
+  initialSpeed: 3
+  maxSpeed: 10
+  speedIncreaseInterval: 100
+  attackInterval: 2
+  minAttackInterval: 0.5
+  intervalDecreaseRate: 0.5
+  playerTransform: {fileID: 0}
+  attackPositionsParent: {fileID: 0}
 --- !u!114 &70854237787463927
 MonoBehaviour:
   m_ObjectHideFlags: 0

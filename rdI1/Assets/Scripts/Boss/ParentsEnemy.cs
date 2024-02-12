@@ -4,51 +4,66 @@ using UnityEngine;
 
 public class ParentsEnemy : MonoBehaviour
 {
-    public float moveSpeed = 2.0f;
-    private Vector2 moveDirection;
-
-    public GameObject naggingJokePrefab; 
-    
-
-    public float initialSpeed = 2.0f;
-    public float maxSpeed = 6.0f;
-    public float speedIncreaseInterval = 20.0f; 
-    private float speedIncreaseTimer = 0;
-    private float currentSpeed;
-
-    public float attackInterval = 3.0f; 
-    private float attackTimer;
+    public float moveSpeed = 3.0f;
+    public float attackSpeed = 5.0f;
+    public GameObject badJokePrefab;
+    public GameObject goodJokePrefab;
+    public Transform[] waypoints;
+    private int currentWaypointIndex = 0;
 
     public Transform playerTransform;
+    public float attackInterval = 2.0f;
+    private float timer;
 
     void Start()
     {
-        moveDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        currentSpeed = initialSpeed;
-        InvokeRepeating(nameof(LaunchAttack), attackInterval, attackInterval);
+        if (waypoints.Length > 0)
+        {
+            transform.position = waypoints[0].position;
+        }
     }
 
     void Update()
     {
-        
-        transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
+        MoveAroundWaypoints();
+        HandleAttack();
+    }
 
+    void MoveAroundWaypoints()
+    {
+        if (waypoints.Length == 0) return;
 
-        speedIncreaseTimer += Time.deltaTime;
-        if (speedIncreaseTimer >= speedIncreaseInterval && currentSpeed < maxSpeed)
+        Transform targetWaypoint = waypoints[currentWaypointIndex];
+        transform.position = Vector2.MoveTowards(transform.position, targetWaypoint.position, moveSpeed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, targetWaypoint.position) < 0.1f)
         {
-            currentSpeed += 1.0f;
-            speedIncreaseTimer = 0;
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
     }
 
-    private void LaunchAttack()
+    void HandleAttack()
+    {
+        timer += Time.deltaTime;
+        if (timer >= attackInterval)
+        {
+            StartCoroutine(PrepareAndAttack());
+            timer = 0;
+        }
+    }
+
+    IEnumerator PrepareAndAttack()
     {
         Vector2 attackDirection = (playerTransform.position - transform.position).normalized;
-        GameObject joke = Instantiate(naggingJokePrefab, transform.position, Quaternion.identity);
+        GameObject jokePrefab = Random.Range(0f, 1f) < 0.7f ? badJokePrefab : goodJokePrefab;
+        GameObject joke = Instantiate(jokePrefab, transform.position, Quaternion.identity);
         Rigidbody2D rb = joke.GetComponent<Rigidbody2D>();
-        rb.velocity = attackDirection * currentSpeed;
+        rb.velocity = attackDirection * attackSpeed;
+
+        yield return new WaitForSeconds(1f); // 可以调整这个值以改变攻击的频率
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -62,10 +77,6 @@ public class ParentsEnemy : MonoBehaviour
             }
         }
 
-        if (collision.CompareTag("Boundary"))
-        {
-            
-            moveDirection = -moveDirection; 
-        }
+       
     }
 }

@@ -5,7 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
+    public float sprintSpeedMultiplier = 2f; 
+    public float sprintDuration = 0.2f; 
+    private float sprintEndTime = -1f;
+
     public float freezeDuration = 5f;
     public GameObject projectilePrefab;
     public GameObject freezeProjectilePrefab;
@@ -21,6 +25,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 shootDirection = Vector2.up;
     public bool isFrozen = false;
     private float freezeTimer = 0f;
+
+    public Rigidbody2D rb; 
+    private Vector2 moveDirection = Vector2.zero;
+    private Vector2 lastMoveDirection = Vector2.right;
 
     void Start()
     {
@@ -48,10 +56,18 @@ public class PlayerController : MonoBehaviour
             HandleMovement();
         }
 
+        ProcessInputs(); 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartSprint();
+        }
+
         if (!isFrozen && GameManager.Instance.CanShoot && Input.GetKeyDown(KeyCode.Space))
         {
             HandleShooting(projectilePrefab);
         }
+
+        
     }
 
     
@@ -95,6 +111,42 @@ public class PlayerController : MonoBehaviour
             shootDirection = moveDirection;
         }
     }
+
+    void FixedUpdate()
+    {
+        Move(); 
+    }
+
+    void ProcessInputs()
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        moveDirection = new Vector2(moveX, moveY).normalized;
+        if (moveDirection != Vector2.zero)
+        {
+            lastMoveDirection = moveDirection; 
+        }
+    }
+
+    void Move()
+    {
+        if (Time.time <= sprintEndTime)
+        {
+            
+            rb.velocity = lastMoveDirection * moveSpeed * sprintSpeedMultiplier;
+        }
+        else
+        {
+            rb.velocity = moveDirection * moveSpeed;
+        }
+    }
+
+    void StartSprint()
+    {
+        sprintEndTime = Time.time + sprintDuration; 
+        rb.velocity = lastMoveDirection * moveSpeed * sprintSpeedMultiplier; 
+    }
+
 
     public void FreezePlayer()
     {
