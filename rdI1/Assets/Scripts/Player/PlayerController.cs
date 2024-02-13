@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
     private Vector2 moveDirection = Vector2.zero;
-    private Vector2 lastMoveDirection = Vector2.right;
+ 
 
     void Start()
     {
@@ -54,15 +54,14 @@ public class PlayerController : MonoBehaviour
             HandleMovement();
         }
 
-        ProcessInputs();
-
-        if (GameManager.Instance.CanShoot && Input.GetKeyDown(KeyCode.Space))
+        if (!isFrozen && GameManager.Instance.CanShoot && Input.GetKeyDown(KeyCode.Space))
         {
             HandleShooting(projectilePrefab);
         }
 
-
+        ProcessInputs();
     }
+
 
     
     void HandleMovement()
@@ -105,10 +104,25 @@ public class PlayerController : MonoBehaviour
             shootDirection = moveDirection;
         }
     }
+    
+    public void FreezePlayer()
+    {
+        isFrozen = true;
+    }
 
+    public void UnfreezePlayer()
+    {
+        isFrozen = false;
+    }
 
     void ProcessInputs()
     {
+        if (isFrozen)
+        {
+            rb.velocity = Vector2.zero; // 确保玩家停止移动
+            return;
+        }
+
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
@@ -144,23 +158,17 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.sprite = downSprite;
         }
     }
-
-
-   
     
 
-    public void FreezePlayer()
-    {
-        isFrozen = true;
-    }
-
-    public void UnfreezePlayer()
-    {
-        isFrozen = false;
-    }
 
     void HandleShooting(GameObject projectilePrefab)
     {
+
+        if (isFrozen || DialogueManager.Instance.isDialogueActive)
+        {
+            return; // 如果玩家被冻结或对话框激活，不射击
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
