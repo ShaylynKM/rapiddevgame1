@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isFrozen)
         {
-            rb.velocity = Vector2.zero; // 确保玩家停止移动
+            rb.velocity = Vector2.zero; 
             return;
         }
 
@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
         if (isFrozen || DialogueManager.Instance.isDialogueActive)
         {
-            return; // 如果玩家被冻结或对话框激活，不射击
+            return; 
         }
 
 
