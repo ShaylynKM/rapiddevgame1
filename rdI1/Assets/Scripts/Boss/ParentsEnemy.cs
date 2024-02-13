@@ -60,7 +60,7 @@ public class ParentsEnemy : MonoBehaviour
         Rigidbody2D rb = joke.GetComponent<Rigidbody2D>();
         rb.velocity = attackDirection * attackSpeed;
 
-        yield return new WaitForSeconds(1f); // 可以调整这个值以改变攻击的频率
+        yield return new WaitForSeconds(1f); 
     }
 
 
