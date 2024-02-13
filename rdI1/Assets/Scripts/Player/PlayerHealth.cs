@@ -18,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
 
     public GradeSystem gradeSystem;
 
+    private bool isHiding = false;
+
     void Start()
     {
         // Initialize health
@@ -26,36 +28,45 @@ public class PlayerHealth : MonoBehaviour
         healthBar.value = currentHealth;
     }
 
-    
+    public void SetHiding(bool hiding)
+    {
+        isHiding = hiding;
+    }
+
+    public bool IsHiding()
+    {
+        return isHiding;
+    }
+
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        AudioManager.Instance.Play(7, "hurt", false);
+        if (!isHiding)
+        {
+            currentHealth -= damage;
+            AudioManager.Instance.Play(7, "hurt", false);
 
-        // Make sure the health value never drops below 0
-        currentHealth = Mathf.Max(currentHealth, 0);
+            // Make sure the health value never drops below 0
+            currentHealth = Mathf.Max(currentHealth, 0);
 
-        // Update health bar
-        healthBar.value = currentHealth;
+            // Update health bar
+            healthBar.value = currentHealth;
 
-        
-            //Instantiate particle effects
+            // Instantiate particle effects
             if (hitPlayerEffectPrefab != null)
-        {
-            GameObject effect = Instantiate(hitPlayerEffectPrefab, transform.position, Quaternion.identity);
-            Destroy(effect, effect.GetComponent<ParticleSystem>().main.duration); 
+            {
+                GameObject effect = Instantiate(hitPlayerEffectPrefab, transform.position, Quaternion.identity);
+                Destroy(effect, effect.GetComponent<ParticleSystem>().main.duration);
+            }
+
+            gradeSystem.CounterTakeHit();
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+
+            Debug.Log("Player Health Decreased by: " + damage);
         }
-
-        gradeSystem.CounterTakeHit();
-
-        if (currentHealth <= 0)
-        {
-            Die();
-
-        }
-
-        
-        Debug.Log("Player Health Decreased by: " + damage);
     }
 
     

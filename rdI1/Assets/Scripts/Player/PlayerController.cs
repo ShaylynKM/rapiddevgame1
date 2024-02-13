@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 3f;
-    public float sprintSpeedMultiplier = 2f; 
-    public float sprintDuration = 0.2f; 
+    public float sprintSpeedMultiplier = 2f;
+    public float sprintDuration = 0.2f;
     private float sprintEndTime = -1f;
 
     public float freezeDuration = 5f;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     public bool isFrozen = false;
     private float freezeTimer = 0f;
 
-    public Rigidbody2D rb; 
+    public Rigidbody2D rb;
     private Vector2 moveDirection = Vector2.zero;
     private Vector2 lastMoveDirection = Vector2.right;
 
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
             HandleMovement();
         }
 
-        ProcessInputs(); 
+        ProcessInputs();
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             StartSprint();
@@ -67,10 +67,10 @@ public class PlayerController : MonoBehaviour
             HandleShooting(projectilePrefab);
         }
 
-        
+
     }
 
-    
+
     void HandleMovement()
     {
         float moveX = 0f;
@@ -102,10 +102,10 @@ public class PlayerController : MonoBehaviour
 
         Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
 
-        
+
         transform.position += new Vector3(moveDirection.x, moveDirection.y, 0) * moveSpeed * Time.deltaTime;
 
-       
+
         if (moveDirection != Vector2.zero)
         {
             shootDirection = moveDirection;
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move(); 
+        Move();
     }
 
     void ProcessInputs()
@@ -124,28 +124,38 @@ public class PlayerController : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
         if (moveDirection != Vector2.zero)
         {
-            lastMoveDirection = moveDirection; 
+            lastMoveDirection = moveDirection;
         }
     }
 
     void Move()
     {
-        if (Time.time <= sprintEndTime)
+        if (!isFrozen)
         {
-            
-            rb.velocity = lastMoveDirection * moveSpeed * sprintSpeedMultiplier;
+            if (Time.time <= sprintEndTime)
+            {
+                rb.velocity = lastMoveDirection * moveSpeed * sprintSpeedMultiplier;
+            }
+            else
+            {
+                rb.velocity = moveDirection * moveSpeed;
+            }
         }
         else
         {
-            rb.velocity = moveDirection * moveSpeed;
+            rb.velocity = Vector2.zero;
         }
     }
 
     void StartSprint()
     {
-        sprintEndTime = Time.time + sprintDuration; 
-        rb.velocity = lastMoveDirection * moveSpeed * sprintSpeedMultiplier; 
+        if (!isFrozen)
+        {
+            sprintEndTime = Time.time + sprintDuration;
+            rb.velocity = lastMoveDirection * moveSpeed * sprintSpeedMultiplier;
+        }
     }
+
 
 
     public void FreezePlayer()
@@ -160,12 +170,12 @@ public class PlayerController : MonoBehaviour
 
     void HandleShooting(GameObject projectilePrefab)
     {
-       
-        if (Input.GetKeyDown(KeyCode.Space) )
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (DialogueManager.Instance.isDialogueActive)
             {
-                return; 
+                return;
             }
 
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
