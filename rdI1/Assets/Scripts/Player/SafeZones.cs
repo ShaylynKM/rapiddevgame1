@@ -48,6 +48,7 @@ public class SafeZones : MonoBehaviour
             {
                 SetHidingSpotActive(false);
                 SetRandomHidingSpot();
+                playerHealth.gameObject.SetActive(true);
             }
         }
     }
@@ -68,42 +69,18 @@ public class SafeZones : MonoBehaviour
         activeSpot = hidingSpots[randomIndex];
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void PlayerEntered()
     {
         Debug.Log("hello");
-        GameObject otherObject = other.gameObject;
-
-        if (otherObject == playerHealth.gameObject)
-        {
-            if (playerHealth.IsHiding())
-            {
-                Debug.Log("Player is already hiding");
-                return;
-            }
-
-            if (activeSpot.activeSelf)
-            {
-                Debug.Log("Player entered active hiding area");
-                playerHealth.SetHiding(true);
-            }
-            else
-            {
-                Debug.Log("Player entered hiding area, but the spot is not active");
-            }
-        }
+        playerHealth.SetHiding(true);
+        playerHealth.enabled = false;
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    public void PlayerExited()
     {
-        GameObject otherObject = other.gameObject;
-
-        if (otherObject == playerHealth.gameObject)
-        {
-            Debug.Log("Player exited hiding area");
-            if (playerHealth != null)
-            {
-                playerHealth.SetHiding(false);
-            }
-        }
+        Debug.Log("bye");
+        playerHealth.enabled = true;
+        playerHealth.SetHiding(false);
     }
+
 }

@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 219948404}
   - component: {fileID: 219948403}
   - component: {fileID: 219948405}
+  - component: {fileID: 219948406}
   m_Layer: 0
   m_Name: SafeZone1
   m_TagString: Untagged
@@ -658,7 +659,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.8203994, y: 0.74581766}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -669,8 +670,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &219948406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219948402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb0de74626cd384f84d9d1e54b5d97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeZones: {fileID: 0}
 --- !u!1 &276349145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,6 +2292,7 @@ GameObject:
   - component: {fileID: 747231587}
   - component: {fileID: 747231586}
   - component: {fileID: 747231588}
+  - component: {fileID: 747231589}
   m_Layer: 0
   m_Name: SafeZone2
   m_TagString: Untagged
@@ -2376,8 +2391,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &747231589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747231585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb0de74626cd384f84d9d1e54b5d97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeZones: {fileID: 0}
 --- !u!4 &816686308 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 70854237787463931, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
@@ -5605,6 +5633,7 @@ GameObject:
   - component: {fileID: 2063750112}
   - component: {fileID: 2063750111}
   - component: {fileID: 2063750113}
+  - component: {fileID: 2063750114}
   m_Layer: 0
   m_Name: SafeZone3
   m_TagString: Untagged
@@ -5703,8 +5732,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &2063750114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063750110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb0de74626cd384f84d9d1e54b5d97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeZones: {fileID: 0}
 --- !u!1 &2077487795
 GameObject:
   m_ObjectHideFlags: 0
