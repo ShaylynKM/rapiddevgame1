@@ -6,10 +6,8 @@ public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 3f;
-    public float sprintSpeedMultiplier = 2f;
-    public float sprintDuration = 0.2f;
-    private float sprintEndTime = -1f;
-
+    public float sprintSpeedMultiplier = 2f; 
+    
     public float freezeDuration = 5f;
     public GameObject projectilePrefab;
     public GameObject freezeProjectilePrefab;
@@ -57,12 +55,8 @@ public class PlayerController : MonoBehaviour
         }
 
         ProcessInputs();
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            StartSprint();
-        }
 
-        if (!isFrozen && GameManager.Instance.CanShoot && Input.GetKeyDown(KeyCode.Space))
+        if (GameManager.Instance.CanShoot && Input.GetKeyDown(KeyCode.Space))
         {
             HandleShooting(projectilePrefab);
         }
@@ -70,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    
     void HandleMovement()
     {
         float moveX = 0f;
@@ -112,51 +106,48 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        Move();
-    }
 
     void ProcessInputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
-        if (moveDirection != Vector2.zero)
-        {
-            lastMoveDirection = moveDirection;
-        }
-    }
 
-    void Move()
-    {
-        if (!isFrozen)
+        UpdateSpriteDirection(moveDirection);
+
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (Time.time <= sprintEndTime)
-            {
-                rb.velocity = lastMoveDirection * moveSpeed * sprintSpeedMultiplier;
-            }
-            else
-            {
-                rb.velocity = moveDirection * moveSpeed;
-            }
+            rb.velocity = moveDirection * moveSpeed * sprintSpeedMultiplier; 
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity = moveDirection * moveSpeed; 
         }
     }
 
-    void StartSprint()
+    void UpdateSpriteDirection(Vector2 direction)
     {
-        if (!isFrozen)
+        if (direction.x < 0)
         {
-            sprintEndTime = Time.time + sprintDuration;
-            rb.velocity = lastMoveDirection * moveSpeed * sprintSpeedMultiplier;
+            spriteRenderer.sprite = leftSprite;
+        }
+        else if (direction.x > 0)
+        {
+            spriteRenderer.sprite = rightSprite;
+        }
+        if (direction.y > 0)
+        {
+            spriteRenderer.sprite = upSprite;
+        }
+        else if (direction.y < 0)
+        {
+            spriteRenderer.sprite = downSprite;
         }
     }
 
 
+   
+    
 
     public void FreezePlayer()
     {
