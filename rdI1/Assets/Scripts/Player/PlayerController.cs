@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 3f;
-    public float sprintSpeedMultiplier = 2f; 
-    
+    public float sprintSpeedMultiplier = 2f;
+
     public float freezeDuration = 5f;
     public GameObject projectilePrefab;
     public GameObject freezeProjectilePrefab;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
     private Vector2 moveDirection = Vector2.zero;
- 
+
 
     void Start()
     {
@@ -54,16 +54,13 @@ public class PlayerController : MonoBehaviour
             HandleMovement();
         }
 
-        if (!isFrozen && GameManager.Instance.CanShoot && Input.GetKeyDown(KeyCode.Space))
-        {
-            HandleShooting(projectilePrefab);
-        }
-
+        
         ProcessInputs();
+
+        HandleShooting(projectilePrefab);
     }
 
 
-    
     void HandleMovement()
     {
         float moveX = 0f;
@@ -104,22 +101,14 @@ public class PlayerController : MonoBehaviour
             shootDirection = moveDirection;
         }
     }
-    
-    public void FreezePlayer()
-    {
-        isFrozen = true;
-    }
 
-    public void UnfreezePlayer()
-    {
-        isFrozen = false;
-    }
+    
 
     void ProcessInputs()
     {
         if (isFrozen)
         {
-            rb.velocity = Vector2.zero; 
+            rb.velocity = Vector2.zero;
             return;
         }
 
@@ -131,55 +120,75 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            rb.velocity = moveDirection * moveSpeed * sprintSpeedMultiplier; 
+            rb.velocity = moveDirection * moveSpeed * sprintSpeedMultiplier;
         }
         else
         {
-            rb.velocity = moveDirection * moveSpeed; 
+            rb.velocity = moveDirection * moveSpeed;
+        }
+
+        if (moveDirection != Vector2.zero)
+        {
+            UpdateSpriteDirection(moveDirection);
+        }
+
+        if (Input.GetMouseButton(0)) 
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 directionToMouse = (mousePosition - transform.position).normalized;
+            shootDirection = GetClosestCardinalDirection(directionToMouse);
+            UpdateSpriteDirection(shootDirection);
+        }
+    }
+
+    Vector2 GetClosestCardinalDirection(Vector2 direction)
+    {
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            return direction.x > 0 ? Vector2.right : Vector2.left;
+        }
+        else
+        {
+            return direction.y > 0 ? Vector2.up : Vector2.down;
         }
     }
 
     void UpdateSpriteDirection(Vector2 direction)
     {
-        if (direction.x < 0)
+       
+        if (direction == Vector2.left)
         {
             spriteRenderer.sprite = leftSprite;
         }
-        else if (direction.x > 0)
+        else if (direction == Vector2.right)
         {
             spriteRenderer.sprite = rightSprite;
         }
-        if (direction.y > 0)
+        else if (direction == Vector2.up)
         {
             spriteRenderer.sprite = upSprite;
         }
-        else if (direction.y < 0)
+        else if (direction == Vector2.down)
         {
             spriteRenderer.sprite = downSprite;
         }
     }
-    
+
 
 
     void HandleShooting(GameObject projectilePrefab)
     {
 
-        if (isFrozen || DialogueManager.Instance.isDialogueActive)
+        if (isFrozen || DialogueManager.Instance.isDialogueActive || !GameManager.Instance.CanShoot)
         {
-            return; 
+            return;
         }
 
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0) && !isFrozen)
         {
-            if (DialogueManager.Instance.isDialogueActive)
-            {
-                return;
-            }
-
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            rb.velocity = shootDirection * projectileSpeed;
+            Rigidbody2D rbProjectile = projectile.GetComponent<Rigidbody2D>();
+            rbProjectile.velocity = shootDirection * projectileSpeed;
 
             AudioManager.Instance.Play(1, "PlayerShoot", false);
 
@@ -189,4 +198,15 @@ public class PlayerController : MonoBehaviour
             Destroy(projectile, shootDistance / projectileSpeed);
         }
     }
+
+    public void FreezePlayer()
+    {
+        isFrozen = true;
+    }
+
+    public void UnfreezePlayer()
+    {
+        isFrozen = false;
+    }
+
 }

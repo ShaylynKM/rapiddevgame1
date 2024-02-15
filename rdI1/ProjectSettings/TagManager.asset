@@ -9,6 +9,7 @@ TagManager:
   - Jokes
   - Enemy
   - Boundary
+  - Wall
   layers:
   - Default
   - TransparentFX

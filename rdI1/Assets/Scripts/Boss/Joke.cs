@@ -7,13 +7,20 @@ public class Joke : MonoBehaviour
     public BossHealth bossHealth;
     public bool isGoodJoke; // indicates if it's a good joke
     public Transform playerTransform;// Player's Transform
-
+    public float speed = 10f; 
+    
+    
     void Start()
     {
         bossHealth = FindObjectOfType<BossHealth>();
-
+        
     }
 
+    void Update()
+    {
+  
+
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -45,6 +52,12 @@ public class Joke : MonoBehaviour
             }
 
             Destroy(gameObject); 
+        }
+
+        if (other.gameObject.CompareTag("Wall"))
+        {
+           
+            Destroy(gameObject);
         }
     }
 }
