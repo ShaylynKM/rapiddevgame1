@@ -1333,6 +1333,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402486812}
   m_CullTransparentMesh: 1
+--- !u!1 &451484579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451484581}
+  - component: {fileID: 451484580}
+  m_Layer: 0
+  m_Name: Landmine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &451484580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451484579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ba46551c2224b04854a8947dee9dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 3878426461021889871, guid: 844b7c8954bb24abc8696259d136dc07, type: 3}
+  warningPrefab: {fileID: 4939519729084547651, guid: 65bc2162fda264e74a1575587b5e73e6, type: 3}
+  playerTransform: {fileID: 1729118126}
+  bombCount: 6
+  spawnDistance: 1
+  warningDuration: 2
+  bombFuseTime: 1
+  spawnInterval: 10
+--- !u!4 &451484581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451484579}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9927998, y: -3.9779, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 752398996}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451914104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,6 +1859,7 @@ Transform:
   - {fileID: 1729118126}
   - {fileID: 1228199573}
   - {fileID: 289344653}
+  - {fileID: 451484581}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2331,10 +2384,10 @@ MonoBehaviour:
   countdownText: {fileID: 791646430}
   baseSurvivalTime: 10
   levelSurvivalTimes:
-  - 20
-  - 25
-  - 30
-  - 40
+  - 100
+  - 100
+  - 100
+  - 200
 --- !u!4 &837972042
 Transform:
   m_ObjectHideFlags: 0
@@ -3822,12 +3875,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   sprintSpeedMultiplier: 2
-  sprintDuration: 0.2
   freezeDuration: 5
   projectilePrefab: {fileID: 769772034785550346, guid: 8bbee6ca235084e4f91568930f5f0997, type: 3}
   freezeProjectilePrefab: {fileID: 0}
   projectileSpeed: 10
-  shootDistance: 4
+  shootDistance: 6
   spriteRenderer: {fileID: 1729118132}
   upSprite: {fileID: 21300000, guid: 0b6cbceab38f14e4ab6de2f6e677c248, type: 3}
   downSprite: {fileID: 21300000, guid: 643b6c1688f89754ebcf047ea1f63ed6, type: 3}

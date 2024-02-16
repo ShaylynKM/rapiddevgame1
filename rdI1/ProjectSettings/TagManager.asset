@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Boundary
   - Wall
+  - Landmine
   layers:
   - Default
   - TransparentFX
