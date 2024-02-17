@@ -1857,6 +1857,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4509265987146461095, guid: a44a0d69ff857436e84db5cfe829755d, type: 3}
+      propertyPath: JokePrefab
+      value: 
+      objectReference: {fileID: 3878426461021889871, guid: 15844e10a9bab4a33b0821556dca3803, type: 3}
+    - target: {fileID: 4509265987146461095, guid: a44a0d69ff857436e84db5cfe829755d, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 3878426461021889871, guid: 15844e10a9bab4a33b0821556dca3803, type: 3}
@@ -2779,6 +2783,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4509265987146461095, guid: a44a0d69ff857436e84db5cfe829755d, type: 3}
+      propertyPath: JokePrefab
+      value: 
+      objectReference: {fileID: 3878426461021889871, guid: 15844e10a9bab4a33b0821556dca3803, type: 3}
     - target: {fileID: 4509265987146461095, guid: a44a0d69ff857436e84db5cfe829755d, type: 3}
       propertyPath: bulletPrefab
       value: 

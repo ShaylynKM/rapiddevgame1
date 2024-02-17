@@ -15,6 +15,7 @@ public class ParentsEnemy : MonoBehaviour
     public float moveSpeed = 5.0f;
     public float attackSpeed = 5.0f;
     public GameObject badJokePrefab;
+    public GameObject JokePrefab;
     //public GameObject goodJokePrefab;
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
@@ -86,7 +87,7 @@ public class ParentsEnemy : MonoBehaviour
                 break;
         }
 
-        GameObject jokePrefab = badJokePrefab ;
+        GameObject jokePrefab = Random.Range(0f, 1f) < 0.7f ? JokePrefab : badJokePrefab;
         GameObject joke = Instantiate(jokePrefab, transform.position, Quaternion.identity);
         Rigidbody2D rb = joke.GetComponent<Rigidbody2D>();
         rb.velocity = attackDirection * attackSpeed;
