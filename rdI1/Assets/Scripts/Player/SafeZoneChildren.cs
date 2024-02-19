@@ -21,7 +21,7 @@ public class SafeZoneChildren : MonoBehaviour
         Debug.Log("hello");
         GameObject otherObject = other.gameObject;
 
-        if (otherObject == other.gameObject.CompareTag("Player"))
+        if (otherObject == other.gameObject.CompareTag("Player") && gameObject == safeZones.activeSpot)
         {
             safeZones.PlayerEntered();
         }
