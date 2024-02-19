@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2891205921720322168}
   - component: {fileID: 1265742335802840537}
   m_Layer: 0
-  m_Name: landmine2
+  m_Name: warning 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.17697577, g: 0.21726333, b: 0.9150943, a: 1}
+  m_Color: {r: 0.23529413, g: 0.30588236, b: 0.3529412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
