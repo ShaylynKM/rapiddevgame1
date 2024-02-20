@@ -957,6 +957,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SchoolEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 70854237787463924, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6911ba661d9e79940bce6c29289588c5, type: 3}
     - target: {fileID: 70854237787463927, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
       propertyPath: healthBar
       value: 
