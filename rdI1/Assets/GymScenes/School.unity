@@ -738,6 +738,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 752398996}
     m_Modifications:
+    - target: {fileID: 4994431930617646082, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 769772034785550346, guid: c899914a1f8104cdda1743aadbdfa4c6, type: 3}
     - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: healthBar
       value: 
@@ -998,7 +1002,7 @@ PrefabInstance:
     - target: {fileID: -169532806832676531, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 3878426461021889871, guid: 15844e10a9bab4a33b0821556dca3803, type: 3}
+      objectReference: {fileID: 3878426461021889871, guid: 2caa82f41ff744395b3b92d8e25dff23, type: 3}
     - target: {fileID: -169532806832676531, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
       propertyPath: playerTransform
       value: 
@@ -1035,6 +1039,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6911ba661d9e79940bce6c29289588c5, type: 3}
+    - target: {fileID: 70854237787463926, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 70854237787463926, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 70854237787463927, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
       propertyPath: healthBar
       value: 
@@ -4110,7 +4122,7 @@ MonoBehaviour:
   bombPrefab: {fileID: 3878426461021889871, guid: 844b7c8954bb24abc8696259d136dc07, type: 3}
   finalBombPrefab: {fileID: 3878426461021889871, guid: 8bab6b259722e4a9db41e48a37693440, type: 3}
   warningPrefab: {fileID: 4939519729084547651, guid: 6151b06ba26a84392a27e84f4862a3a3, type: 3}
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 233041556}
   bombCount: 6
   spawnDistance: 1
   convergeSpeed: 2

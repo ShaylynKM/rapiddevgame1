@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4939519729084547651
+--- !u!1 &3878426461021889871
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2891205921720322168}
-  - component: {fileID: 1265742335802840537}
-  - component: {fileID: -8390766295920784893}
-  - component: {fileID: -7586505071022814746}
-  - component: {fileID: -1082421089383560728}
+  - component: {fileID: 8252746493440838250}
+  - component: {fileID: 6347398298728459855}
+  - component: {fileID: 2612439644711610875}
+  - component: {fileID: 1674087698962697178}
+  - component: {fileID: 6191004668655601542}
   m_Layer: 0
-  m_Name: JobJoke
-  m_TagString: Untagged
+  m_Name: BadJoke 1
+  m_TagString: Jokes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2891205921720322168
+--- !u!4 &8252746493440838250
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939519729084547651}
+  m_GameObject: {fileID: 3878426461021889871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2006, y: 0.1817, z: 1}
+  m_LocalPosition: {x: -0, y: 0.007, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1265742335802840537
+--- !u!212 &6347398298728459855
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939519729084547651}
+  m_GameObject: {fileID: 3878426461021889871}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,9 +75,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 46a97dc866e7f9b4bba1b6266fcfa1c4, type: 3}
-  m_Color: {r: 0.7960751, g: 0.4008989, b: 0.9339623, a: 1}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 2bf88de085226ce418ebcd795e989dc1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,14 +87,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &-8390766295920784893
+--- !u!50 &2612439644711610875
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939519729084547651}
+  m_GameObject: {fileID: 3878426461021889871}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -108,32 +108,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-7586505071022814746
+--- !u!58 &1674087698962697178
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939519729084547651}
+  m_GameObject: {fileID: 3878426461021889871}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.54818296}
+  m_Offset: {x: 0.08932993, y: 0.23419897}
   serializedVersion: 2
-  m_Radius: 3.2805934
---- !u!114 &-1082421089383560728
+  m_Radius: 2.6439152
+--- !u!114 &6191004668655601542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939519729084547651}
+  m_GameObject: {fileID: 3878426461021889871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c15e5974fe77a74da713964b1805bb7, type: 3}
+  m_Script: {fileID: 11500000, guid: ac499f19aa4e94a21a31a0eb724521f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossHealth: {fileID: 0}
+  isGoodJoke: 0
   playerTransform: {fileID: 0}
+  speed: 10
