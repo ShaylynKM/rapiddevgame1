@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 1674087698962697178}
   - component: {fileID: 6191004668655601542}
   m_Layer: 0
-  m_Name: BadJoke 1
+  m_Name: MachineGun
   m_TagString: Jokes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
