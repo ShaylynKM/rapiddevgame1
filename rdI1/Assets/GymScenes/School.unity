@@ -1095,30 +1095,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3052508549630136564, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052508549630136564, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
-      propertyPath: bombPrefab
-      value: 
-      objectReference: {fileID: 3878426461021889871, guid: 15844e10a9bab4a33b0821556dca3803, type: 3}
-    - target: {fileID: 3052508549630136564, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
-      propertyPath: warningPrefab
-      value: 
-      objectReference: {fileID: 4939519729084547651, guid: 6151b06ba26a84392a27e84f4862a3a3, type: 3}
-    - target: {fileID: 3052508549630136564, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 233041556}
-    - target: {fileID: 7671537242313997954, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
-      propertyPath: bombPrefab
-      value: 
-      objectReference: {fileID: 3878426461021889871, guid: 844b7c8954bb24abc8696259d136dc07, type: 3}
-    - target: {fileID: 7671537242313997954, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
-      propertyPath: warningPrefab
-      value: 
-      objectReference: {fileID: 4939519729084547651, guid: 65bc2162fda264e74a1575587b5e73e6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
 --- !u!1 &304650369
@@ -1263,7 +1239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4814584a5ffe2f54a99e85c37253e316, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3bd2e2f2cd91b4e4dbdb92541a7dcf8d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1475,7 +1451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &451484580
 MonoBehaviour:
   m_ObjectHideFlags: 0
