@@ -2328,7 +2328,7 @@ PrefabInstance:
       objectReference: {fileID: 4939519729084547651, guid: f3222a326614099478738bbcc5c0da87, type: 3}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: spawnInterval
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: warningPrefab
@@ -2356,7 +2356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: maxProjectileSpeed
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: waypoints.Array.size
@@ -2603,7 +2603,7 @@ PrefabInstance:
       objectReference: {fileID: 4939519729084547651, guid: f3222a326614099478738bbcc5c0da87, type: 3}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: spawnInterval
-      value: 0.6
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: warningPrefab
@@ -2643,7 +2643,7 @@ PrefabInstance:
       objectReference: {fileID: 1160623605}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: initialProjectileSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: spawnPoints.Array.size
@@ -4727,7 +4727,7 @@ PrefabInstance:
       objectReference: {fileID: 1160623605}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: initialProjectileSpeed
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: spawnPoints.Array.size
