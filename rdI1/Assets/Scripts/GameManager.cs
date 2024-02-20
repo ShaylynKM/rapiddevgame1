@@ -17,7 +17,24 @@ public class GameManager : MonoBehaviour
     public bool CanFreeze { get; private set; }
 
     public float baseSurvivalTime = 30f;
-    public float[] levelSurvivalTimes; 
+    public float[] levelSurvivalTimes;
+
+    public GameObject healPrefab;
+    public int healItemCount = 3;
+    public float healSpawnInterval = 10f;
+
+    public void ShowCountdownTimer()
+    {
+        if (countdownText != null)
+            countdownText.gameObject.SetActive(true);
+    }
+
+    
+    public void HideCountdownTimer()
+    {
+        if (countdownText != null)
+            countdownText.gameObject.SetActive(false);
+    }
 
     private void Awake()
     {
@@ -78,8 +95,28 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(CountdownToNextLevel(levelSurvivalTimes[sceneIndex]));
         }
+
+        StartHealItemSpawn();
+
         SetAbilitiesBasedOnScene(scene.name);
     }
+
+    private void StartHealItemSpawn()
+    {
+        StartCoroutine(SpawnHealItems());
+    }
+
+    IEnumerator SpawnHealItems()
+    {
+        for (int i = 0; i < healItemCount; i++)
+        {
+            yield return new WaitForSeconds(healSpawnInterval);
+          
+            Vector3 spawnPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
+            Instantiate(healPrefab, spawnPosition, Quaternion.identity);
+        }
+    }
+
 
     IEnumerator CountdownToNextLevel(float time)
     {

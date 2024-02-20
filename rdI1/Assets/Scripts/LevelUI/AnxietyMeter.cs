@@ -11,6 +11,15 @@ public class AnxietyMeter : MonoBehaviour
     public float currentFill = 0f;
     private PlayerController playerController;
 
+    public GameObject meterUI; 
+
+   
+    public void ActivateMeter()
+    {
+        meterUI.SetActive(true); 
+        Time.timeScale = 1; 
+    }
+
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();

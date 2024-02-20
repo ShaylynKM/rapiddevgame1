@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6e1598338fba248bed6dd3d114ad23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meterUI: {fileID: 6855998859563030245}
   arrowRect: {fileID: 6855998859563030246}
   fillSpeed: 0.1
   freezeTime: 2

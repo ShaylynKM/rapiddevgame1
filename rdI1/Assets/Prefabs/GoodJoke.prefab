@@ -121,9 +121,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.06557756}
   serializedVersion: 2
-  m_Radius: 0.50000006
+  m_Radius: 2.3785465
 --- !u!114 &5210529306005250568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealth: {fileID: 0}
   isGoodJoke: 1
+  playerTransform: {fileID: 0}
+  speed: 10

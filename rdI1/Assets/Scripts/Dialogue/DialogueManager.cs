@@ -15,7 +15,8 @@ public class DialogueManager : MonoBehaviour
 
     private static Dictionary<string, bool> playedDialogues = new Dictionary<string, bool>();
 
-    
+    private bool completeCurrentSentence = false;
+
     public GameObject dialogueBox;
 
     public Image characterIcon;
@@ -31,6 +32,8 @@ public class DialogueManager : MonoBehaviour
 
     private bool isTyping;
 
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -39,6 +42,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         lines = new Queue<DialogueLine>();
+
 
     }
 
@@ -51,7 +55,7 @@ public class DialogueManager : MonoBehaviour
     {
         string sceneName = SceneManager.GetActiveScene().name;
 
-        
+
         if (!playedDialogues.ContainsKey(sceneName) || !playedDialogues[sceneName])
         {
             playedDialogues[sceneName] = true; 
@@ -65,6 +69,13 @@ public class DialogueManager : MonoBehaviour
             foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
             {
                 lines.Enqueue(dialogueLine);
+            }
+
+
+            GameManager gameManager = FindObjectOfType<GameManager>();
+            if (gameManager != null)
+            {
+                gameManager.HideCountdownTimer();
             }
 
             DisplayNextDialogueLine();
@@ -83,15 +94,15 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextDialogueLine()
     {
-        if (lines.Count == 0)
+        if (isTyping)
         {
-            EndDialogue();
+            completeCurrentSentence = true;
             return;
         }
 
-        if (isTyping)
+        if (lines.Count == 0)
         {
-            CompleteSentence();
+            EndDialogue();
             return;
         }
 
@@ -103,19 +114,31 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(currentLine));
     }
 
+
     IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
         dialogueArea.text = "";
         isTyping = true;
+        completeCurrentSentence = false;
 
         foreach (char letter in dialogueLine.line.ToCharArray())
         {
-            dialogueArea.text += letter;
-            yield return new WaitForSecondsRealtime(typingSpeed);
+            if (completeCurrentSentence)
+            {
+                dialogueArea.text = dialogueLine.line; 
+                break; 
+            }
+            else
+            {
+                dialogueArea.text += letter;
+                yield return new WaitForSecondsRealtime(typingSpeed);
+            }
         }
 
         isTyping = false;
+        completeCurrentSentence = false; 
     }
+
 
 
     private void CompleteSentence()
@@ -159,6 +182,18 @@ public class DialogueManager : MonoBehaviour
         AudioManager.Instance.Play(0, "bossFight", false);
 
         OnDialogueComplete?.Invoke();
+
+        AnxietyMeter anxietyMeter = FindObjectOfType<AnxietyMeter>();
+        if (anxietyMeter != null)
+        {
+            anxietyMeter.ActivateMeter();
+        }
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            gameManager.ShowCountdownTimer();
+        }
     }
 }
 

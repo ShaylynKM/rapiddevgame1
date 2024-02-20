@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossAI : MonoBehaviour
 {
     public GameObject badJokePrefab;
-    public GameObject goodJokePrefab;
+    //public GameObject goodJokePrefab;
     public GameObject hintPrefab;// Prefab for the hint image
 
     public float initialSpeed = 3.0f;
@@ -75,7 +75,7 @@ public class BossAI : MonoBehaviour
 
        
         Vector2 attackDirection = (playerTransform.position - chosenPosition.position).normalized;
-        GameObject jokePrefab = Random.Range(0f, 1f) < 0.7f ? badJokePrefab : goodJokePrefab;
+        GameObject jokePrefab = badJokePrefab;
         GameObject joke = Instantiate(jokePrefab, chosenPosition.position, Quaternion.identity);
         Rigidbody2D rb = joke.GetComponent<Rigidbody2D>();
         rb.velocity = attackDirection * currentSpeed; 
