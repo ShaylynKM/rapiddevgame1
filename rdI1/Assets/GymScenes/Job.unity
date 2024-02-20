@@ -598,6 +598,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646516230}
     m_Modifications:
+    - target: {fileID: 150000170273753057, guid: 5bcf244d204257840b4ebae5ab702672, type: 3}
+      propertyPath: safeZones
+      value: 
+      objectReference: {fileID: 1646516229}
     - target: {fileID: 150000170273753059, guid: 5bcf244d204257840b4ebae5ab702672, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2551,6 +2555,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1286390209}
     m_Modifications:
+    - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 84343170}
+    - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: gameOverMenu
+      value: 
+      objectReference: {fileID: 876268843}
     - target: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6910,6 +6922,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646516230}
     m_Modifications:
+    - target: {fileID: 150000170273753057, guid: 5bcf244d204257840b4ebae5ab702672, type: 3}
+      propertyPath: safeZones
+      value: 
+      objectReference: {fileID: 1646516229}
     - target: {fileID: 150000170273753059, guid: 5bcf244d204257840b4ebae5ab702672, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6997,6 +7013,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646516230}
     m_Modifications:
+    - target: {fileID: 150000170273753057, guid: 5bcf244d204257840b4ebae5ab702672, type: 3}
+      propertyPath: safeZones
+      value: 
+      objectReference: {fileID: 1646516229}
     - target: {fileID: 150000170273753058, guid: 5bcf244d204257840b4ebae5ab702672, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 7.2
