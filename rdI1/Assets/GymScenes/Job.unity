@@ -2421,6 +2421,10 @@ PrefabInstance:
       value: JobEnemy 1
       objectReference: {fileID: 0}
     - target: {fileID: 70854237787463924, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bab7eb9cc70404a8ab82ea636233827f, type: 3}
+    - target: {fileID: 70854237787463924, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -2864,6 +2868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JobEnemy 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 70854237787463924, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bab7eb9cc70404a8ab82ea636233827f, type: 3}
     - target: {fileID: 70854237787463924, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -5095,6 +5103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JobEnemy 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 70854237787463924, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bab7eb9cc70404a8ab82ea636233827f, type: 3}
     - target: {fileID: 70854237787463924, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: m_Color.a
       value: 1
