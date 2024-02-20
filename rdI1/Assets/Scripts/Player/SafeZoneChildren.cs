@@ -14,14 +14,14 @@ public class SafeZoneChildren : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("hello");
         GameObject otherObject = other.gameObject;
 
-        if (otherObject == other.gameObject.CompareTag("Player") && gameObject == safeZones.activeSpot)
+        if (otherObject == other.gameObject.CompareTag("Player"))
         {
             safeZones.PlayerEntered();
         }
@@ -37,4 +37,3 @@ public class SafeZoneChildren : MonoBehaviour
         }
     }
 }
-
