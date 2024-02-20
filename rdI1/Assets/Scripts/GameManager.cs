@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public float[] levelSurvivalTimes;
 
     public GameObject healPrefab;
+    public Transform[] healSpawnPoints;
+
     public int healItemCount = 3;
     public float healSpawnInterval = 10f;
 
@@ -111,8 +113,20 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < healItemCount; i++)
         {
             yield return new WaitForSeconds(healSpawnInterval);
-          
-            Vector3 spawnPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
+
+            Vector3 spawnPosition;
+            if (SceneManager.GetActiveScene().name == "Job" && healSpawnPoints.Length > 0)
+            {
+                
+                Transform selectedSpawnPoint = healSpawnPoints[Random.Range(0, healSpawnPoints.Length)];
+                spawnPosition = selectedSpawnPoint.position;
+            }
+            else
+            {
+                
+                spawnPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
+            }
+
             Instantiate(healPrefab, spawnPosition, Quaternion.identity);
         }
     }
