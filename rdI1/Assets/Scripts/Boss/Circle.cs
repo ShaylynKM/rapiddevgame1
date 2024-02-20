@@ -71,7 +71,8 @@ public class Circle : MonoBehaviour
         {
             foreach (var b in bombs)
             {
-                Destroy(b); 
+                if (bomb != null)
+                   Destroy(b); 
             }
             bombs.Clear(); 
 
