@@ -25,6 +25,52 @@ public class GameManager : MonoBehaviour
     public int healItemCount = 3;
     public float healSpawnInterval = 10f;
 
+    private float partySceneTimer = 0f;
+    private int currentStage = 1;
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Party")
+        {
+            partySceneTimer += Time.deltaTime;
+
+            if (partySceneTimer > 60f && currentStage == 1)
+            {
+                currentStage = 2;
+                UpdatePartyAbilities();
+            }
+            else if (partySceneTimer > 120f && currentStage == 2)
+            {
+                currentStage = 3;
+                UpdatePartyAbilities();
+            }
+        }
+    }
+
+    private void UpdatePartyAbilities()
+    {
+        switch (currentStage)
+        {
+            case 1:
+                CanMove = true;
+                CanFreeze = false;
+                CanShoot = false;
+                break;
+            case 2:
+                CanMove = true;
+                CanFreeze = true;
+                CanShoot = false;
+                break;
+            case 3:
+                CanMove = true;
+                CanFreeze = true;
+                CanShoot = true;
+                break;
+        }
+    }
+
+
+
     public void ShowCountdownTimer()
     {
         if (countdownText != null)
@@ -54,8 +100,18 @@ public class GameManager : MonoBehaviour
         {
             winScreen.SetActive(false);
         }
+
+        SetInitialPlayerAbilities();
     }
 
+    private void SetInitialPlayerAbilities()
+    {
+       
+        CanMove = false;
+        CanShoot = false;
+        CanFreeze = false;
+
+    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -86,6 +142,15 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        SetAbilitiesBasedOnScene(scene.name);
+
+        if (scene.name== "Party")
+        {
+            partySceneTimer = 0f;
+            currentStage = 1;
+            UpdatePartyAbilities();
+        }
+
         GameObject TextTime = GameObject.Find("TextTime");
         if (TextTime != null)
         {
@@ -121,6 +186,13 @@ public class GameManager : MonoBehaviour
                 Transform selectedSpawnPoint = healSpawnPoints[Random.Range(0, healSpawnPoints.Length)];
                 spawnPosition = selectedSpawnPoint.position;
             }
+
+            else if (SceneManager.GetActiveScene().name == "Party" && healSpawnPoints.Length > 0)
+            {
+                Transform selectedSpawnPoint = healSpawnPoints[Random.Range(0, healSpawnPoints.Length)];
+                spawnPosition = selectedSpawnPoint.position;
+            }
+
             else
             {
                 
@@ -183,9 +255,7 @@ public class GameManager : MonoBehaviour
             case "Job":
                 CanMove = CanFreeze = true;
                 break;
-            case "Party":
-                CanMove = CanShoot = CanFreeze = true;
-                break;
+            
         }
     }
 

@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         float moveX = 0f;
         float moveY = 0f;
-
+        
         if (!isFrozen)
         {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
