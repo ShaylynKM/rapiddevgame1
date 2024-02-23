@@ -754,6 +754,10 @@ PrefabInstance:
       propertyPath: winMenu
       value: 
       objectReference: {fileID: 1953186198}
+    - target: {fileID: 4994431930617646087, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3538,7 +3542,7 @@ GameObject:
   - component: {fileID: 1448044625}
   m_Layer: 0
   m_Name: LockerCollider2
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3553,7 +3557,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.7828274}
@@ -3830,7 +3834,7 @@ GameObject:
   - component: {fileID: 1543892262}
   m_Layer: 0
   m_Name: LockerCollider1
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3845,7 +3849,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.7828274}
@@ -4220,7 +4224,7 @@ MonoBehaviour:
   convergeSpeed: 2
   warningDuration: 1
   bombFuseTime: 1
-  spawnInterval: 7
+  spawnInterval: 2
 --- !u!1 &1851448407
 GameObject:
   m_ObjectHideFlags: 0

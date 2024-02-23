@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6347398298728459855}
   - component: {fileID: 2612439644711610875}
   - component: {fileID: 1674087698962697178}
-  - component: {fileID: -8630225134445609850}
   m_Layer: 0
   m_Name: Landmine 1
   m_TagString: Landmine
@@ -124,16 +123,3 @@ CircleCollider2D:
   m_Offset: {x: 0.08932993, y: 0.23419897}
   serializedVersion: 2
   m_Radius: 2.6439152
---- !u!114 &-8630225134445609850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3878426461021889871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419b7f0b0f2684a248bdf085abaa0ec6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionEffectPrefab: {fileID: 1755218685921212104, guid: ddbb02c1f3347bf4da879d73133231c9, type: 3}

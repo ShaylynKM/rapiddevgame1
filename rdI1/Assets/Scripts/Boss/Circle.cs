@@ -21,7 +21,7 @@ public class Circle : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnBombsAroundPlayer", 20f, spawnInterval);
+        InvokeRepeating("SpawnBombsAroundPlayer", 5f, spawnInterval);
     }
 
     public void Activate()
