@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     private float partySceneTimer = 0f;
     private int currentStage = 1;
 
+
+
     private void Update()
     {
         if (SceneManager.GetActiveScene().name == "Party")
@@ -130,14 +132,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void StartCountdownAfterDialogue()
-    {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
-        if (sceneIndex >= 0 && sceneIndex < levelSurvivalTimes.Length)
-        {
-            StartCoroutine(CountdownToNextLevel(levelSurvivalTimes[sceneIndex]));
-        }
-    }
 
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -204,6 +198,15 @@ public class GameManager : MonoBehaviour
     }
 
 
+    private void StartCountdownAfterDialogue()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+        if (sceneIndex >= 0 && sceneIndex < levelSurvivalTimes.Length)
+        {
+            StartCoroutine(CountdownToNextLevel(levelSurvivalTimes[sceneIndex]));
+        }
+    }
+
     IEnumerator CountdownToNextLevel(float time)
     {
         while (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive)
@@ -220,13 +223,13 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             time -= 1f;
         }
-        
-        
+
+        Debug.Log("Countdown completed.");
+
         if (countdownText != null)
         {
             countdownText.text = "";
         }
-        
 
         if (SceneManager.GetActiveScene().buildIndex == levelSurvivalTimes.Length)
         {
@@ -235,9 +238,25 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            LoadNextLevel();
+            DialogueTrigger dialogueTrigger = FindObjectOfType<DialogueTrigger>();
+            if (dialogueTrigger != null)
+            {
+                dialogueTrigger.TriggerOutroDialogue();
+
+                yield return new WaitUntil(() => !DialogueManager.Instance.isDialogueActive);
+
+                dialogueTrigger.OnOutroDialogueComplete -= OnOutroDialogueComplete;
+
+                LoadNextLevel();
+            }
         }
     }
+
+    private void OnOutroDialogueComplete()
+    {
+        LoadNextLevel();
+    }
+
 
 
     private void SetAbilitiesBasedOnScene(string sceneName)

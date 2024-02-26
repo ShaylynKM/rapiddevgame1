@@ -1,17 +1,30 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
+    public Dialogue introDialogue;
+    public Dialogue outroDialogue;
+    public event Action OnOutroDialogueComplete; 
 
-    private void Start()
+    public bool outroDialogueTriggered = false;
+
+    public void TriggerIntroDialogue()
     {
-        TriggerDialogue();
+        DialogueManager.Instance.StartDialogue(introDialogue);
     }
 
-    public void TriggerDialogue()
+    public void TriggerOutroDialogue()
     {
-        DialogueManager.Instance.StartDialogue(dialogue);
+        if (!outroDialogueTriggered)
+        {
+            DialogueManager.Instance.StartDialogue(outroDialogue);
+            outroDialogueTriggered = true;
+        }
+    }
+
+    public void OutroDialogueComplete()
+    {
+        OnOutroDialogueComplete?.Invoke();
     }
 }
