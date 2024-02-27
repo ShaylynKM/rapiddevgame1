@@ -4319,7 +4319,7 @@ MonoBehaviour:
   countdownText: {fileID: 1345377481}
   baseSurvivalTime: 10
   levelSurvivalTimes:
-  - 10
+  - 60
   - 25
   - 30
   - 40
@@ -4376,18 +4376,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab94e88dcdf34d04a051452de0f097d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introDialogue:
+  dialogue:
     dialogueLines:
     - character:
         name: 
         icon: {fileID: 0}
-      line: hi
+      line: ghrjnthjtjtgsfw
+    - character:
+        name: 
+        icon: {fileID: 0}
+      line: rgethfghtyjth
   outroDialogue:
     dialogueLines:
     - character:
         name: gudbai
         icon: {fileID: 0}
       line: gudbai
+  outroDialogueTriggered: 0
 --- !u!4 &2128408061
 Transform:
   m_ObjectHideFlags: 0
