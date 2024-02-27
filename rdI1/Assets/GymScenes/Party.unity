@@ -4198,14 +4198,6 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 70854237787463927, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1597975852}
-    - target: {fileID: 70854237787463927, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
-      propertyPath: winScreen
-      value: 
-      objectReference: {fileID: 12650050}
     - target: {fileID: 70854237787463931, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4278,6 +4270,14 @@ PrefabInstance:
       propertyPath: attackPositionsParent
       value: 
       objectReference: {fileID: 1228199573}
+    - target: {fileID: 8284933379319423177, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1597975852}
+    - target: {fileID: 8284933379319423177, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 12650050}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
 --- !u!1 &1970764568
@@ -4533,37 +4533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab94e88dcdf34d04a051452de0f097d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    dialogueLines:
-    - character:
-        name: 
-        icon: {fileID: 21300000, guid: 87b930d09645542c79256e02a7ad0345, type: 3}
-      line: You are a quiet homebody. Your friend dragged you to this party you'd
-        rather not attend.
-    - character:
-        name: 
-        icon: {fileID: 21300000, guid: e8047df4adfc8435d8846d8d14863d2e, type: 3}
-      line: Aw, man. You hardly know anyone here. Except-- oh no.
-    - character:
-        name: 
-        icon: {fileID: 21300000, guid: 98cc6d5ac9777424781ebf5294e6c7db, type: 3}
-      line: It's Jerry.
-    - character:
-        name: 
-        icon: {fileID: 21300000, guid: f180da3160fd64ff49ebdb5bc0daf2d5, type: 3}
-      line: 'Jerry is one of those people who only knows how to be funny by making
-        someone else the butt of his jokes.
-
-'
-    - character:
-        name: 
-        icon: {fileID: 21300000, guid: 808ddb6a12f544243ba6ca07939394a3, type: 3}
-      line: You'll never give him the satisfaction of laughing, even if that means
-        shooting down every joke he makes!
-    - character:
-        name: 
-        icon: {fileID: 21300000, guid: 6179af26381d344c5ab8c3ea2f94f86d, type: 3}
-      line: Start!
+  introDialogue:
+    dialogueLines: []
+  outroDialogue:
+    dialogueLines: []
+  outroDialogueTriggered: 0
 --- !u!4 &2128408061
 Transform:
   m_ObjectHideFlags: 0
