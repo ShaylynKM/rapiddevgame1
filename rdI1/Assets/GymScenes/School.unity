@@ -4887,12 +4887,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab94e88dcdf34d04a051452de0f097d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introDialogue:
+  dialogue:
     dialogueLines:
     - character:
         name: 
         icon: {fileID: 0}
-      line: erm
+      line: qwqwqdcdvfv
+    - character:
+        name: 
+        icon: {fileID: 0}
+      line: dfvdvdfvv
   outroDialogue:
     dialogueLines:
     - character:

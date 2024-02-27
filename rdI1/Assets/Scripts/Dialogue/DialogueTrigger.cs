@@ -3,15 +3,20 @@ using System;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue introDialogue;
+    public Dialogue dialogue;
     public Dialogue outroDialogue;
     public event Action OnOutroDialogueComplete; 
 
     public bool outroDialogueTriggered = false;
 
-    public void TriggerIntroDialogue()
+    private void Start()
     {
-        DialogueManager.Instance.StartDialogue(introDialogue);
+        TriggerDialogue();
+    }
+
+    public void TriggerDialogue()
+    {
+        DialogueManager.Instance.StartDialogue(dialogue);
     }
 
     public void TriggerOutroDialogue()
