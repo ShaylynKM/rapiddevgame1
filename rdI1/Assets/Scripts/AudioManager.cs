@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+
+    public float volume = 1f;
+    public Slider volumeSlider;
 
     public AudioClip bg;
     public AudioClip playerShoot;
@@ -33,6 +37,16 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        volumeSlider = FindObjectOfType<Slider>();
+        if (volumeSlider != null)
+        {
+            volumeSlider.value = volume;
+            volumeSlider.onValueChanged.RemoveAllListeners(); 
+            volumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+        }
+
+        UpdateVolume(volume);
+
         Play(0, "bossFight", true);
 
         for (int i = 0; i < 8; i++)
@@ -41,7 +55,23 @@ public class AudioManager : MonoBehaviour
             audios.Add(audio);
         }
 
-        
+        volumeSlider.value = AudioManager.Instance.volume;
+
+        volumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+    }
+
+    public void UpdateVolume(float volume)
+    {
+        this.volume = volume;
+        foreach (var audio in audios)
+        {
+            audio.volume = volume;
+        }
+    }
+
+    public void ValueChangeCheck()
+    {
+        AudioManager.Instance.UpdateVolume(volumeSlider.value);
     }
 
     public void Play(int index, string name, bool isLoop)
