@@ -40,9 +40,11 @@ public class AudioManager : MonoBehaviour
         volumeSlider = FindObjectOfType<Slider>();
         if (volumeSlider != null)
         {
+            volumeSlider.onValueChanged.RemoveAllListeners();
             volumeSlider.value = volume;
-            volumeSlider.onValueChanged.RemoveAllListeners(); 
             volumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+           
+            
         }
 
         UpdateVolume(volume);
