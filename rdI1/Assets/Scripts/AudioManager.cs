@@ -8,8 +8,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public float volume = 1f;
-    public Slider volumeSlider;
-
+   
     public AudioClip bg;
     public AudioClip playerShoot;
     public AudioClip bossFight;
@@ -37,16 +36,6 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        volumeSlider = FindObjectOfType<Slider>();
-        if (volumeSlider != null)
-        {
-            volumeSlider.onValueChanged.RemoveAllListeners();
-            volumeSlider.value = volume;
-            volumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
-           
-            
-        }
-
         UpdateVolume(volume);
 
         Play(0, "bossFight", true);
@@ -56,10 +45,6 @@ public class AudioManager : MonoBehaviour
             var audio = gameObject.AddComponent<AudioSource>();
             audios.Add(audio);
         }
-
-        volumeSlider.value = AudioManager.Instance.volume;
-
-        volumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
     }
 
     public void UpdateVolume(float volume)
@@ -69,11 +54,6 @@ public class AudioManager : MonoBehaviour
         {
             audio.volume = volume;
         }
-    }
-
-    public void ValueChangeCheck()
-    {
-        AudioManager.Instance.UpdateVolume(volumeSlider.value);
     }
 
     public void Play(int index, string name, bool isLoop)
