@@ -68,22 +68,26 @@ public class PlayerController : MonoBehaviour
         
         if (!isFrozen)
         {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+           // if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) //Don't get Input.GetKey. Input.GetAxis("Horizontal), etc 
+            if(Input.GetAxis("Horizontal") < -.1f)
             {
                 moveX = -1f;
                 spriteRenderer.sprite = leftSprite;
             }
-            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            else if(Input.GetAxis("Horizontal") > .1f)
+           // else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 moveX = 1f;
                 spriteRenderer.sprite = rightSprite;
             }
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetAxis("Vertical") > .1f)
+               // if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 moveY = 1f;
                 spriteRenderer.sprite = upSprite;
             }
-            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            else if(Input.GetAxis("Vertical") < -.1f)
+            //if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 moveY = -1f;
                 spriteRenderer.sprite = downSprite;

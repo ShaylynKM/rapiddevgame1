@@ -3,7 +3,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-
+enum Stage
+{
+    Home, School, Job, Party
+}
 public class GameManager : MonoBehaviour
 {
 
@@ -32,11 +35,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        
         if (SceneManager.GetActiveScene().name == "Party")
         {
             partySceneTimer += Time.deltaTime;
 
-            if (partySceneTimer > 60f && currentStage == 1)
+            if (partySceneTimer > 60f && currentStage == 1) //magic numbers: bad. Each level should keep track of its own timer
             {
                 currentStage = 2;
                 UpdatePartyAbilities();
@@ -53,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         switch (currentStage)
         {
-            case 1:
+            case 1: //when i look at this, i have no idea which level this is. If you tell me I may forget later. If it was en enum value, I wouldn't be able to forget, since it would be Stage.Home, Stage.Job, etc
                 CanMove = true;
                 CanFreeze = false;
                 CanShoot = false;
@@ -141,7 +145,7 @@ public class GameManager : MonoBehaviour
         if (scene.name== "Party")
         {
             partySceneTimer = 0f;
-            currentStage = 1;
+            currentStage = 1; //magic numbers: bad
             UpdatePartyAbilities();
         }
 
@@ -190,7 +194,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 
-                spawnPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
+                spawnPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0); //magic numbers: bad.
             }
 
             Instantiate(healPrefab, spawnPosition, Quaternion.identity);
