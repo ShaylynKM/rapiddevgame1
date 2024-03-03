@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    public GamePhaseSO currentPhase;
+    private float phaseTimer = 0f;
+
     public GameObject winScreen;
     public TextMeshProUGUI countdownText;
 
@@ -29,96 +32,72 @@ public class GameManager : MonoBehaviour
     public int healItemCount = 3;
     public float healSpawnInterval = 10f;
 
-    private float partySceneTimer = 0f;
-    private int currentStage = 1;
-
-    
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
-            // Destroy(gameObject);
+            Destroy(gameObject);
         }
-
-        if (winScreen != null)
-        {
-            winScreen.SetActive(false);
-        }
-
-      
     }
 
-    
+    private void Start()
+    {
+        SetPhase(currentPhase);
+    }
 
     private void Update()
     {
-
         if (SceneManager.GetActiveScene().name == "Party")
         {
-            partySceneTimer += Time.deltaTime;
-
-            if (partySceneTimer > 20f && currentStage == 1) //magic numbers: bad. Each level should keep track of its own timer
+            phaseTimer += Time.deltaTime;
+            if (phaseTimer >= currentPhase.phaseDuration)
             {
-                currentStage = 2;
-                
-                UpdatePartyAbilities();
-
-                if (anxietyMeterInstance == null)
+                if (currentPhase.nextPhase != null)
                 {
-                    ActivateAnxietyMeter();
+                    SetPhase(currentPhase.nextPhase);
+                }
+                else
+                {
+                   
+                    ShowWinScreen();
                 }
             }
-            else if (partySceneTimer > 30f && currentStage == 2)
-            {
-                currentStage = 3;
-                UpdatePartyAbilities();
-            }
         }
     }
 
-    private void ActivateAnxietyMeter()
+    private void SetPhase(GamePhaseSO newPhase)
     {
-        if (anxietyMeterPrefab != null)
+        currentPhase = newPhase;
+        phaseTimer = 0f; 
+
+        UpdatePlayerAbilities(currentPhase.canMove, currentPhase.canShoot, currentPhase.canFreeze);
+
+        if (currentPhase.anxietyMeterPrefab != null && anxietyMeterInstance == null)
         {
-            anxietyMeterInstance = Instantiate(anxietyMeterPrefab);
-            AnxietyMeter anxietyMeter = anxietyMeterInstance.GetComponent<AnxietyMeter>();
-            if (anxietyMeter != null)
-            {
-                anxietyMeter.ActivateMeter();
-            }
+            anxietyMeterInstance = Instantiate(currentPhase.anxietyMeterPrefab);
+           
+        }
+
+        if (currentPhase.dialogueScene != null)
+        {
+            DialogueManager.Instance.StartDialogue(currentPhase.dialogueScene.lines);
         }
     }
 
 
-    private void UpdatePartyAbilities()
+    private void UpdatePlayerAbilities(bool canMove, bool canShoot, bool canFreeze)
     {
-        switch (currentStage)
-        {
-            case 1: //when i look at this, i have no idea which level this is. If you tell me I may forget later. If it was en enum value, I wouldn't be able to forget, since it would be Stage.Home, Stage.Job, etc
-                CanMove = true;
-                CanFreeze = false;
-                CanShoot = false;
-                break;
-            case 2:
-                CanMove = true;
-                CanFreeze = true;
-                CanShoot = false;
-                break;
-            case 3:
-                CanMove = true;
-                CanFreeze = true;
-                CanShoot = true;
-                break;
-        }
+        CanMove = canMove;
+        CanShoot = canShoot;
+        CanFreeze = canFreeze;
+
     }
-
-
 
     public void ShowCountdownTimer()
     {
@@ -151,13 +130,6 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SetAbilitiesBasedOnScene(scene.name);
-
-        if (scene.name == "Party")
-        {
-            partySceneTimer = 0f;
-            currentStage = 1; //magic numbers: bad
-            UpdatePartyAbilities();
-        }
 
         GameObject TextTime = GameObject.Find("TextTime");
         if (TextTime != null)
