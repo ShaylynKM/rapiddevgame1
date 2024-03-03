@@ -35,11 +35,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (DialogueManager.Instance.isDialogueActive)
-        {
-            return; // Stop all actions if dialogue is active
-        }
-
         if (isFrozen)
         {
             freezeTimer += Time.deltaTime;
@@ -182,12 +177,6 @@ public class PlayerController : MonoBehaviour
 
     void HandleShooting(GameObject projectilePrefab)
     {
-
-        if (isFrozen || DialogueManager.Instance.isDialogueActive || !GameManager.Instance.CanShoot)
-        {
-            return;
-        }
-
         if (Input.GetMouseButtonDown(0) && !isFrozen)
         {
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);

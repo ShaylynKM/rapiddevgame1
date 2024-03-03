@@ -9,24 +9,31 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
-
     public static DialogueManager Instance;// Singleton pattern to ensure only one instance exists.
+    #region Serialized Fields
+    [SerializeField]
+    DialogueSceneScriptableObject dialogueInformation;
+    [SerializeField]
+    GameObject dialogueBox;// UI panel containing dialogue text and character name/icon.
+
+    [SerializeField]
+    Image backgroundImage; // UI element for displaying background icon during dialogue.
+    [SerializeField]
+    TextMeshProUGUI characterName; // Displays the name of the speaking character.
+    [SerializeField]
+    TextMeshProUGUI dialogueArea; // Where the dialogue text is shown.
+    [SerializeField]
+    public Action OnDialogueComplete; // Event triggered when dialogue is complete.
+    #endregion
+
 
     private static Dictionary<string, bool> playedDialogues = new Dictionary<string, bool>();// Tracks dialogues that have already been played per scene.
 
     private bool completeCurrentSentence = false;
 
-    public GameObject dialogueBox;// UI panel containing dialogue text and character name/icon.
-
-    public Image characterIcon; // UI element for displaying character's icon during dialogue.
-    public TextMeshProUGUI characterName; // Displays the name of the speaking character.
-    public TextMeshProUGUI dialogueArea; // Where the dialogue text is shown.
-    public event Action OnDialogueComplete; // Event triggered when dialogue is complete.
 
 
     private Queue<DialogueLine> lines;// Queue to hold all dialogue lines for the current dialogue session.
-
-    public bool isDialogueActive = false;// Flag to check if dialogue is currently active.
 
     public float typingSpeed = 0.01f;// Speed at which characters are shown in the dialogue box.
 
@@ -36,63 +43,34 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton pattern implementation
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-        lines = new Queue<DialogueLine>(); // Initialize the queue.
-
+        lines = new Queue<DialogueLine>(); // Initialize the queue
 
     }
-
-    public bool IsDialogueActive()
+    private void Start()
     {
-        return isDialogueActive;// Returns true if dialogue is active
+        StartDialogue(dialogueInformation.lines);
     }
 
-    public void StartDialogue(Dialogue dialogue)
+
+    public void StartDialogue(List<DialogueLine> dialogueLines)
     {
-        // Checks if the dialogue for the current scene has already been played.
-        string sceneName = SceneManager.GetActiveScene().name;
+        Time.timeScale = 0;// Pauses the game by setting time scale to 0.
+        SeanAudioManager.Instance.Play(AudioNames.BackgroundMusic, true);
 
-
-        if (!playedDialogues.ContainsKey(sceneName) || !playedDialogues[sceneName])
+        lines.Clear();
+        foreach (DialogueLine dialogueLine in dialogueLines)// Enqueue each line of the dialogue
         {
-            playedDialogues[sceneName] = true;
-
-            isDialogueActive = true;
-            dialogueBox.SetActive(true);
-            Time.timeScale = 0;// Pauses the game by setting time scale to 0.
-
-            AudioManager.Instance.Play(0, "bg", true);// Plays background dialogue audio.
-
-            lines.Clear();
-            foreach (DialogueLine dialogueLine in dialogue.dialogueLines)// Enqueue each line of the dialogue
-            {
-                lines.Enqueue(dialogueLine);
-            }
-
-
-            GameManager gameManager = FindObjectOfType<GameManager>();
-            if (gameManager != null)
-            {
-                gameManager.HideCountdownTimer();
-            }
-
-            DisplayNextDialogueLine();// Starts displaying the dialogue lines.
+            lines.Enqueue(dialogueLine);
         }
+        DisplayNextDialogueLine();// Starts displaying the dialogue lines.
     }
 
 
     public void OnButtonClick()
     {
+        Debug.Log("Button was clicked");
         // If the dialogue box is clicked or a button is pressed, display the next line.
-        if (isDialogueActive)
-        {
-            DisplayNextDialogueLine();
-        }
+        DisplayNextDialogueLine();
     }
 
 
@@ -114,7 +92,7 @@ public class DialogueManager : MonoBehaviour
 
         // Dequeues the next line and updates UI elements accordingly.
         DialogueLine currentLine = lines.Dequeue();
-        characterIcon.sprite = currentLine.character.icon;
+        backgroundImage.sprite = currentLine.character.icon;
         characterName.text = currentLine.character.name;
 
         // Starts typing out the next dialogue line.
@@ -151,42 +129,23 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         // Checks for user input to display the next dialogue line.
-        if (Input.GetKeyDown(KeyCode.Z) && isDialogueActive)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             DisplayNextDialogueLine();
         }
     }
 
 
-    void EndDialogue()
+    public void EndDialogue()
     {
-        // Cleans up after dialogue is complete.
-        isDialogueActive = false;
-        dialogueBox.SetActive(false);
-        Time.timeScale = 1; // Resume game
+        SeanAudioManager.Instance.Stop(0);
+        SceneManager.LoadScene(dialogueInformation.NextScene);
 
-        // Switches audio back to boss fight music.
-        AudioManager.Instance.Stop(0);
-        AudioManager.Instance.Play(0, "bossFight", false);
 
-        OnDialogueComplete?.Invoke();// Triggers the OnDialogueComplete event
-
-        // Reactivates the anxiety meter if it exists in the scene
-        AnxietyMeter anxietyMeter = FindObjectOfType<AnxietyMeter>();
-        if (anxietyMeter != null)
-        {
-            anxietyMeter.ActivateMeter();
-        }
-
-        GameManager gameManager = FindObjectOfType<GameManager>();
-        if (gameManager != null)
-        {
-            gameManager.ShowCountdownTimer();
-        }
     }
+
 }
 
-// Helper classes to define the structure of dialogue lines and characters.
 [System.Serializable]
 public class DialogueLine
 {

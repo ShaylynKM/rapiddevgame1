@@ -213,11 +213,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator CountdownToNextLevel(float time)
     {
-        while (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive)
-        {
-            yield return null;
-        }
-
         while (time > 0)
         {
             if (countdownText != null)
@@ -239,29 +234,8 @@ public class GameManager : MonoBehaviour
         {
             Defeated();
             ShowWinScreen();
-        }
-        else
-        {
-            DialogueTrigger dialogueTrigger = FindObjectOfType<DialogueTrigger>();
-            if (dialogueTrigger != null)
-            {
-                dialogueTrigger.TriggerOutroDialogue();
-
-                yield return new WaitUntil(() => !DialogueManager.Instance.isDialogueActive);
-
-                dialogueTrigger.OnOutroDialogueComplete -= OnOutroDialogueComplete;
-
-                LoadNextLevel();
-            }
-        }
+        }                
     }
-
-    private void OnOutroDialogueComplete()
-    {
-        LoadNextLevel();
-    }
-
-
 
     private void SetAbilitiesBasedOnScene(string sceneName)
     {
