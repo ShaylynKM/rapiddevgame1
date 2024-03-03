@@ -12,5 +12,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fdb4bc98dc3a264f9774e0300a94bb1, type: 3}
   m_Name: GameIntro
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 80c5265bd01a5f54b92a3314b0adf13a, type: 3}
+    line: You don't like people.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: ad41ccf01b5527040a80b5938dffec8d, type: 3}
+    line: Soon enough, you'll be alone again. After college... work...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 90631479fe5acb241b49ece1986e8433, type: 3}
+    line: Party your one (1) childhood friend invited you to... Literally just walking
+      through your house...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 0d4915e6ed7509148a56cae59826f6ba, type: 3}
+    line: Ugh.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: aecab15e87ce6dc4190327861e3a486c, type: 3}
+    line: ...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: b911c71d97ba55040bd9683e95aae5b8, type: 3}
+    line: ...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 29058640f9630de49ae72058ef4c976a, type: 3}
+    line: Wait, what?
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 29058640f9630de49ae72058ef4c976a, type: 3}
+    line: Jerry already got a job in his industry? No fair!
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 6a6300e994eaf5b4fa4db2b767727098, type: 3}
+    line: Just 'cause he likes talking to people, probably... Probably talked his
+      way right in there...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 6a6300e994eaf5b4fa4db2b767727098, type: 3}
+    line: Extroverts are basically aliens to you.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 6a6300e994eaf5b4fa4db2b767727098, type: 3}
+    line: Anyway.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 2a05bd4f23510c049a9ad6b503403664, type: 3}
+    line: That guy's been rude to you since the day you met in high school. Thinks
+      he's soooo funny.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 2a05bd4f23510c049a9ad6b503403664, type: 3}
+    line: Refuses to make any jokes that aren't at your expense.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 316bedc6286941b4facd13980276bd2c, type: 3}
+    line: ...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 6d7b6874f9a8c5346ab3af2a93baf748, type: 3}
+    line: You swear he does it specifically to you.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5b50acf3ee16c0d449593657ea0ee8a3, type: 3}
+    line: It either speaks to his character, or yours. You haven't decided yet.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: eb9eafee49a66c14fb9c861c14d43bdf, type: 3}
+    line: Oh, well. People suck.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 87f3161911911af4db28774bb106fcb3, type: 3}
+    line: Time to sneak out for class (and hopefully avoid talking to your parents.)
   NextScene: HomeIntro
