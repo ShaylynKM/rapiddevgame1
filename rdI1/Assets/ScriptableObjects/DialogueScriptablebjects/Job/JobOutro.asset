@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fdb4bc98dc3a264f9774e0300a94bb1, type: 3}
   m_Name: JobOutro
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 9127164d36dee56469d9bca8b1363834, type: 3}
+    line: Crawling away using the counter as cover, you make it out the back door.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 9127164d36dee56469d9bca8b1363834, type: 3}
+    line: You clock out early, too panicked to think about the consequences.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 9127164d36dee56469d9bca8b1363834, type: 3}
+    line: You've had just about enough for one day.
   NextScene: PartyIntro

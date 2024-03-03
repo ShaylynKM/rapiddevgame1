@@ -12,5 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fdb4bc98dc3a264f9774e0300a94bb1, type: 3}
   m_Name: HomeOutro
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 6078facd4fd129c419ee1c6cc2573416, type: 3}
+    line: You manage to make it out the door.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 6078facd4fd129c419ee1c6cc2573416, type: 3}
+    line: 'Maybe someday, you''ll have the courage to tell your parents the impression
+      you mean to give to your classmates is:'
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 6078facd4fd129c419ee1c6cc2573416, type: 3}
+    line: '"Not A Woman"'
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 6078facd4fd129c419ee1c6cc2573416, type: 3}
+    line: But today is not that day.
   NextScene: SchoolIntro
