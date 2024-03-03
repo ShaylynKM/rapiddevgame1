@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class JerryLevel : LevelManager
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public LevelData[] levelData;
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

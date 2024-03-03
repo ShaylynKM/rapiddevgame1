@@ -4,6 +4,37 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private bool canMove;
+    private bool canShoot;
+    private bool canFreeze;
+    private float playerSpeed;
+
+    // 设置玩家是否可以移动
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+    }
+
+    // 设置玩家是否可以射击
+    public void SetCanShoot(bool value)
+    {
+        canShoot = value;
+    }
+
+    // 设置玩家是否可以冻结
+    public void SetCanFreeze(bool value)
+    {
+        canFreeze = value;
+    }
+
+    // 设置玩家速度
+    public void SetPlayerSpeed(float speed)
+    {
+        playerSpeed = speed;
+    }
+
+    private int currentStage = 0; // 当前阶段索引
+    private LevelData currentLevelData;
 
     public float moveSpeed = 3f;
     public float sprintSpeedMultiplier = 2f;
@@ -32,6 +63,8 @@ public class PlayerController : MonoBehaviour
     {
         AudioManager.Instance.Play(0, "bossFight", true);
     }
+
+
 
     void Update()
     {

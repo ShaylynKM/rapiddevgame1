@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SchoolLevel : LevelManager
+public class SchoolLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public LevelData levelData;
     void Start()
     {
         

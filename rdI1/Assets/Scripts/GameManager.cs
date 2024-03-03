@@ -15,10 +15,6 @@ public class GameManager : MonoBehaviour
     public GameObject winScreen;
     public TextMeshProUGUI countdownText;
 
-    public bool CanMove { get; private set; }
-    public bool CanShoot { get; private set; }
-    public bool CanFreeze { get; private set; }
-
     public float baseSurvivalTime = 30f;
     public float[] levelSurvivalTimes;
 
@@ -43,38 +39,17 @@ public class GameManager : MonoBehaviour
             if (partySceneTimer > 60f && currentStage == 1) //magic numbers: bad. Each level should keep track of its own timer
             {
                 currentStage = 2;
-                UpdatePartyAbilities();
+              
             }
             else if (partySceneTimer > 120f && currentStage == 2)
             {
                 currentStage = 3;
-                UpdatePartyAbilities();
+              
             }
         }
     }
 
-    private void UpdatePartyAbilities()
-    {
-        switch (currentStage)
-        {
-            case 1: //when i look at this, i have no idea which level this is. If you tell me I may forget later. If it was en enum value, I wouldn't be able to forget, since it would be Stage.Home, Stage.Job, etc
-                CanMove = true;
-                CanFreeze = false;
-                CanShoot = false;
-                break;
-            case 2:
-                CanMove = true;
-                CanFreeze = true;
-                CanShoot = false;
-                break;
-            case 3:
-                CanMove = true;
-                CanFreeze = true;
-                CanShoot = true;
-                break;
-        }
-    }
-
+   
 
 
     public void ShowCountdownTimer()
@@ -107,17 +82,10 @@ public class GameManager : MonoBehaviour
             winScreen.SetActive(false);
         }
 
-        SetInitialPlayerAbilities();
+      
     }
 
-    private void SetInitialPlayerAbilities()
-    {
-       
-        CanMove = false;
-        CanShoot = false;
-        CanFreeze = false;
-
-    }
+   
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -140,13 +108,13 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SetAbilitiesBasedOnScene(scene.name);
+     
 
         if (scene.name== "Party")
         {
             partySceneTimer = 0f;
             currentStage = 1; //magic numbers: bad
-            UpdatePartyAbilities();
+            
         }
 
         GameObject TextTime = GameObject.Find("TextTime");
@@ -163,7 +131,7 @@ public class GameManager : MonoBehaviour
 
         StartHealItemSpawn();
 
-        SetAbilitiesBasedOnScene(scene.name);
+      
     }
 
     private void StartHealItemSpawn()
@@ -235,25 +203,6 @@ public class GameManager : MonoBehaviour
             Defeated();
             ShowWinScreen();
         }                
-    }
-
-    private void SetAbilitiesBasedOnScene(string sceneName)
-    {
-        CanMove = CanShoot = CanFreeze = false;
-
-        switch (sceneName)
-        {
-            case "Home":
-                CanMove = true;
-                break;
-            case "School":
-                CanMove = CanShoot = true;
-                break;
-            case "Job":
-                CanMove = CanFreeze = true;
-                break;
-            
-        }
     }
 
     private void LoadNextLevel()
