@@ -12,5 +12,317 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fdb4bc98dc3a264f9774e0300a94bb1, type: 3}
   m_Name: GameOutro
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: e113afd713aea774da586a904a3a2358, type: 3}
+    line: You decide to go home. It's not like your friend will notice, anyway.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: fe1ea9e6e5169a64b92de8811eebd446, type: 3}
+    line: You must have the worst luck in the world, because you run into Jerry again
+      outside the house.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: fe1ea9e6e5169a64b92de8811eebd446, type: 3}
+    line: Hey, wait!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 177b7f55e69c97945962643cc806944b, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: d47506ee29c9d3e48bb9b31d4c47c24b, type: 3}
+    line: ...
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: d72c7e72561790c4e8ce47c7f5db9396, type: 3}
+    line: What do you want?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: d47506ee29c9d3e48bb9b31d4c47c24b, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 8931d113bf08f01469fdc719b0c3f13d, type: 3}
+    line: You're right.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 3dc1b6917eadc104293a05459ae6472d, type: 3}
+    line: ... What?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 96f5daa181533e448880fbf5d03a38b7, type: 3}
+    line: I didn't realize I was--
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: fcacc177bdc259c4aa48cc3c813b24e0, type: 3}
+    line: Huh???
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 813ed572e9ad2e646ac2a19dce38fb11, type: 3}
+    line: I didn't mean to--
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 813ed572e9ad2e646ac2a19dce38fb11, type: 3}
+    line: Look.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 813ed572e9ad2e646ac2a19dce38fb11, type: 3}
+    line: Listen.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 813ed572e9ad2e646ac2a19dce38fb11, type: 3}
+    line: I always thought we were just joking around.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 6a862d8cb5124164ab28706e2f92b6e3, type: 3}
+    line: And *I* thought you had it out for me, 'cause what else was I supposed
+      to think?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 18bab9f033d709743bf70b5d601f4da1, type: 3}
+    line: That we were joking around? I-- I've always thought you were really cool,
+      I--
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 6a862d8cb5124164ab28706e2f92b6e3, type: 3}
+    line: You make fun of me in front of everyone!
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 18bab9f033d709743bf70b5d601f4da1, type: 3}
+    line: I wasn't trying to--
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 18bab9f033d709743bf70b5d601f4da1, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 29373c32da408da4fa528f94d99da05b, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 87250cd28bf5d0f4998e744e3d5e2932, type: 3}
+    line: ...
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 37f7528083f7d444c82b78923bb609ca, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 87250cd28bf5d0f4998e744e3d5e2932, type: 3}
+    line: I see people teasing their friends all the time and I just thought that's
+      how you--
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 87250cd28bf5d0f4998e744e3d5e2932, type: 3}
+    line: I'm so sorry.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 87250cd28bf5d0f4998e744e3d5e2932, type: 3}
+    line: I'm freaking out.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 87250cd28bf5d0f4998e744e3d5e2932, type: 3}
+    line: I don't even know what's going on half the time.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 87250cd28bf5d0f4998e744e3d5e2932, type: 3}
+    line: I just got a new job and I'm confused constantly on how to even talk to
+      people
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 87250cd28bf5d0f4998e744e3d5e2932, type: 3}
+    line: and I'm pretty sure all my coworkers hate me 'cause I'm so obnoxious.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 7978ade44509bfb409948cf4e219cb93, type: 3}
+    line: ...
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 37f7528083f7d444c82b78923bb609ca, type: 3}
+    line: ......
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 37f7528083f7d444c82b78923bb609ca, type: 3}
+    line: ..........
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 37f7528083f7d444c82b78923bb609ca, type: 3}
+    line: .........................
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 85c2216e7b389fe4383cf8ed07cfa74b, type: 3}
+    line: '... I''ve had a stressful day. '
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 85c2216e7b389fe4383cf8ed07cfa74b, type: 3}
+    line: My parents were being... yeah. And then a dude at college was being a jerk
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 85c2216e7b389fe4383cf8ed07cfa74b, type: 3}
+    line: and then the customers at work were being jerks
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 8418259e37059574fa8c112332233cc7, type: 3}
+    line: and then I thought you were being a jerk and I guess I just exploded at
+      you.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 8418259e37059574fa8c112332233cc7, type: 3}
+    line: I'm sorry. Really. So stop beating yourself up.
+  - character:
+      name: Both
+      icon: {fileID: 21300000, guid: 41da62868126c6d4595576f3e27ddfdd, type: 3}
+    line: ...
+  - character:
+      name: Both
+      icon: {fileID: 21300000, guid: 3f8ca9580d1c7ea4f80cd525d53bf5ba, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 5427fdc86ca8e5a4397e3d421a55a845, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: f1fc4218d79a04b44a53a9c6ea8a4264, type: 3}
+    line: Man. Dealing with people sucks.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 5f7a95b09939e0048b8a296630184e7e, type: 3}
+    line: Tell me about it.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: f1fc4218d79a04b44a53a9c6ea8a4264, type: 3}
+    line: Don't get me wrong. Love 'em. But they're terrifying.
+  - character:
+      name: Both
+      icon: {fileID: 21300000, guid: a75dbc6fc2980b6479447cc1af10575b, type: 3}
+    line: ...
+  - character:
+      name: Both
+      icon: {fileID: 21300000, guid: a75dbc6fc2980b6479447cc1af10575b, type: 3}
+    line: .........
+  - character:
+      name: Both
+      icon: {fileID: 21300000, guid: a75dbc6fc2980b6479447cc1af10575b, type: 3}
+    line: .................
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 65d4fc9193959af488029868fa09313c, type: 3}
+    line: Hey.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 65d4fc9193959af488029868fa09313c, type: 3}
+    line: You know what we should do?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 65d4fc9193959af488029868fa09313c, type: 3}
+    line: Take it up at the source.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 0896281178edac34e9574ddb8976b295, type: 3}
+    line: We should battle a god.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: aa3364e0e83c1ee4faddebf45985eb76, type: 3}
+    line: UHHAHHhahaha, wait, what!?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: e0d5a3f67b6fded4b98d45ef81a89172, type: 3}
+    line: Y'know. Like at the end of a JRPG.
+  - character:
+      name: Both
+      icon: {fileID: 21300000, guid: 422d66451898d15478097e2d623d7bf2, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: e2b0d3451d42dbe4c8d835d7997312c8, type: 3}
+    line: Y'know.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: e2b0d3451d42dbe4c8d835d7997312c8, type: 3}
+    line: I really don't, no.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 5abef76ec85fa884dac351a918610b10, type: 3}
+    line: You get so powerful that you have nobody left to fight but a literal god.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 5abef76ec85fa884dac351a918610b10, type: 3}
+    line: I'm not sure we're that powerful.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 5abef76ec85fa884dac351a918610b10, type: 3}
+    line: Man, speak for yourself!
+  - character:
+      name: Both
+      icon: {fileID: 21300000, guid: bf7c0ff085f0a25429f6da9d35f06390, type: 3}
+    line: (Laughter)
+  - character:
+      name: Both
+      icon: {fileID: 21300000, guid: 702952a19875ba24390c82e212894c78, type: 3}
+    line: ...
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: c08615934f6f516418cfac8ff59a6809, type: 3}
+    line: Welp.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: c08615934f6f516418cfac8ff59a6809, type: 3}
+    line: I should probably head home.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: c08615934f6f516418cfac8ff59a6809, type: 3}
+    line: I don't really know why I came here in the first place.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 9d1160773dcc4d24da3c6b881716ea94, type: 3}
+    line: Yeeeeeaaahhh, me too. Gotta feed my cats.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 9d1160773dcc4d24da3c6b881716ea94, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 9d1160773dcc4d24da3c6b881716ea94, type: 3}
+    line: I'll see you around?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 9d1160773dcc4d24da3c6b881716ea94, type: 3}
+    line: Yeah, yeah, sure thing.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5951ee71d39a1b1448eb3446ebfa2b08, type: 3}
+    line: Jerry leaves to feed his cats and, presumably, fight a god.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5951ee71d39a1b1448eb3446ebfa2b08, type: 3}
+    line: You leave to go to bed and then face another day, which is arguably scarier
+      than fighting a god.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5951ee71d39a1b1448eb3446ebfa2b08, type: 3}
+    line: But, you're feeling the tiniest bit braver than you did this morning.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5951ee71d39a1b1448eb3446ebfa2b08, type: 3}
+    line: Maybe you can face the people who suck. Maybe some people suck less than
+      you thought.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5951ee71d39a1b1448eb3446ebfa2b08, type: 3}
+    line: Maybe *you* don't suck.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5951ee71d39a1b1448eb3446ebfa2b08, type: 3}
+    line: Maybe.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: e4fe0b7e48fdb8640b99843f11909528, type: 3}
+    line: You haven't decided yet.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: e4fe0b7e48fdb8640b99843f11909528, type: 3}
+    line: END
   NextScene: 
