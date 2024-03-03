@@ -12,5 +12,140 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fdb4bc98dc3a264f9774e0300a94bb1, type: 3}
   m_Name: JobIntro
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: bef079e91a8960943a40ac57b311b0f8, type: 3}
+    line: By the time you finish class and get to work, your nerves are shot.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: bef079e91a8960943a40ac57b311b0f8, type: 3}
+    line: You're about ready to sleep for fourteen hours, but you still have a party
+      to go to. Ugh.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: ff4535c19f25c594a9a9d9e5e2f76d97, type: 3}
+    line: It's not fair that Jerry gets an industry job and you're still stuck here
+      in the grocery store.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: ff4535c19f25c594a9a9d9e5e2f76d97, type: 3}
+    line: He'd probably be making fun of you relentlessly if he were here right now.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: ff4535c19f25c594a9a9d9e5e2f76d97, type: 3}
+    line: And eeeeeeeeeeverybody would laugh.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 903505aac4014344892353152e19a08a, type: 3}
+    line: This job sucks.
+  - character:
+      name: Jan
+      icon: {fileID: 21300000, guid: 5b3ac209f1d266946aad075323489858, type: 3}
+    line: Well, then, why don't you put yourself out there, Sweetie!?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 5b3ac209f1d266946aad075323489858, type: 3}
+    line: AH--
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 5a1805d57e8650a4f97f7cd67dedbc95, type: 3}
+    line: Did I say that out loud?
+  - character:
+      name: Jan
+      icon: {fileID: 21300000, guid: 65ac9c4274f532e428588eadf6d86630, type: 3}
+    line: Get out there! Get a new job!
+  - character:
+      name: Jan
+      icon: {fileID: 21300000, guid: 65ac9c4274f532e428588eadf6d86630, type: 3}
+    line: Bet you'd get one lickety-split if you talked to people more!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: c685921895f0f9c4ab994280e3bbb72a, type: 3}
+    line: Sure, Jan.
+  - character:
+      name: Jan
+      icon: {fileID: 21300000, guid: 65ac9c4274f532e428588eadf6d86630, type: 3}
+    line: You're such a shy one.
+  - character:
+      name: Jan
+      icon: {fileID: 21300000, guid: 65ac9c4274f532e428588eadf6d86630, type: 3}
+    line: Try being more extroverted!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 6816f9b654ea87f49a5f7e259e0bf0ed, type: 3}
+    line: That's... th-that's not how that--
+  - character:
+      name: Jan
+      icon: {fileID: 21300000, guid: 12aed57f3ed296a4d928d881d253d7bf, type: 3}
+    line: Ooooo, is that fine young man Jerry Jeraldson!?
+  - character:
+      name: Jan
+      icon: {fileID: 21300000, guid: 12aed57f3ed296a4d928d881d253d7bf, type: 3}
+    line: I've seen him around! Such a bright boy! Charming, too!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 5d3894ccff02a1a4c978d95bd4bcb876, type: 3}
+    line: Uh-huh.
+  - character:
+      name: ????
+      icon: {fileID: 21300000, guid: caa6d6e9433d17a46a599dc31d2980d8, type: 3}
+    line: HEY!
+  - character:
+      name: Customer 1
+      icon: {fileID: 21300000, guid: 4b80403b7c3431442845c1297a5da5e9, type: 3}
+    line: I need to speak to your manager!
+  - character:
+      name: Jan
+      icon: {fileID: 21300000, guid: c09c7c4e68ccd1e4287215efa74c3410, type: 3}
+    line: Whoops, that's the end of my shift! Good luck with the soup controversy!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: c09c7c4e68ccd1e4287215efa74c3410, type: 3}
+    line: Hey, wait, what!?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 03a969625b3253d478b77c916cee3d46, type: 3}
+    line: Uhh, the manager is unfortunately not in today.
+  - character:
+      name: Customer 1
+      icon: {fileID: 21300000, guid: 3bee84baab6c08744be1ff2be338861d, type: 3}
+    line: The soup that's in this soup isn't the soup that's on the soup can!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: f970f9f76484cbe40b201ad3cd7df2e4, type: 3}
+    line: ... Could you please repeat that?
+  - character:
+      name: Customer 2
+      icon: {fileID: 21300000, guid: e13f926a5c3a40d40bbc13eaf17d9734, type: 3}
+    line: I'm a vegetarian, and there's clearly meat in this veggie soup!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: a8bbe09c782665c468d894ca22e97395, type: 3}
+    line: I--
+  - character:
+      name: Buffstomer
+      icon: {fileID: 21300000, guid: f0c628aec9288e04fa77bcb1b71a7005, type: 3}
+    line: Yeah, this is ridiculous.
+  - character:
+      name: Buffstomer
+      icon: {fileID: 21300000, guid: f0c628aec9288e04fa77bcb1b71a7005, type: 3}
+    line: I'm a carnivore and there's clearly veggie in this meat soup!
+  - character:
+      name: Customer 1
+      icon: {fileID: 21300000, guid: 7d014c3a03322784cafb7331e4800ef4, type: 3}
+    line: FIX YOUR SOUP!
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 99f3a761b3a42c745a9f6100d2f1326e, type: 3}
+    line: You can feel your brain short-circuiting.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 99f3a761b3a42c745a9f6100d2f1326e, type: 3}
+    line: You're way too stressed to handle not one, but three people yelling at
+      you.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: ba52daa2615bf064ca1c76bb9972bd38, type: 3}
+    line: You're a deer in the headlights.
   NextScene: Job
