@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0154234c6c0fc40a890616ae38922850, type: 3}
+  m_Name: Party1
+  m_EditorClassIdentifier: 
+  phaseDuration: 10
+  canMove: 1
+  canShoot: 0
+  canFreeze: 0
+  anxietyMeterPrefab: {fileID: 0}
+  nextPhase: {fileID: 11400000, guid: 621a79835a81243798ed24fb89b8bd55, type: 2}
+  dialogueScene: {fileID: 0}
