@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
     {
         SeanAudioManager.Instance.Stop(0);
         SceneManager.LoadScene(dialogueInformation.NextScene);
-
+        Time.timeScale = 1.0f;
 
     }
 
