@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98db776f9cf13497ab0c7f0e18b4f3c0, type: 3}
-  m_Name: Party2
+  m_Script: {fileID: 11500000, guid: 0154234c6c0fc40a890616ae38922850, type: 3}
+  m_Name: GamePhase
   m_EditorClassIdentifier: 
-  CanMove: 0
-  CanShoot: 0
-  CanFreeze: 0
-  PlayerSpeed: 0
-  NextScene: 
-  LoseScene: 
-  LevelDuration: 0
-  stageDurations: 0
+  phaseName: start
+  dialogue: {fileID: 0}
+  canMove: 1
+  canShoot: 1
+  canFreeze: 0

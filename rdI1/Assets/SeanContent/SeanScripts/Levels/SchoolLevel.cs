@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SchoolLevel : MonoBehaviour
 {
-    public LevelData levelData;
+    
     void Start()
     {
         

@@ -13,7 +13,7 @@ public class Landmine : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnBombsRandomly", 15f, spawnInterval);
+        InvokeRepeating("SpawnBombsRandomly", 120f, spawnInterval);
     }
 
     public void Activate()

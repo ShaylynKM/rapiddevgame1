@@ -4,37 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private bool canMove;
-    private bool canShoot;
-    private bool canFreeze;
-    private float playerSpeed;
-
-    // 设置玩家是否可以移动
-    public void SetCanMove(bool value)
-    {
-        canMove = value;
-    }
-
-    // 设置玩家是否可以射击
-    public void SetCanShoot(bool value)
-    {
-        canShoot = value;
-    }
-
-    // 设置玩家是否可以冻结
-    public void SetCanFreeze(bool value)
-    {
-        canFreeze = value;
-    }
-
-    // 设置玩家速度
-    public void SetPlayerSpeed(float speed)
-    {
-        playerSpeed = speed;
-    }
-
-    private int currentStage = 0; // 当前阶段索引
-    private LevelData currentLevelData;
 
     public float moveSpeed = 3f;
     public float sprintSpeedMultiplier = 2f;
@@ -64,10 +33,9 @@ public class PlayerController : MonoBehaviour
         AudioManager.Instance.Play(0, "bossFight", true);
     }
 
-
-
     void Update()
     {
+
         if (isFrozen)
         {
             freezeTimer += Time.deltaTime;
@@ -82,7 +50,7 @@ public class PlayerController : MonoBehaviour
             HandleMovement();
         }
 
-        
+
         ProcessInputs();
 
         HandleShooting(projectilePrefab);
@@ -93,28 +61,28 @@ public class PlayerController : MonoBehaviour
     {
         float moveX = 0f;
         float moveY = 0f;
-        
+
         if (!isFrozen)
         {
-           // if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) //Don't get Input.GetKey. Input.GetAxis("Horizontal), etc 
-            if(Input.GetAxis("Horizontal") < -.1f)
+            // if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) //Don't get Input.GetKey. Input.GetAxis("Horizontal), etc 
+            if (Input.GetAxis("Horizontal") < -.1f)
             {
                 moveX = -1f;
                 spriteRenderer.sprite = leftSprite;
             }
-            else if(Input.GetAxis("Horizontal") > .1f)
-           // else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetAxis("Horizontal") > .1f)
+            // else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 moveX = 1f;
                 spriteRenderer.sprite = rightSprite;
             }
             if (Input.GetAxis("Vertical") > .1f)
-               // if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            // if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 moveY = 1f;
                 spriteRenderer.sprite = upSprite;
             }
-            else if(Input.GetAxis("Vertical") < -.1f)
+            else if (Input.GetAxis("Vertical") < -.1f)
             //if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 moveY = -1f;
@@ -134,7 +102,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
 
     void ProcessInputs()
     {
@@ -164,7 +132,7 @@ public class PlayerController : MonoBehaviour
             UpdateSpriteDirection(moveDirection);
         }
 
-        if (Input.GetMouseButton(0)) 
+        if (Input.GetMouseButton(0))
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 directionToMouse = (mousePosition - transform.position).normalized;
@@ -187,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateSpriteDirection(Vector2 direction)
     {
-       
+
         if (direction == Vector2.left)
         {
             spriteRenderer.sprite = leftSprite;
@@ -210,6 +178,12 @@ public class PlayerController : MonoBehaviour
 
     void HandleShooting(GameObject projectilePrefab)
     {
+
+        if (isFrozen|| !GameManager.Instance.CanShoot)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0) && !isFrozen)
         {
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
@@ -227,12 +201,18 @@ public class PlayerController : MonoBehaviour
 
     public void FreezePlayer()
     {
-        isFrozen = true;
+        if(GameManager.Instance.CanFreeze)
+        {
+            isFrozen = true;
+        }
     }
 
     public void UnfreezePlayer()
     {
-        isFrozen = false;
+        if (GameManager.Instance.CanFreeze)
+        {
+            isFrozen = false;
+        }
     }
 
 }

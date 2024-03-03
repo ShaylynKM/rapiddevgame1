@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HomeLevel : MonoBehaviour
 {
-    public LevelData levelData;
+   
     // Start is called before the first frame update
     void Start()
     {

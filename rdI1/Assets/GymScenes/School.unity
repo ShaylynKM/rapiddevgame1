@@ -738,6 +738,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 752398996}
     m_Modifications:
+    - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 5.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 5.88
+      objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646082, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: isFrozen
       value: 0
@@ -2478,6 +2494,7 @@ MonoBehaviour:
   healSpawnPoints: []
   healItemCount: 3
   healSpawnInterval: 10
+  currentGamePhase: {fileID: 0}
 --- !u!4 &837972042
 Transform:
   m_ObjectHideFlags: 0
@@ -3460,6 +3477,59 @@ Transform:
   m_Father: {fileID: 752398996}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1343794076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1343794078}
+  - component: {fileID: 1343794077}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1343794077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343794076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dad8c1edd662441296358e19829911d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winScreen: {fileID: 0}
+  countdownText: {fileID: 0}
+  baseSurvivalTime: 30
+  levelSurvivalTimes: []
+  healPrefab: {fileID: 0}
+  healSpawnPoints: []
+  healItemCount: 3
+  healSpawnInterval: 10
+  currentGamePhase: {fileID: 0}
+--- !u!4 &1343794078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343794076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9682457, y: 0.85808766, z: -0.033280347}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1360184598
 GameObject:
   m_ObjectHideFlags: 0
@@ -3582,11 +3652,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de61e2325eb864c63b3234fa225226be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueInformation: {fileID: 0}
   dialogueBox: {fileID: 47137208}
-  characterIcon: {fileID: 799551590}
+  backgroundImage: {fileID: 0}
   characterName: {fileID: 1892753899}
   dialogueArea: {fileID: 1501468297}
-  isDialogueActive: 0
   typingSpeed: 0.1
 --- !u!4 &1421871491
 Transform:
@@ -4104,51 +4174,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1725304292
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1725304294}
-  - component: {fileID: 1725304293}
-  m_Layer: 0
-  m_Name: SchoolScriptableObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1725304293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725304292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd41f29115ac144bb13a7e0a9b1805c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: 15413ee77d9124f5089d4b17cbb4d2c7, type: 2}
---- !u!4 &1725304294
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725304292}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9682457, y: 0.85808766, z: -0.033280347}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1793679765
 GameObject:
@@ -5002,23 +5027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab94e88dcdf34d04a051452de0f097d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    dialogueLines:
-    - character:
-        name: 
-        icon: {fileID: 0}
-      line: qwqwqdcdvfv
-    - character:
-        name: 
-        icon: {fileID: 0}
-      line: dfvdvdfvv
-  outroDialogue:
-    dialogueLines:
-    - character:
-        name: 
-        icon: {fileID: 0}
-      line: yipee
-  outroDialogueTriggered: 0
 --- !u!4 &2128408061
 Transform:
   m_ObjectHideFlags: 0
