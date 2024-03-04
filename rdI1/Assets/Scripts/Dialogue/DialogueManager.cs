@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     private bool completeCurrentSentence = false;
 
-
+    public GameObject winScreen;
 
     private Queue<DialogueLine> lines;// Queue to hold all dialogue lines for the current dialogue session.
 
@@ -138,12 +138,34 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        SeanAudioManager.Instance.Stop(0);
-        SceneManager.LoadScene(dialogueInformation.NextScene);
-        Time.timeScale = 1.0f;
+        SeanAudioManager.Instance.Stop(0); 
 
+  
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+       
+        int nextSceneIndex = currentSceneIndex + 1;
+
+      
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+          
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            ShowWinScreen();
+            Debug.Log("You've completed all levels!");
+
+        }
+
+        Time.timeScale = 1.0f;
     }
 
+    private void ShowWinScreen()
+    {
+        winScreen.SetActive(true);
+        Time.timeScale = 0f;
+    }
 }
 
 [System.Serializable]

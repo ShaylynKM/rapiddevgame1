@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
+    public SceneConfigurations sceneConfigs;
 
     public GamePhaseSO currentPhase;
     private float phaseTimer = 0f;
@@ -105,8 +106,8 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SetAbilitiesBasedOnScene(scene.name);
        
+
 
         int sceneIndex = scene.buildIndex - 1;
 
@@ -119,53 +120,27 @@ public class GameManager : MonoBehaviour
 
     }
 
-   
+
     GamePhaseSO LoadPhaseConfigForScene(string sceneName)
     {
-        string path = "LevelsSettings/"; 
         switch (sceneName)
         {
             case "Home":
-                path += "Home";
-                break;
+                return sceneConfigs.homeConfig;
             case "School":
-                path += "School";
-                break;
+                return sceneConfigs.schoolConfig;
             case "Job":
-                path += "Job";
-                break;
+                return sceneConfigs.jobConfig;
             case "Party":
-                path += "Party1";
-                break;
-           
-        }
-
-        GamePhaseSO phaseConfig = Resources.Load<GamePhaseSO>(path);
-        if (phaseConfig == null)
-        {
-            Debug.LogError("Failed " + path);
-        }
-        return phaseConfig;
-    }
-
-
-    private void SetAbilitiesBasedOnScene(string sceneName)
-    {
-        CanMove = CanShoot = CanFreeze = false;
-     
-        switch (sceneName)
-        {
-            case "Home":
-                CanMove = true;
-                break;
-            case "School":
-                CanMove = CanShoot = true;
-                break;
-            case "Job":
-                CanMove = CanFreeze = true;
-                break;
-
+                return sceneConfigs.partyConfig;
+          
+            default:
+                Debug.LogError($"No configuration found for scene: {sceneName}");
+                return null;
         }
     }
+
+
+
 
 }

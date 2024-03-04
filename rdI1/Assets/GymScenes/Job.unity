@@ -4663,15 +4663,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dad8c1edd662441296358e19829911d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneConfigs: {fileID: 11400000, guid: e408bbeb92eb14199a223b93b5bb81fe, type: 2}
   currentPhase: {fileID: 11400000, guid: 9f73540a81b0142cba74b289a4e98c05, type: 2}
   winScreen: {fileID: 0}
   anxietyMeterPrefab: {fileID: 0}
-  baseSurvivalTime: 30
-  levelSurvivalTimes:
-  - 20
-  - 25
-  - 60
-  - 40
 --- !u!4 &1684622627
 Transform:
   m_ObjectHideFlags: 0
@@ -5675,6 +5670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c903255802814f0389e6bb5c6241613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winScreen: {fileID: 0}
   healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
   healSpawnPoints:
   - {fileID: 2099226107}
