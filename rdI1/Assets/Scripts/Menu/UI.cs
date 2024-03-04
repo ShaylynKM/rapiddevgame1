@@ -9,9 +9,7 @@ public class UI : MonoBehaviour
 
     void Start()
     {
-        
         volumeSlider.value = AudioManager.Instance.volume;
-       
         volumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
     }
 

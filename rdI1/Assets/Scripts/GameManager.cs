@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     public GameObject anxietyMeterPrefab;
     private GameObject anxietyMeterInstance;
 
-   
     public bool CanMove { get; private set; }
     public bool CanShoot { get; private set; }
     public bool CanFreeze { get; private set; }
@@ -39,6 +38,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else if (Instance != this)
         {
@@ -74,7 +74,9 @@ public class GameManager : MonoBehaviour
     private void SetPhase(GamePhaseSO newPhase)
     {
         currentPhase = newPhase;
-        phaseTimer = 0f; 
+        phaseTimer = 0f;
+
+        AudioManager.Instance.PlayMusic(currentPhase.musicClip);
 
         UpdatePlayerAbilities(currentPhase.canMove, currentPhase.canShoot, currentPhase.canFreeze);
 
@@ -84,10 +86,12 @@ public class GameManager : MonoBehaviour
            
         }
 
-        if (currentPhase.dialogueScene != null)
+        if (currentPhase.musicClip != null)
         {
-            DialogueManager.Instance.StartDialogue(currentPhase.dialogueScene.lines);
+            AudioManager.Instance.PlayMusic(currentPhase.musicClip);
         }
+
+
     }
 
 
@@ -135,18 +139,32 @@ public class GameManager : MonoBehaviour
         if (TextTime != null)
         {
             countdownText = TextTime.GetComponent<TextMeshProUGUI>();
+            Debug.Log("Found TextTime object.");
+        }
+        else
+        {
+            Debug.LogWarning("Failed to find TextTime object.");
         }
 
         int sceneIndex = scene.buildIndex - 1;
+
         if (sceneIndex >= 0 && sceneIndex < levelSurvivalTimes.Length)
         {
             StartCoroutine(CountdownToNextLevel(levelSurvivalTimes[sceneIndex]));
+        }
+
+        GamePhaseSO phaseConfig = LoadPhaseConfigForScene(scene.name);
+        if (phaseConfig != null)
+        {
+            SetPhase(phaseConfig);
         }
 
         StartHealItemSpawn();
 
         SetAbilitiesBasedOnScene(scene.name);
     }
+
+
 
     private void StartHealItemSpawn()
     {
@@ -183,7 +201,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    /*
     private void StartCountdownAfterDialogue()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
@@ -192,6 +210,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(CountdownToNextLevel(levelSurvivalTimes[sceneIndex]));
         }
     }
+    */
 
     IEnumerator CountdownToNextLevel(float time)
     {
@@ -223,10 +242,39 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    GamePhaseSO LoadPhaseConfigForScene(string sceneName)
+    {
+        string path = "LevelsSettings/"; 
+        switch (sceneName)
+        {
+            case "Home":
+                path += "Home";
+                break;
+            case "School":
+                path += "School";
+                break;
+            case "Job":
+                path += "Job";
+                break;
+            case "Party":
+                path += "Party1";
+                break;
+           
+        }
+
+        GamePhaseSO phaseConfig = Resources.Load<GamePhaseSO>(path);
+        if (phaseConfig == null)
+        {
+            Debug.LogError("Failed " + path);
+        }
+        return phaseConfig;
+    }
+
+
     private void SetAbilitiesBasedOnScene(string sceneName)
     {
         CanMove = CanShoot = CanFreeze = false;
-
+     
         switch (sceneName)
         {
             case "Home":

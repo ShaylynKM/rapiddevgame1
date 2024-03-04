@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.Play(0, "bossFight", true);
+        //AudioManager.Instance.Play(0, "bossFight", true);
     }
 
     void Update()
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
             Rigidbody2D rbProjectile = projectile.GetComponent<Rigidbody2D>();
             rbProjectile.velocity = shootDirection * projectileSpeed;
 
-            AudioManager.Instance.Play(1, "PlayerShoot", false);
+            AudioManager.Instance.Play(2, "PlayerShoot", false);
 
             float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

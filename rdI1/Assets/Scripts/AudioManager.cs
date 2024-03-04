@@ -11,11 +11,12 @@ public class AudioManager : MonoBehaviour
    
     public AudioClip bg;
     public AudioClip playerShoot;
-    public AudioClip bossFight;
+    //public AudioClip bossFight;
     public AudioClip bossKill;
     public AudioClip playerKill;
     public AudioClip heal;
     public AudioClip hurt;
+
 
     List<AudioSource> audios = new List<AudioSource>();
 
@@ -25,7 +26,10 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            
+
+            audios.AddRange(GetComponents<AudioSource>());
+            audios.AddRange(GetComponentsInChildren<AudioSource>());
+
         }
         else
         {
@@ -47,14 +51,46 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PlayMusic(AudioClip clip)
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+        audioSource.clip = clip;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+
     public void UpdateVolume(float volume)
     {
         this.volume = volume;
-        foreach (var audio in audios)
+        foreach (var audioSource in audios) 
         {
-            audio.volume = volume;
+            audioSource.volume = volume;
         }
     }
+
+    public AudioSource AddAudioSource(AudioClip clip, bool loop = false)
+    {
+        AudioSource newAudioSource = gameObject.AddComponent<AudioSource>();
+        newAudioSource.clip = clip;
+        newAudioSource.loop = loop;
+        audios.Add(newAudioSource);
+        return newAudioSource;
+    }
+
+    public void RemoveAudioSource(AudioSource audioSource)
+    {
+        if (audios.Contains(audioSource))
+        {
+            audios.Remove(audioSource);
+            Destroy(audioSource);
+        }
+    }
+
 
     public void Play(int index, string name, bool isLoop)
     {
@@ -81,8 +117,7 @@ public class AudioManager : MonoBehaviour
                 return bg;
             case "PlayerShoot":
                 return playerShoot;
-            case "bossFight":
-                return bossFight;
+            
             case "bossKill":
                 return bossKill;
             case "playerKill":
