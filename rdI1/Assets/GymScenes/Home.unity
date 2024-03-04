@@ -2668,6 +2668,56 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 811988019787687459, guid: 72ee36b9a9b2a44dcbdff106af930668, type: 3}
   m_PrefabInstance: {fileID: 811988018933943048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1602598112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1602598114}
+  - component: {fileID: 1602598113}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1602598113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602598112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c903255802814f0389e6bb5c6241613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
+  healSpawnPoints: []
+  healItemCount: 3
+  healSpawnInterval: 10
+  levelDuration: 10
+  countdownText: {fileID: 1345377481}
+--- !u!4 &1602598114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602598112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9515753, y: 4.001669, z: -0.008508867}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1605109449
 GameObject:
   m_ObjectHideFlags: 0
@@ -3926,7 +3976,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: {fileID: 11400000, guid: da98eb6b8d18a41bea149ad016894306, type: 2}
   winScreen: {fileID: 1891043950}
-  countdownText: {fileID: 1345377481}
   anxietyMeterPrefab: {fileID: 0}
   baseSurvivalTime: 10
   levelSurvivalTimes:
@@ -3934,10 +3983,6 @@ MonoBehaviour:
   - 25
   - 30
   - 40
-  healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
-  healSpawnPoints: []
-  healItemCount: 3
-  healSpawnInterval: 10
 --- !u!4 &1980222086
 Transform:
   m_ObjectHideFlags: 0

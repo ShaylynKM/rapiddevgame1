@@ -4665,7 +4665,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: {fileID: 11400000, guid: 9f73540a81b0142cba74b289a4e98c05, type: 2}
   winScreen: {fileID: 0}
-  countdownText: {fileID: 1550827447}
   anxietyMeterPrefab: {fileID: 0}
   baseSurvivalTime: 30
   levelSurvivalTimes:
@@ -4673,13 +4672,6 @@ MonoBehaviour:
   - 25
   - 60
   - 40
-  healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
-  healSpawnPoints:
-  - {fileID: 2099226107}
-  - {fileID: 280759955}
-  - {fileID: 1363784692}
-  healItemCount: 3
-  healSpawnInterval: 10
 --- !u!4 &1684622627
 Transform:
   m_ObjectHideFlags: 0
@@ -5654,6 +5646,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dfa927299bd63c4687cd25faf41102c, type: 3}
+--- !u!1 &1941467159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1941467161}
+  - component: {fileID: 1941467160}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1941467160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941467159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c903255802814f0389e6bb5c6241613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
+  healSpawnPoints:
+  - {fileID: 2099226107}
+  - {fileID: 280759955}
+  - {fileID: 1363784692}
+  healItemCount: 3
+  healSpawnInterval: 10
+  levelDuration: 10
+  countdownText: {fileID: 1550827447}
+--- !u!4 &1941467161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941467159}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9515753, y: 4.001669, z: -0.008508867}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2022405497
 PrefabInstance:
   m_ObjectHideFlags: 0

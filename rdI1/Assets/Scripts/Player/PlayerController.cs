@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 3f;
+    private float moveSpeed = 5f;
     public float sprintSpeedMultiplier = 2f;
 
-    public float freezeDuration = 5f;
+    
     public GameObject projectilePrefab;
-    public GameObject freezeProjectilePrefab;
+   
     public float projectileSpeed = 10.0f;
     public float shootDistance = 4f;
 
@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 shootDirection = Vector2.up;
     public bool isFrozen = false;
-    private float freezeTimer = 0f;
-
+  
     public Rigidbody2D rb;
     private Vector2 moveDirection = Vector2.zero;
 
@@ -36,16 +35,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (isFrozen)
-        {
-            freezeTimer += Time.deltaTime;
-
-            if (freezeTimer >= freezeDuration)
-            {
-                UnfreezePlayer();
-            }
-        }
-        else if (GameManager.Instance.CanMove)
+        if (!isFrozen && GameManager.Instance.CanMove)
         {
             HandleMovement();
         }
@@ -59,46 +49,26 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        float moveX = 0f;
-        float moveY = 0f;
+       
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        moveDirection = new Vector2(moveX, moveY).normalized;
 
-        if (!isFrozen)
-        {
-            // if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) //Don't get Input.GetKey. Input.GetAxis("Horizontal), etc 
-            if (Input.GetAxis("Horizontal") < -.1f)
-            {
-                moveX = -1f;
-                spriteRenderer.sprite = leftSprite;
-            }
-            else if (Input.GetAxis("Horizontal") > .1f)
-            // else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            {
-                moveX = 1f;
-                spriteRenderer.sprite = rightSprite;
-            }
-            if (Input.GetAxis("Vertical") > .1f)
-            // if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            {
-                moveY = 1f;
-                spriteRenderer.sprite = upSprite;
-            }
-            else if (Input.GetAxis("Vertical") < -.1f)
-            //if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            {
-                moveY = -1f;
-                spriteRenderer.sprite = downSprite;
-            }
-        }
-
-        Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
-
-
-        transform.position += new Vector3(moveDirection.x, moveDirection.y, 0) * moveSpeed * Time.deltaTime;
-
-
+        
         if (moveDirection != Vector2.zero)
         {
+            UpdateSpriteDirection(moveDirection);
             shootDirection = moveDirection;
+        }
+
+        
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.velocity = moveDirection * moveSpeed * sprintSpeedMultiplier;
+        }
+        else
+        {
+            rb.velocity = moveDirection * moveSpeed;
         }
     }
 
@@ -155,7 +125,6 @@ public class PlayerController : MonoBehaviour
 
     void UpdateSpriteDirection(Vector2 direction)
     {
-
         if (direction == Vector2.left)
         {
             spriteRenderer.sprite = leftSprite;

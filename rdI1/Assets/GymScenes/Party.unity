@@ -2449,22 +2449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPhase: {fileID: 11400000, guid: aad622912729640b2bcd7d234498d0c7, type: 2}
   winScreen: {fileID: 12650050}
-  countdownText: {fileID: 563601811}
   anxietyMeterPrefab: {fileID: 5486739139733267947, guid: a8f6568f1e2ea4f788a513b51ff5e6f9, type: 3}
-  baseSurvivalTime: 10
-  levelSurvivalTimes:
-  - 20
-  - 25
-  - 30
-  - 180
-  healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
-  healSpawnPoints:
-  - {fileID: 1420823772}
-  - {fileID: 1474799224}
-  - {fileID: 1192084774}
-  - {fileID: 759786899}
-  healItemCount: 10
-  healSpawnInterval: 5
 --- !u!4 &1079100427
 Transform:
   m_ObjectHideFlags: 0
@@ -3397,6 +3382,57 @@ MonoBehaviour:
   bombFuseTime: 1
   spawnInterval: 20
   ActivationDelay: 60
+--- !u!1 &1638363678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638363680}
+  - component: {fileID: 1638363679}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1638363679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638363678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c903255802814f0389e6bb5c6241613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winScreen: {fileID: 12650050}
+  healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
+  healSpawnPoints: []
+  healItemCount: 3
+  healSpawnInterval: 10
+  levelDuration: 40
+  countdownText: {fileID: 563601811}
+--- !u!4 &1638363680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638363678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9515753, y: 4.001669, z: -0.008508867}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1648157893
 GameObject:
   m_ObjectHideFlags: 0
