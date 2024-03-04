@@ -15,8 +15,7 @@ MonoBehaviour:
   phaseDuration: 0
   canMove: 1
   canShoot: 0
-  canFreeze: 0
+  canFreeze: 1
   musicClip: {fileID: 8300000, guid: ee7298f0264664fe7bdef1e981f7c8b2, type: 3}
   anxietyMeterPrefab: {fileID: 0}
   nextPhase: {fileID: 0}
-  NextScene: 0

@@ -18,17 +18,36 @@ public class Circle : MonoBehaviour
     public float spawnInterval = 10f;
 
     private List<GameObject> bombs = new List<GameObject>();
+    private bool isActivated = false;
 
-    void Start()
+    
+    public float ActivationDelay = 10f;
+
+    void Update()
     {
-        InvokeRepeating("SpawnBombsAroundPlayer", 60f, spawnInterval);
+        if (!isActivated && ActivationDelay > 0)
+        {
+            ActivationDelay -= Time.deltaTime;
+            if (ActivationDelay <= 0)
+            {
+                Activate();
+                isActivated = true;
+            }
+        }
     }
 
+    
+    public void SetActivationDelay(float delay)
+    {
+        ActivationDelay = delay;
+    }
+
+  
     public void Activate()
     {
         SpawnBombsAroundPlayer();
-        
     }
+
 
     void SpawnBombsAroundPlayer()
     {

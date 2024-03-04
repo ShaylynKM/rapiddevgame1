@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phaseDuration: 0
   canMove: 1
-  canShoot: 0
+  canShoot: 1
   canFreeze: 0
   musicClip: {fileID: 8300000, guid: 5acfd4e8a3f974ceb868a1ec8c869a3d, type: 3}
   anxietyMeterPrefab: {fileID: 0}
   nextPhase: {fileID: 0}
-  NextScene: 0

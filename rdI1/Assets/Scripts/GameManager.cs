@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SetAbilitiesBasedOnScene(scene.name);
+        StartHealItemSpawn();
 
         GameObject TextTime = GameObject.Find("TextTime");
         if (TextTime != null)
@@ -158,13 +159,11 @@ public class GameManager : MonoBehaviour
         {
             SetPhase(phaseConfig);
         }
+       
 
-        StartHealItemSpawn();
+        
 
-        SetAbilitiesBasedOnScene(scene.name);
     }
-
-
 
     private void StartHealItemSpawn()
     {
@@ -194,14 +193,14 @@ public class GameManager : MonoBehaviour
             else
             {
 
-                spawnPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0); //magic numbers: bad.
+                spawnPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
             }
 
             Instantiate(healPrefab, spawnPosition, Quaternion.identity);
         }
     }
 
-    /*
+    
     private void StartCountdownAfterDialogue()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
@@ -210,8 +209,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(CountdownToNextLevel(levelSurvivalTimes[sceneIndex]));
         }
     }
-    */
-
+    
     IEnumerator CountdownToNextLevel(float time)
     {
         while (time > 0)

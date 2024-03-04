@@ -724,7 +724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1021,7 +1021,7 @@ PrefabInstance:
       objectReference: {fileID: 800592884}
     - target: {fileID: 70854237787463931, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 70854237787463931, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1363,6 +1363,7 @@ MonoBehaviour:
   warningDuration: 2
   bombFuseTime: 1
   spawnInterval: 10
+  ActivationDelay: 15
 --- !u!4 &451484581
 Transform:
   m_ObjectHideFlags: 0
@@ -1376,7 +1377,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 752398996}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451914104
 GameObject:
@@ -1764,7 +1765,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 837972042}
   - {fileID: 991067198}
   - {fileID: 1228199573}
   - {fileID: 233041556}
@@ -2313,64 +2313,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822446350}
   m_CullTransparentMesh: 1
---- !u!1 &837972040
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 837972042}
-  - component: {fileID: 837972041}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &837972041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837972040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dad8c1edd662441296358e19829911d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPhase: {fileID: 0}
-  winScreen: {fileID: 0}
-  countdownText: {fileID: 0}
-  anxietyMeterPrefab: {fileID: 0}
-  baseSurvivalTime: 10
-  levelSurvivalTimes:
-  - 100
-  - 100
-  - 100
-  - 200
-  healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
-  healSpawnPoints: []
-  healItemCount: 3
-  healSpawnInterval: 10
---- !u!4 &837972042
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837972040}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.9654458, y: 0.86018765, z: -0.033280347}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 752398996}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &910181618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3349,7 +3291,7 @@ Transform:
   - {fileID: 451914105}
   - {fileID: 157400713}
   m_Father: {fileID: 752398996}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343794076
 GameObject:
@@ -3385,7 +3327,11 @@ MonoBehaviour:
   countdownText: {fileID: 791646432}
   anxietyMeterPrefab: {fileID: 0}
   baseSurvivalTime: 30
-  levelSurvivalTimes: []
+  levelSurvivalTimes:
+  - 0
+  - 0
+  - 0
+  - 0
   healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
   healSpawnPoints: []
   healItemCount: 3
@@ -4303,7 +4249,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 752398996}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1849353559
 MonoBehaviour:
@@ -4327,6 +4273,7 @@ MonoBehaviour:
   warningDuration: 1
   bombFuseTime: 1
   spawnInterval: 2
+  ActivationDelay: 10
 --- !u!1 &1865368474
 GameObject:
   m_ObjectHideFlags: 0
