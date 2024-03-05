@@ -9,11 +9,13 @@ public class SafeZones : MonoBehaviour
     public GameObject[] hidingSpots; // Array to store hiding spots
 
     private AnxietyMeter anxietyMeter;
+    private PlayerController playerController;
     private PlayerHealth playerHealth; // Reference to the PlayerHealth script
     private GameObject activeSpot; // Currently active hiding spot
 
     void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
         anxietyMeter = FindObjectOfType<AnxietyMeter>();
         if (anxietyMeter == null)
         {
@@ -44,7 +46,7 @@ public class SafeZones : MonoBehaviour
             {
                 SetHidingSpotActive(true);
             }
-            else
+            else if(currentFill < anxietyThreshold && !playerController.isFrozen)
             {
                 SetHidingSpotActive(false);
                 SetRandomHidingSpot();

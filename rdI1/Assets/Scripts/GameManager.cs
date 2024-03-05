@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     public GameObject winScreen;
    
     public GameObject anxietyMeterPrefab;
-    private GameObject anxietyMeterInstance;
 
     public bool CanMove { get; private set; }
     public bool CanShoot { get; private set; }
@@ -67,9 +66,9 @@ public class GameManager : MonoBehaviour
 
         UpdatePlayerAbilities(currentPhase.canMove, currentPhase.canShoot, currentPhase.canFreeze);
 
-        if (currentPhase.anxietyMeterPrefab != null && anxietyMeterInstance == null)
+        if (currentPhase.anxietyMeterPrefab != null)
         {
-            anxietyMeterInstance = Instantiate(currentPhase.anxietyMeterPrefab);
+            anxietyMeterPrefab.SetActive(true);
            
         }
 
@@ -77,8 +76,6 @@ public class GameManager : MonoBehaviour
         {
             AudioManager.Instance.PlayMusic(currentPhase.musicClip);
         }
-
-
     }
 
 
