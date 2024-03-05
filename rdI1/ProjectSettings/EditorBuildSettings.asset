@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueScenes/Home/HomeIntro.unity
     guid: 689c94dc4e6667c4f869ffa1405ded13
   - enabled: 1
-    path: Assets/GymScenes/Home.unity
+    path: Assets/Scenes/Home.unity
     guid: dacfa74e4534a7d4a9b6c15015012fea
   - enabled: 1
     path: Assets/Scenes/DialogueScenes/Home/HomeOutro.unity
@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueScenes/School/Schoolntro.unity
     guid: 55a6c5b4e05fb854797b46bb310da74f
   - enabled: 1
-    path: Assets/GymScenes/School.unity
+    path: Assets/Scenes/School.unity
     guid: 0cd69e050eba749c8810cc60dbb736de
   - enabled: 1
     path: Assets/Scenes/DialogueScenes/School/SchoolOutro.unity
@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueScenes/Job/JobIntro.unity
     guid: 9bcd2d7b9096b24449637535fc225f7c
   - enabled: 1
-    path: Assets/GymScenes/Job.unity
+    path: Assets/Scenes/Job.unity
     guid: 605f6142116684ff79e9e19e8ca1df76
   - enabled: 1
     path: Assets/Scenes/DialogueScenes/Job/JobOutro.unity
@@ -42,7 +42,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueScenes/Party/PartyIntro.unity
     guid: f01de8923f07dbd40a24a94a25987367
   - enabled: 1
-    path: Assets/GymScenes/Party.unity
+    path: Assets/Scenes/Party.unity
     guid: 1716bfac881e84082a269db3f476d21a
   - enabled: 1
     path: Assets/Scenes/DialogueScenes/Party/PartyOutro.unity
