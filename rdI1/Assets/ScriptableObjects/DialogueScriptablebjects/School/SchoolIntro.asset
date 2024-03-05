@@ -119,4 +119,4 @@ MonoBehaviour:
       name: Narrator
       icon: {fileID: 21300000, guid: 8a000f066d30b3542958d1821e70a5a1, type: 3}
     line: Time to give him a piece of your mind!
-  NextScene: School
+  musicClip: {fileID: 8300000, guid: 7b76da7a05ac342198e4a935efa1e700, type: 3}

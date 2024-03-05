@@ -6,5 +6,6 @@ using UnityEngine;
 public class DialogueSceneScriptableObject : ScriptableObject
 {
     public List<DialogueLine> lines = new List<DialogueLine>();
-    
+    public AudioClip musicClip;
+
 }

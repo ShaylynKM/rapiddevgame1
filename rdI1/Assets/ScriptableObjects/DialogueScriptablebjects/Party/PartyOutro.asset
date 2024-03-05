@@ -141,4 +141,4 @@ MonoBehaviour:
       name: Narrator
       icon: {fileID: 21300000, guid: c0dcc3c89f9657f4fa125ec8d0aace9a, type: 3}
     line: You leave in search of somewhere that's anywhere but here.
-  NextScene: GameOutro
+  musicClip: {fileID: 8300000, guid: fdfca87152e0048db9f22e9cef713df7, type: 3}

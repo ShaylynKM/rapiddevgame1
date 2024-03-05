@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
                 return sceneConfigs.partyConfig;
           
             default:
-                Debug.LogError($"No configuration found for scene: {sceneName}");
+               
                 return null;
         }
     }

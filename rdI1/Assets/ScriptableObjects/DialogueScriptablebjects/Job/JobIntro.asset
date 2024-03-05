@@ -148,4 +148,4 @@ MonoBehaviour:
       name: Narrator
       icon: {fileID: 21300000, guid: ba52daa2615bf064ca1c76bb9972bd38, type: 3}
     line: You're a deer in the headlights.
-  NextScene: Job
+  musicClip: {fileID: 8300000, guid: fdb1ecd352dad48cd97cd917f29e6b1e, type: 3}

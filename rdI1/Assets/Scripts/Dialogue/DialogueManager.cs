@@ -55,14 +55,18 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(List<DialogueLine> dialogueLines)
     {
         Time.timeScale = 0;// Pauses the game by setting time scale to 0.
-        SeanAudioManager.Instance.Play(AudioNames.BackgroundMusic, true);
+
+        if (dialogueInformation.musicClip != null)
+        {
+            AudioManager.Instance.PlayMusic(dialogueInformation.musicClip);
+        }
 
         lines.Clear();
-        foreach (DialogueLine dialogueLine in dialogueLines)// Enqueue each line of the dialogue
+        foreach (DialogueLine dialogueLine in dialogueLines)
         {
             lines.Enqueue(dialogueLine);
         }
-        DisplayNextDialogueLine();// Starts displaying the dialogue lines.
+        DisplayNextDialogueLine();
     }
 
 
@@ -138,9 +142,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        SeanAudioManager.Instance.Stop(0); 
-
-  
+       
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
        
         int nextSceneIndex = currentSceneIndex + 1;
