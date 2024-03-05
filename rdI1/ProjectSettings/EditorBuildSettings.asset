@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/DialogueScenes/GameIntro.unity
-    guid: c62fbe79e18c1814a84f297b11d7bd10
-  - enabled: 1
     path: Assets/GymScenes/MainMenuGym.unity
     guid: de48a2d1624d3bf47be94a412ae9a206
+  - enabled: 1
+    path: Assets/Scenes/DialogueScenes/GameIntro.unity
+    guid: c62fbe79e18c1814a84f297b11d7bd10
   - enabled: 1
     path: Assets/Scenes/DialogueScenes/Home/HomeIntro.unity
     guid: 689c94dc4e6667c4f869ffa1405ded13
@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DialogueScenes/Party/PartyOutro.unity
     guid: bd9a3095e897b504ea86cbdd739c4004
+  - enabled: 1
+    path: Assets/Scenes/DialogueScenes/GameOutro.unity
+    guid: d91917c69d6de014e8ef34753acb6f6c
   m_configObjects: {}
