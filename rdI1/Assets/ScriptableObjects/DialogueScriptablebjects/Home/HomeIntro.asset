@@ -102,4 +102,12 @@ MonoBehaviour:
       icon: {fileID: 21300000, guid: 9e043186cdbf6104aa25e20fc00bb2be, type: 3}
     line: You're gonna have to dodge through this conversation if you wanna make
       it to class on time...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 9e043186cdbf6104aa25e20fc00bb2be, type: 3}
+    line: Do what you do best and AVOID talking!
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 9e043186cdbf6104aa25e20fc00bb2be, type: 3}
+    line: '[Dodge your parents'' attacks!]'
   musicClip: {fileID: 8300000, guid: 031bf5c8edbee41b7935e8155bda22cf, type: 3}

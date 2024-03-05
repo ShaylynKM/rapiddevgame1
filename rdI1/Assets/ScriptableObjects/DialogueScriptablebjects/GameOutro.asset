@@ -323,6 +323,6 @@ MonoBehaviour:
     line: You haven't decided yet.
   - character:
       name: Narrator
-      icon: {fileID: 21300000, guid: e4fe0b7e48fdb8640b99843f11909528, type: 3}
+      icon: {fileID: 21300000, guid: 4972009c3fe9971419b48545c0390ce6, type: 3}
     line: END
   musicClip: {fileID: 8300000, guid: fdfca87152e0048db9f22e9cef713df7, type: 3}
