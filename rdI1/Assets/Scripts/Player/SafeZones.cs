@@ -5,6 +5,7 @@ using UnityEngine;
 public class SafeZones : MonoBehaviour
 {
     public float anxietyThreshold = 0.8f;
+    public float waitingTime = 8f;
     public float hideDuration = 5f;
     public GameObject[] hidingSpots; // Array to store hiding spots
 
@@ -42,17 +43,21 @@ public class SafeZones : MonoBehaviour
         {
             float currentFill = anxietyMeter.currentFill;
 
-            if (currentFill >= anxietyThreshold)
+            if (currentFill >= anxietyThreshold && !playerController.isFrozen)
             {
                 SetHidingSpotActive(true);
+                StartCoroutine("Delay");
             }
-            else if(currentFill < anxietyThreshold && !playerController.isFrozen)
-            {
-                SetHidingSpotActive(false);
-                SetRandomHidingSpot();
-                playerHealth.gameObject.SetActive(true);
-            }
+            
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(waitingTime);
+        playerHealth.gameObject.SetActive(true);
+        SetHidingSpotActive(false);
+        SetRandomHidingSpot();
     }
 
     void SetHidingSpotActive(bool isActive)

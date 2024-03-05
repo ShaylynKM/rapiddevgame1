@@ -170,18 +170,13 @@ public class PlayerController : MonoBehaviour
 
     public void FreezePlayer()
     {
-        if(GameManager.Instance.CanFreeze)
-        {
-            isFrozen = true;
-        }
+        isFrozen = true;
     }
 
     public void UnfreezePlayer()
     {
-        if (GameManager.Instance.CanFreeze)
-        {
-            isFrozen = false;
-        }
+        isFrozen = false;
+        
     }
 
 }

@@ -19,4 +19,3 @@ MonoBehaviour:
   musicClip: {fileID: 8300000, guid: 2bc6ce2c850f44a40a1188a30d27f91d, type: 3}
   anxietyMeterPrefab: {fileID: 5486739139733267947, guid: a8f6568f1e2ea4f788a513b51ff5e6f9, type: 3}
   nextPhase: {fileID: 11400000, guid: 5bcb6d1e0a916469981d5622e4d4b3b5, type: 2}
-  NextScene: 0

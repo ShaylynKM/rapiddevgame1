@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0154234c6c0fc40a890616ae38922850, type: 3}
   m_Name: Party1
   m_EditorClassIdentifier: 
-  phaseDuration: 10
+  phaseDuration: 180
   canMove: 1
-  canShoot: 0
-  canFreeze: 0
+  canShoot: 1
+  canFreeze: 1
   musicClip: {fileID: 8300000, guid: 2bc6ce2c850f44a40a1188a30d27f91d, type: 3}
   anxietyMeterPrefab: {fileID: 0}
   nextPhase: {fileID: 11400000, guid: 621a79835a81243798ed24fb89b8bd55, type: 2}
-  NextScene: 0

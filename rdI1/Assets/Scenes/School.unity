@@ -3564,6 +3564,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   characterName: {fileID: 1892753899}
   dialogueArea: {fileID: 1501468297}
+  winScreen: {fileID: 0}
   typingSpeed: 0.1
 --- !u!4 &1421871491
 Transform:
@@ -3967,7 +3968,7 @@ MonoBehaviour:
   - {fileID: 1699980976}
   healItemCount: 3
   healSpawnInterval: 10
-  levelDuration: 10
+  levelDuration: 180
   countdownText: {fileID: 791646432}
 --- !u!4 &1629153192
 Transform:

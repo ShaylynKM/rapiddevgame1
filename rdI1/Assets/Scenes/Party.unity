@@ -1868,7 +1868,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anxietyThreshold: 0.7
-  hideDuration: 3
+  waitingTime: 8
+  hideDuration: 4
   hidingSpots:
   - {fileID: 1361491339}
   - {fileID: 1546544413}
@@ -3643,8 +3644,8 @@ MonoBehaviour:
   healPrefab: {fileID: 2915985567459786945, guid: 09c5b0050e2af4e7eb5f3864c4b5a15c, type: 3}
   healSpawnPoints: []
   healItemCount: 3
-  healSpawnInterval: 10
-  levelDuration: 40
+  healSpawnInterval: 8
+  levelDuration: 180
   countdownText: {fileID: 563601811}
 --- !u!4 &1638363680
 Transform:
