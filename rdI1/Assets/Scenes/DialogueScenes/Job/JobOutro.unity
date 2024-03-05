@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 1
-  bg: {fileID: 8300000, guid: 54e70c53d703e4583a9330598a27b2e7, type: 3}
+  bg: {fileID: 0}
   playerShoot: {fileID: 8300000, guid: 96c921fe888a841a29a019bf8eb3191d, type: 3}
   bossKill: {fileID: 8300000, guid: 783080d2d5a5f4b6b89adeecd73b3240, type: 3}
   playerKill: {fileID: 8300000, guid: a0ea2daf2b7fd4ea1a65873ec91d35a2, type: 3}
