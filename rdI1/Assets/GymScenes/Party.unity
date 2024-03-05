@@ -2447,6 +2447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dad8c1edd662441296358e19829911d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneConfigs: {fileID: 0}
   currentPhase: {fileID: 11400000, guid: aad622912729640b2bcd7d234498d0c7, type: 2}
   winScreen: {fileID: 12650050}
   anxietyMeterPrefab: {fileID: 5486739139733267947, guid: a8f6568f1e2ea4f788a513b51ff5e6f9, type: 3}
@@ -2808,6 +2809,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   characterName: {fileID: 1849235286}
   dialogueArea: {fileID: 1762554149}
+  winScreen: {fileID: 0}
   typingSpeed: 0.1
 --- !u!4 &1421871491
 Transform:
@@ -5038,6 +5040,22 @@ PrefabInstance:
       propertyPath: winMenu
       value: 
       objectReference: {fileID: 12650056}
+    - target: {fileID: 4994431930617646087, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646087, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_Size.y
+      value: 5.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646087, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 412aaf953a97d5049bf13ef868b2ab7c, type: 3}
+    - target: {fileID: 4994431930617646087, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_RootOrder
       value: 4

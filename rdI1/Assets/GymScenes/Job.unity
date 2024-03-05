@@ -2924,6 +2924,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1286390209}
     m_Modifications:
+    - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 5.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 5.88
+      objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: healthBar
       value: 
@@ -2936,6 +2952,22 @@ PrefabInstance:
       propertyPath: winMenu
       value: 
       objectReference: {fileID: 276349146}
+    - target: {fileID: 4994431930617646087, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646087, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_Size.y
+      value: 5.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994431930617646087, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 412aaf953a97d5049bf13ef868b2ab7c, type: 3}
+    - target: {fileID: 4994431930617646087, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2954,7 +2986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3544,6 +3576,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   characterName: {fileID: 313384383}
   dialogueArea: {fileID: 1880884484}
+  winScreen: {fileID: 0}
   typingSpeed: 0.1
 --- !u!4 &1081608278
 Transform:
