@@ -160,5 +160,9 @@ MonoBehaviour:
   - character:
       name: Narrator
       icon: {fileID: 21300000, guid: 5d6256f264de6ba4cb863e48082a8fb0, type: 3}
-    line: ... but if he pushes you too far, this might start a FIGHT.
+    line: You're so stressed. You still feel like you're going to FREEZE.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5d6256f264de6ba4cb863e48082a8fb0, type: 3}
+    line: If he pushes you too far, this will lead to a FIGHT.
   musicClip: {fileID: 8300000, guid: bad09f9df33a448d9abeea45649d91a7, type: 3}
