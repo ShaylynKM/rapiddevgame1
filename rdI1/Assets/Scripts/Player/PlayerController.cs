@@ -27,9 +27,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection = Vector2.zero;
 
 
+    // Shaylyn's additions
+    private float fireRate = 0.2f; // How fast the player can shoot
+    private float timeSinceFire = 0f; // Keeps track of when the player last fired
+
     void Start()
     {
         //AudioManager.Instance.Play(0, "bossFight", true);
+
+        timeSinceFire = Time.time + fireRate; // Changes rate of fire to 5 shots per second
     }
 
     void Update()
@@ -153,7 +159,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0) && !isFrozen)
+        if (Input.GetMouseButton(0) && !isFrozen && Time.time > timeSinceFire) // Changed to holding LMB; added a restriction to rate of fire
         {
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             Rigidbody2D rbProjectile = projectile.GetComponent<Rigidbody2D>();
@@ -163,6 +169,8 @@ public class PlayerController : MonoBehaviour
 
             float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            timeSinceFire = Time.time + fireRate; // Resets the fire rate timer
 
             Destroy(projectile, shootDistance / projectileSpeed);
         }
