@@ -2798,7 +2798,7 @@ MonoBehaviour:
   - {fileID: 1182330064}
   healItemCount: 3
   healSpawnInterval: 10
-  levelDuration: 180
+  levelDuration: 60
   countdownText: {fileID: 1345377481}
 --- !u!4 &1602598114
 Transform:
