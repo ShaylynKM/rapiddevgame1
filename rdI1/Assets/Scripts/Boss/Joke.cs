@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Joke : MonoBehaviour
 {
-    public BossHealth bossHealth;
+    public JerryHealth bossHealth;
     public bool isGoodJoke; // indicates if it's a good joke
     public Transform playerTransform;// Player's Transform
     public float speed = 10f; 
@@ -12,7 +12,7 @@ public class Joke : MonoBehaviour
     
     void Start()
     {
-        bossHealth = FindObjectOfType<BossHealth>();
+        bossHealth = FindObjectOfType<JerryHealth>();
         
     }
 

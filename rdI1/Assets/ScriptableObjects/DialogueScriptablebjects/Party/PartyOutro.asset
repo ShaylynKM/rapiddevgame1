@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdb4bc98dc3a264f9774e0300a94bb1, type: 3}
+  m_Name: PartyOutro
+  m_EditorClassIdentifier: 
+  lines:
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 2cbe3678b85791945a17ef2c154f4796, type: 3}
+    line: You're such a jerk! What is wrong with you!?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 760211f278dbd9044abed653ee74a684, type: 3}
+    line: ...
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 2cbe3678b85791945a17ef2c154f4796, type: 3}
+    line: Why do you make fun of me every time I see you!?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 2cbe3678b85791945a17ef2c154f4796, type: 3}
+    line: What did I ever do to you!?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 2cbe3678b85791945a17ef2c154f4796, type: 3}
+    line: Go pick on someone else; I'm sick of you!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 760211f278dbd9044abed653ee74a684, type: 3}
+    line: You're not funny!
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: afd30b75325dea445a03940efc21a393, type: 3}
+    line: ...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: f0e0dcb0764dc0845ad2a036f6bac7a9, type: 3}
+    line: You can hear a pin drop.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: f0e0dcb0764dc0845ad2a036f6bac7a9, type: 3}
+    line: This isn't gonna be a repeat of what happened at school, is it?
+  - character:
+      name: Guy
+      icon: {fileID: 21300000, guid: c238a224fb739c54792c1decee5af42e, type: 3}
+    line: ... Yeah, man, you are kind of a jerk.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 92da3f0ad6bba76429753ea818c54a41, type: 3}
+    line: Huh!?
+  - character:
+      name: Guy
+      icon: {fileID: 21300000, guid: f0e0dcb0764dc0845ad2a036f6bac7a9, type: 3}
+    line: I saw you picking on her.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 32bb0cc77720f56429b1ee28d3cbad2d, type: 3}
+    line: ...
+  - character:
+      name: Guy
+      icon: {fileID: 21300000, guid: 92da3f0ad6bba76429753ea818c54a41, type: 3}
+    line: That ain't cool.
+  - character:
+      name: Dude
+      icon: {fileID: 21300000, guid: 2f50333ba91c0834fad06697dc7f7940, type: 3}
+    line: Yeah, totes not cool, bro.
+  - character:
+      name: Dude
+      icon: {fileID: 21300000, guid: 2f50333ba91c0834fad06697dc7f7940, type: 3}
+    line: And here I thought you were cool (for a programmer.)
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 4097fd64ffcfc6541bb74f58d9ce3f17, type: 3}
+    line: Hey, what does that mean?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 66215d5834f9d374eb08daafcac997dd, type: 3}
+    line: I wasn't--
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 66215d5834f9d374eb08daafcac997dd, type: 3}
+    line: I just banter with them--
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 66215d5834f9d374eb08daafcac997dd, type: 3}
+    line: It's all in good fun, I--
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 712c35fa2436ce14abbbab88f6b9a156, type: 3}
+    line: Clearly, it's not!
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 492c6c4167687a94db20c09c22590fc8, type: 3}
+    line: I...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 492c6c4167687a94db20c09c22590fc8, type: 3}
+    line: I didn't...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 492c6c4167687a94db20c09c22590fc8, type: 3}
+    line: ...
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 492c6c4167687a94db20c09c22590fc8, type: 3}
+    line: I'm...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: b51095ea234eacd45be3e4d705571a8f, type: 3}
+    line: ...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: b51095ea234eacd45be3e4d705571a8f, type: 3}
+    line: Jerry disappears into the crowd.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: b51095ea234eacd45be3e4d705571a8f, type: 3}
+    line: You should feel validated, but you just feel... weird.
+  - character:
+      name: Guy
+      icon: {fileID: 21300000, guid: 9bef0d70a6ee2b443a90b4d17aab054f, type: 3}
+    line: Don't worry about him. Nice to meet you, by the way.
+  - character:
+      name: Dude
+      icon: {fileID: 21300000, guid: 9bef0d70a6ee2b443a90b4d17aab054f, type: 3}
+    line: Yeah! You seem pretty cool! For an art student.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 9d7439be6da11e14b8fa7e7c0a474507, type: 3}
+    line: What does that... Ugh, never mind.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: c0dcc3c89f9657f4fa125ec8d0aace9a, type: 3}
+    line: You leave in search of somewhere that's anywhere but here.
+  musicClip: {fileID: 8300000, guid: a6a02a566138bb545a41d7aae5da7aa5, type: 3}

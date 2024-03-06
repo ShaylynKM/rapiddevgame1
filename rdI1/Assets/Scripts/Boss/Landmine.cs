@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Landmine : MonoBehaviour
@@ -11,11 +12,33 @@ public class Landmine : MonoBehaviour
     public float bombFuseTime = 1f;
     public float spawnInterval = 10f;
 
-    void Start()
+    private List<GameObject> bombs = new List<GameObject>();
+
+    private bool isActivated = false;
+
+    public float ActivationDelay = 15f;
+
+    
+    void Update()
     {
-        InvokeRepeating("SpawnBombsRandomly", 5f, spawnInterval);
+        if (!isActivated && ActivationDelay > 0)
+        {
+            ActivationDelay -= Time.deltaTime;
+            if (ActivationDelay <= 0)
+            {
+                Activate();
+                isActivated = true;
+            }
+        }
     }
 
+  
+    public void SetActivationDelay(float delay)
+    {
+        ActivationDelay = delay;
+    }
+
+    
     public void Activate()
     {
         SpawnBombsRandomly();

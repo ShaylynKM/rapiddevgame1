@@ -9,15 +9,45 @@ EditorBuildSettings:
     path: Assets/GymScenes/MainMenuGym.unity
     guid: de48a2d1624d3bf47be94a412ae9a206
   - enabled: 1
-    path: Assets/GymScenes/Home.unity
+    path: Assets/Scenes/IntroAndOutro/GameIntro.unity
+    guid: c62fbe79e18c1814a84f297b11d7bd10
+  - enabled: 1
+    path: Assets/Scenes/Home/HomeIntro.unity
+    guid: 689c94dc4e6667c4f869ffa1405ded13
+  - enabled: 1
+    path: Assets/Scenes/Home/Home.unity
     guid: dacfa74e4534a7d4a9b6c15015012fea
   - enabled: 1
-    path: Assets/GymScenes/School.unity
+    path: Assets/Scenes/Home/HomeOutro.unity
+    guid: 6df3853e4ab269046a257372d12e6cb6
+  - enabled: 1
+    path: Assets/Scenes/School/Schoolntro.unity
+    guid: 55a6c5b4e05fb854797b46bb310da74f
+  - enabled: 1
+    path: Assets/Scenes/School/School.unity
     guid: 0cd69e050eba749c8810cc60dbb736de
   - enabled: 1
-    path: Assets/GymScenes/Job.unity
+    path: Assets/Scenes/School/SchoolOutro.unity
+    guid: 5880fb5bc79d48e4bbbb0ea192e746e7
+  - enabled: 1
+    path: Assets/Scenes/Job/JobIntro.unity
+    guid: 9bcd2d7b9096b24449637535fc225f7c
+  - enabled: 1
+    path: Assets/Scenes/Job/Job.unity
     guid: 605f6142116684ff79e9e19e8ca1df76
   - enabled: 1
-    path: Assets/GymScenes/Party.unity
+    path: Assets/Scenes/Job/JobOutro.unity
+    guid: c46c1773722937844b6eea0d25188bdc
+  - enabled: 1
+    path: Assets/Scenes/Party/PartyIntro.unity
+    guid: f01de8923f07dbd40a24a94a25987367
+  - enabled: 1
+    path: Assets/Scenes/Party/Party.unity
     guid: 1716bfac881e84082a269db3f476d21a
+  - enabled: 1
+    path: Assets/Scenes/Party/PartyOutro.unity
+    guid: bd9a3095e897b504ea86cbdd739c4004
+  - enabled: 1
+    path: Assets/Scenes/IntroAndOutro/GameOutro.unity
+    guid: d91917c69d6de014e8ef34753acb6f6c
   m_configObjects: {}

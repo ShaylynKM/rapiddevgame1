@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 3f;
+    private float moveSpeed = 5f;
     public float sprintSpeedMultiplier = 2f;
 
-    public float freezeDuration = 5f;
+    
     public GameObject projectilePrefab;
-    public GameObject freezeProjectilePrefab;
+   
     public float projectileSpeed = 10.0f;
     public float shootDistance = 4f;
 
@@ -22,39 +22,25 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 shootDirection = Vector2.up;
     public bool isFrozen = false;
-    private float freezeTimer = 0f;
-
+  
     public Rigidbody2D rb;
     private Vector2 moveDirection = Vector2.zero;
 
 
     void Start()
     {
-        AudioManager.Instance.Play(0, "bossFight", true);
+        //AudioManager.Instance.Play(0, "bossFight", true);
     }
 
     void Update()
     {
-        if (DialogueManager.Instance.isDialogueActive)
-        {
-            return; // Stop all actions if dialogue is active
-        }
 
-        if (isFrozen)
-        {
-            freezeTimer += Time.deltaTime;
-
-            if (freezeTimer >= freezeDuration)
-            {
-                UnfreezePlayer();
-            }
-        }
-        else if (GameManager.Instance.CanMove)
+        if (!isFrozen && GameManager.Instance.CanMove)
         {
             HandleMovement();
         }
 
-        
+
         ProcessInputs();
 
         HandleShooting(projectilePrefab);
@@ -63,46 +49,30 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        float moveX = 0f;
-        float moveY = 0f;
+       
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        moveDirection = new Vector2(moveX, moveY).normalized;
 
-        if (!isFrozen)
-        {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                moveX = -1f;
-                spriteRenderer.sprite = leftSprite;
-            }
-            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            {
-                moveX = 1f;
-                spriteRenderer.sprite = rightSprite;
-            }
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            {
-                moveY = 1f;
-                spriteRenderer.sprite = upSprite;
-            }
-            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            {
-                moveY = -1f;
-                spriteRenderer.sprite = downSprite;
-            }
-        }
-
-        Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
-
-
-        transform.position += new Vector3(moveDirection.x, moveDirection.y, 0) * moveSpeed * Time.deltaTime;
-
-
+        
         if (moveDirection != Vector2.zero)
         {
+            UpdateSpriteDirection(moveDirection);
             shootDirection = moveDirection;
+        }
+
+        
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.velocity = moveDirection * moveSpeed * sprintSpeedMultiplier;
+        }
+        else
+        {
+            rb.velocity = moveDirection * moveSpeed;
         }
     }
 
-    
+
 
     void ProcessInputs()
     {
@@ -132,7 +102,7 @@ public class PlayerController : MonoBehaviour
             UpdateSpriteDirection(moveDirection);
         }
 
-        if (Input.GetMouseButton(0)) 
+        if (Input.GetMouseButton(0))
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 directionToMouse = (mousePosition - transform.position).normalized;
@@ -155,7 +125,6 @@ public class PlayerController : MonoBehaviour
 
     void UpdateSpriteDirection(Vector2 direction)
     {
-       
         if (direction == Vector2.left)
         {
             spriteRenderer.sprite = leftSprite;
@@ -179,7 +148,7 @@ public class PlayerController : MonoBehaviour
     void HandleShooting(GameObject projectilePrefab)
     {
 
-        if (isFrozen || DialogueManager.Instance.isDialogueActive || !GameManager.Instance.CanShoot)
+        if (isFrozen|| !GameManager.Instance.CanShoot)
         {
             return;
         }
@@ -190,7 +159,7 @@ public class PlayerController : MonoBehaviour
             Rigidbody2D rbProjectile = projectile.GetComponent<Rigidbody2D>();
             rbProjectile.velocity = shootDirection * projectileSpeed;
 
-            AudioManager.Instance.Play(1, "PlayerShoot", false);
+            AudioManager.Instance.Play(2, "PlayerShoot", false);
 
             float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -207,6 +176,7 @@ public class PlayerController : MonoBehaviour
     public void UnfreezePlayer()
     {
         isFrozen = false;
+        
     }
 
 }

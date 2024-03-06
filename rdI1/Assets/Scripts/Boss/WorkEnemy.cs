@@ -13,42 +13,38 @@ public class WorkEnemy : MonoBehaviour
     public float spawnInterval = 1.0f;
 
     public float moveSpeed = 2f; 
-    public float moveDistance = 5f; 
-
-    private Vector2 startPosition;
-    private bool movingRight = true;
+    public float moveDistance = 5f;
+    public Transform[] waypoints;
+    private int currentWaypointIndex = 0;
 
     void Start()
     {
+        if (waypoints.Length > 0)
+        {
+            transform.position = waypoints[0].position;
+        }
         currentProjectileSpeed = initialProjectileSpeed; 
-        startPosition = transform.position;
+       
         StartCoroutine(SpawnProjectileCycle());
     }
 
     void Update()
     {
-        MoveEnemy();
-       
+        MoveAroundWaypoints();
+
         currentProjectileSpeed = Mathf.Min(currentProjectileSpeed + speedIncreaseRate * Time.deltaTime, maxProjectileSpeed);
     }
 
-    void MoveEnemy()
+    void MoveAroundWaypoints()
     {
-        if (movingRight)
+        if (waypoints.Length == 0) return;
+
+        Transform targetWaypoint = waypoints[currentWaypointIndex];
+        transform.position = Vector2.MoveTowards(transform.position, targetWaypoint.position, moveSpeed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, targetWaypoint.position) < 0.1f)
         {
-            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-            if (transform.position.x > startPosition.x + moveDistance)
-            {
-                movingRight = false;
-            }
-        }
-        else
-        {
-            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
-            if (transform.position.x < startPosition.x - moveDistance)
-            {
-                movingRight = true;
-            }
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
     }
 

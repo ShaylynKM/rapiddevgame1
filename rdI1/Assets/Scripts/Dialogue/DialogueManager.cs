@@ -9,124 +9,115 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
-    //private static bool dialoguePlayed = false;
+    public static DialogueManager Instance;// Singleton pattern to ensure only one instance exists.
+    #region Serialized Fields
+    [SerializeField]
+    DialogueSceneScriptableObject dialogueInformation;
+    [SerializeField]
+    GameObject dialogueBox;// UI panel containing dialogue text and character name/icon.
 
-    public static DialogueManager Instance;
+    [SerializeField]
+    Image backgroundImage; // UI element for displaying background icon during dialogue.
+    [SerializeField]
+    TextMeshProUGUI characterName; // Displays the name of the speaking character.
+    [SerializeField]
+    TextMeshProUGUI dialogueArea; // Where the dialogue text is shown.
+    [SerializeField]
+    public Action OnDialogueComplete; // Event triggered when dialogue is complete.
+    #endregion
 
-    private static Dictionary<string, bool> playedDialogues = new Dictionary<string, bool>();
+
+    private static Dictionary<string, bool> playedDialogues = new Dictionary<string, bool>();// Tracks dialogues that have already been played per scene.
 
     private bool completeCurrentSentence = false;
 
-    public GameObject dialogueBox;
+    public GameObject winScreen;
 
-    public Image characterIcon;
-    public TextMeshProUGUI characterName;
-    public TextMeshProUGUI dialogueArea;
-    public event Action OnDialogueComplete;
+    private Queue<DialogueLine> lines;// Queue to hold all dialogue lines for the current dialogue session.
 
-    private Queue<DialogueLine> lines;
-    
-    public bool isDialogueActive = false;
+    public float typingSpeed = 0.01f;// Speed at which characters are shown in the dialogue box.
 
-    public float typingSpeed = 0.01f;
-
-    private bool isTyping;
+    private bool isTyping;// Flag to check if the text is currently being typed out.
 
 
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-        lines = new Queue<DialogueLine>();
-
+        lines = new Queue<DialogueLine>(); // Initialize the queue
 
     }
-
-    public bool IsDialogueActive()
+    private void Start()
     {
-        return isDialogueActive;
+        StartDialogue(dialogueInformation.lines);
     }
 
-    public void StartDialogue(Dialogue dialogue)
+
+    public void StartDialogue(List<DialogueLine> dialogueLines)
     {
-        string sceneName = SceneManager.GetActiveScene().name;
+        Time.timeScale = 0;// Pauses the game by setting time scale to 0.
 
-
-        if (!playedDialogues.ContainsKey(sceneName) || !playedDialogues[sceneName])
+        if (dialogueInformation.musicClip != null)
         {
-            playedDialogues[sceneName] = true; 
-
-            isDialogueActive = true;
-            dialogueBox.SetActive(true);
-            Time.timeScale = 0;
-            AudioManager.Instance.Play(0, "bg", true);
-
-            lines.Clear();
-            foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
-            {
-                lines.Enqueue(dialogueLine);
-            }
-
-
-            GameManager gameManager = FindObjectOfType<GameManager>();
-            if (gameManager != null)
-            {
-                gameManager.HideCountdownTimer();
-            }
-
-            DisplayNextDialogueLine();
+            AudioManager.Instance.PlayMusic(dialogueInformation.musicClip);
         }
+
+        lines.Clear();
+        foreach (DialogueLine dialogueLine in dialogueLines)
+        {
+            lines.Enqueue(dialogueLine);
+        }
+        DisplayNextDialogueLine();
     }
 
 
     public void OnButtonClick()
     {
-        if (isDialogueActive)
-        {
-            DisplayNextDialogueLine();
-        }
+        Debug.Log("Button was clicked");
+        // If the dialogue box is clicked or a button is pressed, display the next line.
+        DisplayNextDialogueLine();
     }
 
 
     public void DisplayNextDialogueLine()
     {
+        // If currently typing, complete the current sentence immediately
         if (isTyping)
         {
-            completeCurrentSentence = true;
+            completeCurrentSentence = true;// Ensures the current typing coroutine is stopped in TypeSentence coroutine.
             return;
         }
 
+        // If there are no more lines to display, end the dialogue.
         if (lines.Count == 0)
         {
             EndDialogue();
             return;
         }
 
+        // Dequeues the next line and updates UI elements accordingly.
         DialogueLine currentLine = lines.Dequeue();
-        characterIcon.sprite = currentLine.character.icon;
+        backgroundImage.sprite = currentLine.character.icon;
         characterName.text = currentLine.character.name;
 
-        StopAllCoroutines();
+        // Starts typing out the next dialogue line.
+        StopAllCoroutines();// Ensures no other typing coroutines are running.
         StartCoroutine(TypeSentence(currentLine));
     }
 
 
     IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
-        dialogueArea.text = "";
+        dialogueArea.text = "";// Clears the current text.
         isTyping = true;
         completeCurrentSentence = false;
 
+        // Types out each character in the dialogue line at the specified typing speed
         foreach (char letter in dialogueLine.line.ToCharArray())
         {
             if (completeCurrentSentence)
             {
-                dialogueArea.text = dialogueLine.line; 
-                break; 
+                dialogueArea.text = dialogueLine.line;
+                break;
             }
             else
             {
@@ -135,65 +126,47 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        isTyping = false;
-        completeCurrentSentence = false; 
+        isTyping = false;// Indicates that typing is complete.
+        completeCurrentSentence = false;
     }
-
-
-
-    private void CompleteSentence()
-    {
-        StopAllCoroutines();
-
-        if (lines.Count > 0)
-        {
-            DialogueLine currentLine = lines.Peek();
-            dialogueArea.text = currentLine.line;
-            isTyping = false;
-
-            // remove the current row and prepare to display the next row
-            lines.Dequeue();
-
-            if (lines.Count == 0)
-            {
-                EndDialogue();
-            }
-        }
-    }
-
 
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Z) && isDialogueActive)
+        // Checks for user input to display the next dialogue line.
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             DisplayNextDialogueLine();
         }
     }
 
 
-    void EndDialogue()
+    public void EndDialogue()
     {
-        isDialogueActive = false;
-        dialogueBox.SetActive(false);
-        Time.timeScale = 1; // Resume game
+       
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+       
+        int nextSceneIndex = currentSceneIndex + 1;
 
-        AudioManager.Instance.Stop(0);
-        AudioManager.Instance.Play(0, "bossFight", false);
-
-        OnDialogueComplete?.Invoke();
-
-        AnxietyMeter anxietyMeter = FindObjectOfType<AnxietyMeter>();
-        if (anxietyMeter != null)
+      
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            anxietyMeter.ActivateMeter();
+          
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            ShowWinScreen();
+            Debug.Log("You've completed all levels!");
+
         }
 
-        GameManager gameManager = FindObjectOfType<GameManager>();
-        if (gameManager != null)
-        {
-            gameManager.ShowCountdownTimer();
-        }
+        Time.timeScale = 1.0f;
+    }
+
+    private void ShowWinScreen()
+    {
+        winScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
 

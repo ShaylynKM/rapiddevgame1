@@ -5,18 +5,18 @@ using UnityEngine;
 public class SafeZones : MonoBehaviour
 {
     public float anxietyThreshold = 0.8f;
+    public float waitingTime = 8f;
     public float hideDuration = 5f;
-    public GameObject[] hidingSpots; 
+    public GameObject[] hidingSpots; // Array to store hiding spots
 
     private AnxietyMeter anxietyMeter;
-    private PlayerHealth playerHealth; 
-    public GameObject activeSpot;
-    private SpriteRenderer activeSpotRenderer; 
-
-    private List<SpriteRenderer> safeZoneRenderers; 
+    private PlayerController playerController;
+    private PlayerHealth playerHealth; // Reference to the PlayerHealth script
+    private GameObject activeSpot; // Currently active hiding spot
 
     void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
         anxietyMeter = FindObjectOfType<AnxietyMeter>();
         if (anxietyMeter == null)
         {
@@ -29,15 +29,9 @@ public class SafeZones : MonoBehaviour
             Debug.LogError("PlayerHealth component not found in the scene.");
         }
 
-        safeZoneRenderers = new List<SpriteRenderer>();
-
         foreach (GameObject spot in hidingSpots)
         {
-            SpriteRenderer renderer = spot.GetComponent<SpriteRenderer>();
-            if (renderer != null)
-            {
-                safeZoneRenderers.Add(renderer);
-            }
+            spot.SetActive(false);
         }
 
         SetRandomHidingSpot();
@@ -49,37 +43,28 @@ public class SafeZones : MonoBehaviour
         {
             float currentFill = anxietyMeter.currentFill;
 
-            if (currentFill >= anxietyThreshold)
+            if (currentFill >= anxietyThreshold && !playerController.isFrozen)
             {
                 SetHidingSpotActive(true);
+                StartCoroutine("Delay");
             }
-            else
-            {
-                SetHidingSpotActive(false);
-                SetRandomHidingSpot();
-                playerHealth.gameObject.SetActive(true);
-            }
+            
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(waitingTime);
+        playerHealth.gameObject.SetActive(true);
+        SetHidingSpotActive(false);
+        SetRandomHidingSpot();
     }
 
     void SetHidingSpotActive(bool isActive)
     {
-        float targetOpacity = isActive ? 1f : 0.3f;
-
-        foreach (SpriteRenderer renderer in safeZoneRenderers)
+        if (activeSpot != null)
         {
-            if (renderer == activeSpotRenderer)
-            {
-                Color newColor = renderer.color;
-                newColor.a = targetOpacity;
-                renderer.color = newColor;
-            }
-            else
-            {
-                Color newColor = renderer.color;
-                newColor.a = 0.3f;
-                renderer.color = newColor;
-            }
+            activeSpot.SetActive(isActive);
         }
     }
 
@@ -89,7 +74,6 @@ public class SafeZones : MonoBehaviour
 
         int randomIndex = Random.Range(0, hidingSpots.Length);
         activeSpot = hidingSpots[randomIndex];
-        activeSpotRenderer = activeSpot.GetComponent<SpriteRenderer>();
     }
 
     public void PlayerEntered()
@@ -105,4 +89,5 @@ public class SafeZones : MonoBehaviour
         playerHealth.enabled = true;
         playerHealth.SetHiding(false);
     }
+
 }

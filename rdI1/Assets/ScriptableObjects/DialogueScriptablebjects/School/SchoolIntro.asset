@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdb4bc98dc3a264f9774e0300a94bb1, type: 3}
+  m_Name: SchoolIntro
+  m_EditorClassIdentifier: 
+  lines:
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 664da50999c407b4292ceb7eafd3c35b, type: 3}
+    line: You walk to class, trying to put thoughts of your parents' disappointment
+      out of your mind,
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 664da50999c407b4292ceb7eafd3c35b, type: 3}
+    line: not to mention Jerry's outgoing nature giving him a natural edge over you.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: d1525e9d2c426de49ae5c5eb51284305, type: 3}
+    line: You happen upon a student from a different term lecturing your classmate.
+  - character:
+      name: Bully
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: Seriously? You can't draw in eight-point perspective?
+  - character:
+      name: Classmate
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: No? That doesn't exist.
+  - character:
+      name: Bully
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: HA! Okay, freshman, if you say so.
+  - character:
+      name: Bully
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: How are you ever going to learn to draw in fourteen-point perspective if
+      that is your attitude about it?
+  - character:
+      name: Classmate
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: What? But you just said a few minutes ago there's up to eight-point perspective.
+  - character:
+      name: Classmate
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: What do you mean fourteen!?
+  - character:
+      name: Bully
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: Uhh, noo, I said that *I* can draw up to eight-point perspective.
+  - character:
+      name: Bully
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: There are at *least* eight types of perspective, ranging *up* to fourteen.
+  - character:
+      name: Bully
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: If you cannot comprehend that, then maybe you don't deserve to be here!
+  - character:
+      name: Classmate
+      icon: {fileID: 21300000, guid: 9323a44ec48da8740b252254085721ea, type: 3}
+    line: ... What are you talking about? How many-- what?
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 41dc0984f0577574c99828e6ebe4bbcf, type: 3}
+    line: What a load of BS.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: e4f20e412b2c54f4fa9d6e9208e2bd80, type: 3}
+    line: HEY!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 5cfbab6c7629a7b499c4cf8d4201533a, type: 3}
+    line: ...
+  - character:
+      name: Them
+      icon: {fileID: 21300000, guid: a7da1d47b5db74d46bee8b57455281dc, type: 3}
+    line: ...
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: aacb429d934900a4db5e46bad8677f15, type: 3}
+    line: Th-that isn't...
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: aacb429d934900a4db5e46bad8677f15, type: 3}
+    line: ... i-it's not up to you to--
+  - character:
+      name: Bully
+      icon: {fileID: 21300000, guid: 047b1c043437f6740b429ba4cab4750b, type: 3}
+    line: Not up to me to what?
+  - character:
+      name: Bully
+      icon: {fileID: 21300000, guid: a637bf5e7f2df8e40a7384640c5f0902, type: 3}
+    line: Tell my fellow students what is UP?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 047b1c043437f6740b429ba4cab4750b, type: 3}
+    line: ...
+  - character:
+      name: Bully
+      icon: {fileID: 21300000, guid: 0d4835faac196a74297076e4d1e505a8, type: 3}
+    line: Well, I'd just loooove to hear what YOU have to say on the matter.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 8a000f066d30b3542958d1821e70a5a1, type: 3}
+    line: Uh-oh. You've officially stuck your nose into someone else's business.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 8a000f066d30b3542958d1821e70a5a1, type: 3}
+    line: You aren't gonna let this behaviour slide, though.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 8a000f066d30b3542958d1821e70a5a1, type: 3}
+    line: Time to give him a piece of your mind!
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 8a000f066d30b3542958d1821e70a5a1, type: 3}
+    line: '[You''ve entered a FIGHT!]'
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 8a000f066d30b3542958d1821e70a5a1, type: 3}
+    line: '[LMB to shoot down your opponent''s attacks.]'
+  musicClip: {fileID: 8300000, guid: 7b76da7a05ac342198e4a935efa1e700, type: 3}

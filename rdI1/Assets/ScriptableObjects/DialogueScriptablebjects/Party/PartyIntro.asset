@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdb4bc98dc3a264f9774e0300a94bb1, type: 3}
+  m_Name: PartyIntro
+  m_EditorClassIdentifier: 
+  lines:
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 095f1a37976240e44af037011d73dc3a, type: 3}
+    line: That night, you arrive at the party your childhood friend dragged you to.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 095f1a37976240e44af037011d73dc3a, type: 3}
+    line: She's probably off kissing someone on the lips or something, so you're
+      alone.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 095f1a37976240e44af037011d73dc3a, type: 3}
+    line: There are way too many people here. You feel overwhelmed already.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 744b764c249f9af46a87979c4eb7e27f, type: 3}
+    line: Wait...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 68faf6210e5870742b15d378131eb883, type: 3}
+    line: Oh god, is that...?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 60760bef5269431468ba2f4e0358af2a, type: 3}
+    line: HEY! PLAYE!
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 7a4dce608a8ad9247808bbf15d2b2b4b, type: 3}
+    line: Oh my god.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 7a4dce608a8ad9247808bbf15d2b2b4b, type: 3}
+    line: Oh no.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 7a4dce608a8ad9247808bbf15d2b2b4b, type: 3}
+    line: No.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 26d2d33a751b7cf46b469be48b935295, type: 3}
+    line: Ay, what's up, Short Stack?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 26d2d33a751b7cf46b469be48b935295, type: 3}
+    line: You look so stiff.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 26d2d33a751b7cf46b469be48b935295, type: 3}
+    line: Too much painting? Hahaha.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: f46692c2b02365846ba3505535912b76, type: 3}
+    line: I don't paint. Graphic design.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: f46692c2b02365846ba3505535912b76, type: 3}
+    line: Remember?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: edd2726ab1d98e84c93f394e4f03530a, type: 3}
+    line: Yeah, yeah. Haven't seen you in forever!
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: edd2726ab1d98e84c93f394e4f03530a, type: 3}
+    line: How's the weather down there?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 77d0deecba4dd9b438099995936bae39, type: 3}
+    line: '*Delightful.*'
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 81e120bfcf8b44647ad4b6b06cde51f2, type: 3}
+    line: Should be nice and temperate since cold rises!
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 44b4479705730f347ad255406e7e2553, type: 3}
+    line: Heat rises.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 826d8e01c4c29154694385c6866e1ec3, type: 3}
+    line: Mhm. So, how's art school going? You hung any bread slices from the ceiling
+      yet?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 235e7d628d582ee489852f9db237eb4a, type: 3}
+    line: ... What????
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: c194e3be75b70574f81012e816207b00, type: 3}
+    line: That's what you guys do, right?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: c194e3be75b70574f81012e816207b00, type: 3}
+    line: I'm just a software developer; I wouldn't know!
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 9897c3c8daa7cae4198dc47322b5a96a, type: 3}
+    line: Hahahahahaahahahahhaahah!
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: be5f5dceffe912941bc86b8248549367, type: 3}
+    line: Did you know I just got a job at Pretentious Software?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: b8e2ce62f6b3ad140ab18100e94e564e, type: 3}
+    line: Yup, I saw.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: b8e2ce62f6b3ad140ab18100e94e564e, type: 3}
+    line: Uhh, congrats...!
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 0e9bcc5489f1bde47b280ecec510096d, type: 3}
+    line: Such a company. What a place. Wow.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: 826d8e01c4c29154694385c6866e1ec3, type: 3}
+    line: Where do you work again?
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 98864a01c4ce64345b4f3c6d022b4128, type: 3}
+    line: SillyMart.
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: edd2726ab1d98e84c93f394e4f03530a, type: 3}
+    line: Ohhh! Don't worry, Playe, you'll get a job drawing pretty pictures soon
+      enough.
+  - character:
+      name: You
+      icon: {fileID: 21300000, guid: 0ba46753815f2934d99ce87e6c3ade64, type: 3}
+    line: Thanks...?
+  - character:
+      name: Jerry
+      icon: {fileID: 21300000, guid: c194e3be75b70574f81012e816207b00, type: 3}
+    line: I hope you don't feel like you got the... short end of the stick! HAHAHA!
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5d6256f264de6ba4cb863e48082a8fb0, type: 3}
+    line: It's hardly been a minute and you're already sick of this guy. Track record
+      for being annoying.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5d6256f264de6ba4cb863e48082a8fb0, type: 3}
+    line: Maybe if you AVOID being too enthusiastic, he'll leave you alone...
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5d6256f264de6ba4cb863e48082a8fb0, type: 3}
+    line: You're so stressed. You still feel like you're going to FREEZE.
+  - character:
+      name: Narrator
+      icon: {fileID: 21300000, guid: 5d6256f264de6ba4cb863e48082a8fb0, type: 3}
+    line: If he pushes you too far, this will lead to a FIGHT.
+  musicClip: {fileID: 8300000, guid: bad09f9df33a448d9abeea45649d91a7, type: 3}

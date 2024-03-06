@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 70854237787463925}
   - component: {fileID: 70854237787463926}
   - component: {fileID: 4509265987146461095}
-  - component: {fileID: 70854237787463927}
+  - component: {fileID: 2744655614643424524}
   m_Layer: 0
   m_Name: ParentsEnemy
   m_TagString: Boss
@@ -148,13 +148,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  naggingJokePrefab: {fileID: 3878426461021889871, guid: 15844e10a9bab4a33b0821556dca3803, type: 3}
-  initialSpeed: 2
-  maxSpeed: 6
-  speedIncreaseInterval: 20
-  attackInterval: 3
+  attackSpeed: 5
+  badJokePrefab: {fileID: 0}
+  JokePrefab: {fileID: 0}
+  waypoints: []
   playerTransform: {fileID: 0}
---- !u!114 &70854237787463927
+  attackInterval: 3
+  shootDirection: 0
+--- !u!114 &2744655614643424524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,9 +167,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0efed91bdb9341b78f0d90f905e875b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  health: 0
-  hurtColor: {r: 0.990566, g: 0.042052314, b: 0.042052314, a: 1}
-  colorChangeDuration: 0.2
-  winScreen: {fileID: 0}
-  healthBar: {fileID: 0}
+  hurtColor: {r: 1, g: 0, b: 0, a: 1}
+  colorChangeDuration: 0.5

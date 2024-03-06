@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject _controlsScreen;
 
+
     void Awake()
     {
         _playButton = GameObject.Find("PlayButton"); // Reference to the play button
@@ -29,7 +31,10 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        
         _controlsScreen.SetActive(false); // Hides the controls screen
+        AudioManager.Instance.Play(0, "bg", true);
+        
     }
 
     void Update()
@@ -42,9 +47,10 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+
     public void OnPlayPress()
     {
-        SceneManager.LoadScene("Home"); // Loads the first level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OnControlsPress()
