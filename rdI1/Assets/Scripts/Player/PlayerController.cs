@@ -61,15 +61,14 @@ public class PlayerController : MonoBehaviour
             shootDirection = moveDirection;
         }
 
-        
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            rb.velocity = moveDirection * moveSpeed * sprintSpeedMultiplier;
-        }
-        else
-        {
-            rb.velocity = moveDirection * moveSpeed;
-        }
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    rb.velocity = moveDirection * moveSpeed * sprintSpeedMultiplier;
+        //}
+        //else
+        //{
+        //    rb.velocity = moveDirection * moveSpeed;
+        //}
     }
 
 
@@ -87,15 +86,16 @@ public class PlayerController : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
 
         UpdateSpriteDirection(moveDirection);
+        rb.velocity = moveDirection * moveSpeed;
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            rb.velocity = moveDirection * moveSpeed * sprintSpeedMultiplier;
-        }
-        else
-        {
-            rb.velocity = moveDirection * moveSpeed;
-        }
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    rb.velocity = moveDirection * moveSpeed * sprintSpeedMultiplier;
+        //}
+        //else
+        //{
+        //    rb.velocity = moveDirection * moveSpeed;
+        //}
 
         if (moveDirection != Vector2.zero)
         {
