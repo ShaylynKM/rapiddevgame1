@@ -26,13 +26,17 @@ public class Joke : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
-            if (bossHealth != null)
+            if(!isGoodJoke) // If the joke is a health powerup, do not destroy the object or damage the boss
             {
-                bossHealth.TakeDamage(1);
-                //AudioManager.Instance.Play(0, "bg", false);
+                if (bossHealth != null)
+                {
+                    bossHealth.TakeDamage(1);
+                    //AudioManager.Instance.Play(0, "bg", false);
+                }
+
+                Destroy(gameObject);
             }
 
-            Destroy(gameObject);
         }
         else if (other.gameObject.CompareTag("Player"))
         {
