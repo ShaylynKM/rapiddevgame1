@@ -24,6 +24,9 @@ public class BossAI : MonoBehaviour
     private Transform[] attackPositions; // Array for the four child positions
     private float timer;
 
+    [SerializeField]
+    private AnimationClip idleAnim;
+
     void Start()
     {
         // Retrieve the four child positions

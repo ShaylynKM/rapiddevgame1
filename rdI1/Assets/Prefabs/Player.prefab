@@ -160,6 +160,15 @@ MonoBehaviour:
   rightSprite: {fileID: 21300000, guid: 469fd80ea758b1346bb3b93243aa5b9d, type: 3}
   isFrozen: 0
   rb: {fileID: 4994431930617646080}
+  idleAnim: {fileID: 7400000, guid: 81dcbdc198ad3d54ba49ceeb4c0cfb6d, type: 2}
+  walkFrontAnim: {fileID: 7400000, guid: c37465e78f16eba4c869fd264f78411f, type: 2}
+  walkBackAnim: {fileID: 7400000, guid: 0cb4d1ded26668242bd14171a3e3e0c5, type: 2}
+  walkSideAnim: {fileID: 7400000, guid: d5e17c0e848a79a44b7b16ee05842925, type: 2}
+  hurtAnim: {fileID: 7400000, guid: fa2cfc3178a569f43ad458e8b137bceb, type: 2}
+  deathAnim: {fileID: 7400000, guid: 807fe3884ded52c49893c66ddc213852, type: 2}
+  throwFrontAnim: {fileID: 7400000, guid: b72a174d79e5a164f938286c2ffaabc1, type: 2}
+  throwBackAnim: {fileID: 7400000, guid: 3593ad03c3f3e5d4690c4c532e78dccc, type: 2}
+  throwSideAnim: {fileID: 7400000, guid: 2382467c04e40654ebce431c2954e5c0, type: 2}
 --- !u!114 &4994431930617646083
 MonoBehaviour:
   m_ObjectHideFlags: 0

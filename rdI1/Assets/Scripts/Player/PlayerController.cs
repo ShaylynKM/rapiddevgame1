@@ -31,6 +31,26 @@ public class PlayerController : MonoBehaviour
     private float fireRate = 0.2f; // How fast the player can shoot
     private float timeSinceFire = 0f; // Keeps track of when the player last fired
 
+    // Animation clips
+    [SerializeField]
+    private AnimationClip idleAnim;
+    [SerializeField]
+    private AnimationClip walkFrontAnim;
+    [SerializeField]
+    private AnimationClip walkBackAnim;
+    [SerializeField]
+    private AnimationClip walkSideAnim;
+    [SerializeField]
+    private AnimationClip hurtAnim;
+    [SerializeField]
+    private AnimationClip deathAnim;
+    [SerializeField]
+    private AnimationClip throwFrontAnim;
+    [SerializeField]
+    private AnimationClip throwBackAnim;
+    [SerializeField]
+    private AnimationClip throwSideAnim;
+
     void Start()
     {
         //AudioManager.Instance.Play(0, "bossFight", true);
