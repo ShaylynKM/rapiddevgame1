@@ -14,8 +14,7 @@ public class Bullet : MonoBehaviour
             BossHealth bossHealth = FindObjectOfType<BossHealth>(); // find BossHealth
             if (bossHealth != null)
             {
-                bossHealth.TriggerColorChange();
-                //AudioManager.Instance.Play(0, "PlayerShoot", false);
+                
             }
 
             GameObject hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);

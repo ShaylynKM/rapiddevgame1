@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro; 
@@ -12,6 +13,7 @@ public class LevelsManager : MonoBehaviour
 
     public int healItemCount = 3;
     public float healSpawnInterval = 10f;
+    public float healItemLifetime = 5f;
 
     public float levelDuration = 30f;
     public TextMeshProUGUI countdownText;
@@ -27,6 +29,8 @@ public class LevelsManager : MonoBehaviour
         StartCoroutine(SpawnHealItems());
     }
 
+    private List<GameObject> spawnedHealItems = new List<GameObject>();
+
     IEnumerator SpawnHealItems()
     {
         for (int i = 0; i < healItemCount; i++)
@@ -35,9 +39,24 @@ public class LevelsManager : MonoBehaviour
 
             Vector3 spawnPosition = GetSpawnPosition();
 
-            Instantiate(healPrefab, spawnPosition, Quaternion.identity);
+            GameObject healItem = Instantiate(healPrefab, spawnPosition, Quaternion.identity);
+            spawnedHealItems.Add(healItem);
+
+            StartCoroutine(DespawnHealItem(healItem, healItemLifetime));
         }
     }
+
+    IEnumerator DespawnHealItem(GameObject healItem, float lifetime)
+    {
+        yield return new WaitForSeconds(lifetime);
+
+        if (healItem != null)
+        {
+            Destroy(healItem);
+            spawnedHealItems.Remove(healItem);
+        }
+    }
+
 
     Vector3 GetSpawnPosition()
     {
@@ -70,18 +89,20 @@ public class LevelsManager : MonoBehaviour
 
     void TimeUp()
     {
+        StopAllCoroutines(); // Stop all running coroutines, including SpawnHealItems
+
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(nextSceneIndex); 
+            SceneManager.LoadScene(nextSceneIndex);
         }
         else
         {
             ShowWinScreen();
             Debug.Log("You've completed all levels!");
-            
         }
     }
+
     private void ShowWinScreen()
     {
         winScreen.SetActive(true);

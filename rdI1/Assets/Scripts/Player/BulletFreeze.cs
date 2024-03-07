@@ -16,7 +16,6 @@ public class BulletFreeze : MonoBehaviour
             JobEnemy enemy = collision.gameObject.GetComponent<JobEnemy>();
             if (enemy != null)
             {
-                bossHealth.TriggerColorChange();
                 enemy.Freeze(freezeDuration); 
             }
 

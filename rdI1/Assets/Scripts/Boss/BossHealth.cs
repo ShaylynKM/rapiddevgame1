@@ -20,18 +20,4 @@ public class BossHealth : MonoBehaviour
             originalColor = spriteRenderer.color; // Save original color
         }
     }
-
-    public void TriggerColorChange()
-    {
-        StartCoroutine(ChangeColor());
-    }
-
-
-    private IEnumerator ChangeColor()
-    {
-        spriteRenderer.color = hurtColor; // change color
-        yield return new WaitForSeconds(colorChangeDuration); // wait for seconds
-        spriteRenderer.color = originalColor; // back original color
-    }
-    
 }
