@@ -16,7 +16,18 @@ public class SchoolEnemy : MonoBehaviour
     public float minAttackInterval = 0.5f;
     public float intervalDecreaseRate = 0.1f; 
     private float currentAttackInterval; 
-    private float attackTimer; 
+    private float attackTimer;
+
+    // Animations
+
+    [SerializeField]
+    private AnimationClip bullyWalkFrontAnim;
+    [SerializeField]
+    private AnimationClip bullyWalkBackAnim;
+    [SerializeField]
+    private AnimationClip bullyWalkSideAnim;
+    [SerializeField]
+    private AnimationClip bullyHurtFrontAnim;
 
     void Start()
     {

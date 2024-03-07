@@ -4582,11 +4582,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70854237787463931, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3678352
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 70854237787463931, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.43199575
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 70854237787463931, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4631,7 +4631,7 @@ PrefabInstance:
     - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: hintPrefab
       value: 
-      objectReference: {fileID: 70854237787463921, guid: eac9cd7d8f17546558e45027acf5e8e9, type: 3}
+      objectReference: {fileID: 70854237787463921, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
     - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: badJokePrefab
       value: 
