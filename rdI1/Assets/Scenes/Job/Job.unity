@@ -4257,8 +4257,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anxietyThreshold: 0.7
-  waitingTime: 8
+  waitingTime: 5
   hideDuration: 3
+  fadeDuration: 2
   hidingSpots:
   - {fileID: 219948402}
   - {fileID: 2142672317}

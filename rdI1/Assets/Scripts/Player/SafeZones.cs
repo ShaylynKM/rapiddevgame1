@@ -7,6 +7,7 @@ public class SafeZones : MonoBehaviour
     public float anxietyThreshold = 0.8f;
     public float waitingTime = 8f;
     public float hideDuration = 5f;
+    public float fadeDuration = 2f;
     public GameObject[] hidingSpots; // Array to store hiding spots
 
     private AnxietyMeter anxietyMeter;
@@ -31,6 +32,7 @@ public class SafeZones : MonoBehaviour
 
         foreach (GameObject spot in hidingSpots)
         {
+            SetSpriteAlpha(spot, 0f);
             spot.SetActive(false);
         }
 
@@ -45,10 +47,52 @@ public class SafeZones : MonoBehaviour
 
             if (currentFill >= anxietyThreshold && !playerController.isFrozen)
             {
-                SetHidingSpotActive(true);
-                StartCoroutine("Delay");
+                StartCoroutine(ShowHidingSpotWithFade());
             }
             
+        }
+    }
+
+    IEnumerator ShowHidingSpotWithFade()
+    {
+        SetHidingSpotActive(true);
+        float timer = 0f;
+
+        // Fade-in
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, 1f, timer / fadeDuration);
+            SetSpriteAlpha(activeSpot, alpha);
+            yield return null;
+        }
+
+
+        yield return new WaitForSeconds(waitingTime);
+
+        // Fade-out
+        timer = 0f;
+
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+            SetSpriteAlpha(activeSpot, alpha);
+            yield return null;
+        }
+
+        SetHidingSpotActive(false);
+        SetRandomHidingSpot();
+    }
+
+    void SetSpriteAlpha(GameObject obj, float alpha)
+    {
+        SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            Color color = spriteRenderer.color;
+            color.a = alpha;
+            spriteRenderer.color = color;
         }
     }
 

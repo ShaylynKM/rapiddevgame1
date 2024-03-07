@@ -1867,9 +1867,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b13eb45a383d648a18460184e01549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anxietyThreshold: 0.7
-  waitingTime: 8
+  anxietyThreshold: 0.5
+  waitingTime: 5
   hideDuration: 4
+  fadeDuration: 3
   hidingSpots:
   - {fileID: 1361491339}
   - {fileID: 1546544413}
