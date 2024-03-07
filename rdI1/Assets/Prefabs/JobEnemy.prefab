@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 70854237787463926}
   - component: {fileID: -8394518957389561089}
   - component: {fileID: 70854237787463927}
+  - component: {fileID: 5869604953054672245}
   m_Layer: 0
   m_Name: JobEnemy
   m_TagString: Boss
@@ -154,6 +155,7 @@ MonoBehaviour:
   spawnInterval: 2
   moveSpeed: 2
   moveDistance: 5
+  waypoints: []
 --- !u!114 &70854237787463927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,9 +168,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0efed91bdb9341b78f0d90f905e875b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  health: 0
   hurtColor: {r: 0.990566, g: 0.042052314, b: 0.042052314, a: 1}
   colorChangeDuration: 0.2
-  winScreen: {fileID: 0}
-  healthBar: {fileID: 0}
+--- !u!95 &5869604953054672245
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70854237787463921}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 44fb95556c66efb489775c6acefb8415, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
