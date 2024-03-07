@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private float fireRate = 0.2f; // How fast the player can shoot
     private float timeSinceFire = 0f; // Keeps track of when the player last fired
 
+    public PlayerHealth playerHealth;
+
     // Animation clips
     [SerializeField]
     private AnimationClip idleAnim;
@@ -41,21 +43,29 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AnimationClip walkSideAnim;
     [SerializeField]
-    private AnimationClip hurtAnim;
-    [SerializeField]
-    private AnimationClip deathAnim;
-    [SerializeField]
     private AnimationClip throwFrontAnim;
     [SerializeField]
     private AnimationClip throwBackAnim;
     [SerializeField]
     private AnimationClip throwSideAnim;
+    
+    public Animation animationComponent;
+    public AnimationClip deathAnim;
+    public AnimationClip hurtAnim;
+
 
     void Start()
     {
         //AudioManager.Instance.Play(0, "bossFight", true);
 
         timeSinceFire = Time.time + fireRate; // Changes rate of fire to 5 shots per second
+        
+        animationComponent = GetComponent<Animation>(); // Finds the animation component
+
+        //animationComponent.Play(idleAnim.name); // Plays the idle animation
+
+        animationComponent.Play(throwBackAnim.name);
+
     }
 
     void Update()

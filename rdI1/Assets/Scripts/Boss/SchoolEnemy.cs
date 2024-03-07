@@ -28,10 +28,14 @@ public class SchoolEnemy : MonoBehaviour
     private AnimationClip bullyWalkSideAnim;
     [SerializeField]
     private AnimationClip bullyHurtFrontAnim;
+    [SerializeField]
+    private Animation animationComponent;
 
     void Start()
     {
         currentAttackInterval = initialAttackInterval;
+
+        animationComponent = GetComponent<Animation>(); // Finds the animation component
     }
 
 
