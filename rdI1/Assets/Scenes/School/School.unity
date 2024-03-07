@@ -1001,7 +1001,7 @@ PrefabInstance:
       objectReference: {fileID: 157400713}
     - target: {fileID: 70854237787463921, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
       propertyPath: m_Name
-      value: SchoolEnemy
+      value: Bully
       objectReference: {fileID: 0}
     - target: {fileID: 70854237787463924, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
       propertyPath: m_Sprite
@@ -1065,6 +1065,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
+--- !u!1 &277421467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 70854237787463921, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
+  m_PrefabInstance: {fileID: 277421466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &304650369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,6 +3124,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 70854237787463931, guid: ab6b00d5945254d2c9599f181867256f, type: 3}
   m_PrefabInstance: {fileID: 277421466}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &991067199
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277421467}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc4732d3d5b524543aeb25cde12149a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1021114537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 264479885447225645, guid: d5bb767435af347649dad331b19d6b2e, type: 3}
@@ -3968,6 +3994,7 @@ MonoBehaviour:
   - {fileID: 1699980976}
   healItemCount: 3
   healSpawnInterval: 10
+  healItemLifetime: 5
   levelDuration: 60
   countdownText: {fileID: 791646432}
 --- !u!4 &1629153192
