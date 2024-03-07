@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private float moveSpeed = 5f;
-    public float sprintSpeedMultiplier = 2f;
+    //public float sprintSpeedMultiplier = 2f;
 
     
     public GameObject projectilePrefab;
@@ -33,38 +33,18 @@ public class PlayerController : MonoBehaviour
 
     public PlayerHealth playerHealth;
 
-    // Animation clips
-    [SerializeField]
-    private AnimationClip idleAnim;
-    [SerializeField]
-    private AnimationClip walkFrontAnim;
-    [SerializeField]
-    private AnimationClip walkBackAnim;
-    [SerializeField]
-    private AnimationClip walkSideAnim;
-    [SerializeField]
-    private AnimationClip throwFrontAnim;
-    [SerializeField]
-    private AnimationClip throwBackAnim;
-    [SerializeField]
-    private AnimationClip throwSideAnim;
-    
-    public Animation animationComponent;
-    public AnimationClip deathAnim;
-    public AnimationClip hurtAnim;
-
+    public Animation anim;
 
     void Start()
     {
+        //animator.SetBool("IsWalking", false); // Sets the animator value for IsWalking to false when the player is not moving
+
+        anim = GetComponent<Animation>(); // Finds the animation component
+
+
         //AudioManager.Instance.Play(0, "bossFight", true);
 
         timeSinceFire = Time.time + fireRate; // Changes rate of fire to 5 shots per second
-        
-        animationComponent = GetComponent<Animation>(); // Finds the animation component
-
-        //animationComponent.Play(idleAnim.name); // Plays the idle animation
-
-        animationComponent.Play(throwBackAnim.name);
 
     }
 
@@ -80,6 +60,7 @@ public class PlayerController : MonoBehaviour
         ProcessInputs();
 
         HandleShooting(projectilePrefab);
+
     }
 
 
@@ -90,6 +71,8 @@ public class PlayerController : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
 
+        //animator.SetFloat("X", moveX); // Sets the animator value for X
+        //animator.SetFloat("Y", moveY); // Sets the animator value for y
         
         if (moveDirection != Vector2.zero)
         {
@@ -115,14 +98,18 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             return;
+            //animator.SetBool("IsWalking", false); // Sets the animator value for IsWalking to false when the player is not moving
+
         }
 
+        //animator.SetBool("IsWalking", true); // Sets the animator value for IsWalking to true when the player is moving
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
 
         UpdateSpriteDirection(moveDirection);
         rb.velocity = moveDirection * moveSpeed;
+
 
         //if (Input.GetKey(KeyCode.LeftShift))
         //{
@@ -191,6 +178,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButton(0) && !isFrozen && Time.time > timeSinceFire) // Changed to holding LMB; added a restriction to rate of fire
         {
+            //animator.SetBool("IsThrowing", true); // Sets the animator value for throwing
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             Rigidbody2D rbProjectile = projectile.GetComponent<Rigidbody2D>();
             rbProjectile.velocity = shootDirection * projectileSpeed;
@@ -203,6 +191,7 @@ public class PlayerController : MonoBehaviour
             timeSinceFire = Time.time + fireRate; // Resets the fire rate timer
 
             Destroy(projectile, shootDistance / projectileSpeed);
+           //animator.SetBool("IsThrowing", false); // Resets the bool
         }
     }
 

@@ -171,6 +171,7 @@ MonoBehaviour:
   animationComponent: {fileID: 0}
   deathAnim: {fileID: 7400000, guid: 807fe3884ded52c49893c66ddc213852, type: 2}
   hurtAnim: {fileID: 7400000, guid: fa2cfc3178a569f43ad458e8b137bceb, type: 2}
+  animator: {fileID: 2052458540637418385}
 --- !u!114 &4994431930617646083
 MonoBehaviour:
   m_ObjectHideFlags: 0
