@@ -193,6 +193,10 @@ public class PlayerController : MonoBehaviour
             animator.Play("Playe_WalkFront");
             spriteRenderer.sprite = downSprite;
         }
+        else
+        {
+            IsMoving = false;
+        }
     }
 
 
