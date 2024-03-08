@@ -1868,9 +1868,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anxietyThreshold: 0.5
-  waitingTime: 4
+  waitingTime: 5
   hideDuration: 4
-  fadeDuration: 3
+  fadeDuration: 2
   hidingSpots:
   - {fileID: 1361491339}
   - {fileID: 1546544413}
@@ -1878,6 +1878,7 @@ MonoBehaviour:
   - {fileID: 1344451190}
   - {fileID: 631912253}
   - {fileID: 672759724}
+  bossAI: {fileID: 0}
 --- !u!4 &752720344
 Transform:
   m_ObjectHideFlags: 0
@@ -4629,13 +4630,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
+      propertyPath: maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: hintPrefab
       value: 
       objectReference: {fileID: 70854237787463921, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
     - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
+      propertyPath: initialSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: badJokePrefab
       value: 
       objectReference: {fileID: 3878426461021889871, guid: 15844e10a9bab4a33b0821556dca3803, type: 3}
+    - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
+      propertyPath: attackInterval
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: goodJokePrefab
       value: 
@@ -4645,9 +4658,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1729118126}
     - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
+      propertyPath: minAttackInterval
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: attackPositionsParent
       value: 
       objectReference: {fileID: 1228199573}
+    - target: {fileID: 1403066715773845688, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
+      propertyPath: speedIncreaseInterval
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8284933379319423177, guid: e07d23f92e8094e06b91966080dd54ee, type: 3}
       propertyPath: healthBar
       value: 

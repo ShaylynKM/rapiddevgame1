@@ -27,7 +27,6 @@ public class GradeSystem : MonoBehaviour
     public void CounterTakeHit()
     {
         hitCounter++;
-        Debug.Log($"Hit counter incremented. New value: {hitCounter}");
         string playerGrade = CalculateGrade();
         winMenu.UpdateImage(playerGrade);
     }
@@ -39,10 +38,8 @@ public class GradeSystem : MonoBehaviour
 
         for (int i = 0; i < gradeThresholds.Length; i++)
         {
-            Debug.Log($"Checking grade {letterGrades[i]} for threshold {gradeThresholds[i]}. Current hits: {hitCounter}");
             if (hitCounter <= gradeThresholds[i])
             {
-                Debug.Log($"Selected grade: {letterGrades[i]}");
                 return letterGrades[i];
             }
         }
