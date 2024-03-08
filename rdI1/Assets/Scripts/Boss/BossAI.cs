@@ -63,6 +63,20 @@ public class BossAI : MonoBehaviour
         }
     }
 
+    //public void OnSafezoneDespawned()
+    //{
+    //    StartCoroutine(DelayedAttackAdjustment());
+    //    Debug.Log("Lowering attacks");
+    //}
+
+    //IEnumerator DelayedAttackAdjustment()
+    //{
+    //    attackInterval += 0.5f; // Increase attack interval
+    //    currentSpeed -= 1.0f;   // Decrease attack speed
+    //    yield return new WaitForSeconds(2f);
+    //}
+
+
     IEnumerator PrepareAndAttack()
     {
         int randomIndex = Random.Range(0, attackPositions.Length);

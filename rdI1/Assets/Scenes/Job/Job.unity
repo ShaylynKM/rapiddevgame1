@@ -2100,7 +2100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: maxProjectileSpeed
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: waypoints.Array.size
@@ -2112,7 +2112,7 @@ PrefabInstance:
       objectReference: {fileID: 1160623605}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: initialProjectileSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: spawnPoints.Array.size
@@ -2375,7 +2375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: maxProjectileSpeed
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: waypoints.Array.size
@@ -2387,7 +2387,7 @@ PrefabInstance:
       objectReference: {fileID: 1160623605}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: initialProjectileSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: spawnPoints.Array.size
@@ -4264,6 +4264,7 @@ MonoBehaviour:
   - {fileID: 219948402}
   - {fileID: 2142672317}
   - {fileID: 219004787}
+  bossAI: {fileID: 0}
 --- !u!4 &1646516230
 Transform:
   m_ObjectHideFlags: 0
@@ -4572,7 +4573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: maxProjectileSpeed
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: waypoints.Array.size
@@ -4584,7 +4585,7 @@ PrefabInstance:
       objectReference: {fileID: 1160623605}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: initialProjectileSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8394518957389561089, guid: c94bbe83b38ea49ee8060cc2d781b4bb, type: 3}
       propertyPath: spawnPoints.Array.size
@@ -5409,6 +5410,7 @@ MonoBehaviour:
   - {fileID: 1363784692}
   healItemCount: 3
   healSpawnInterval: 10
+  healItemLifetime: 5
   levelDuration: 60
   countdownText: {fileID: 1550827447}
 --- !u!4 &1941467161

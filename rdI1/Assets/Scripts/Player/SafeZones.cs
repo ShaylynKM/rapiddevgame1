@@ -10,6 +10,7 @@ public class SafeZones : MonoBehaviour
     public float fadeDuration = 2f;
     public GameObject[] hidingSpots; // Array to store hiding spots
 
+    public BossAI bossAI;
     private AnxietyMeter anxietyMeter;
     private PlayerController playerController;
     private PlayerHealth playerHealth; // Reference to the PlayerHealth script
@@ -102,6 +103,14 @@ public class SafeZones : MonoBehaviour
         playerHealth.gameObject.SetActive(true);
         SetHidingSpotActive(false);
         SetRandomHidingSpot();
+
+        //// Notify BossAI script that the safezone has despawned
+        //GameObject boss = GameObject.FindGameObjectWithTag("Boss");
+        //if (boss != null)
+        //{
+        //    boss.SendMessage("OnSafezoneDespawned");
+        //    Debug.Log("Safezone Despawned");
+        //}
     }
 
     void SetHidingSpotActive(bool isActive)
