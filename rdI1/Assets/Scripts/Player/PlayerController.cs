@@ -33,14 +33,12 @@ public class PlayerController : MonoBehaviour
 
     public PlayerHealth playerHealth;
 
-    public Animation anim;
+    public Animator animator;
 
     void Start()
     {
-        //animator.SetBool("IsWalking", false); // Sets the animator value for IsWalking to false when the player is not moving
-
-        anim = GetComponent<Animation>(); // Finds the animation component
-
+        animator.SetBool("IsWalking", false); // Sets the animator value for IsWalking to false when the player is not moving
+        Debug.Log("Found");
 
         //AudioManager.Instance.Play(0, "bossFight", true);
 
@@ -103,6 +101,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //animator.SetBool("IsWalking", true); // Sets the animator value for IsWalking to true when the player is moving
+        Debug.Log("FoundAgain");
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
