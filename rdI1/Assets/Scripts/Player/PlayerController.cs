@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 moveDirection = Vector2.zero;
 
+    public bool IsMoving;
+
 
     // Shaylyn's additions
     private float fireRate = 0.2f; // How fast the player can shoot
@@ -37,12 +39,15 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        animator.SetBool("IsWalking", false); // Sets the animator value for IsWalking to false when the player is not moving
+        //animator.SetBool("IsWalking", false); // Sets the animator value for IsWalking to false when the player is not moving
+        animator.Play("Playe_Idle");
         Debug.Log("Found");
 
         //AudioManager.Instance.Play(0, "bossFight", true);
 
         timeSinceFire = Time.time + fireRate; // Changes rate of fire to 5 shots per second
+
+        IsMoving = false; // Not moving when the game starts
 
     }
 
@@ -58,6 +63,22 @@ public class PlayerController : MonoBehaviour
         ProcessInputs();
 
         HandleShooting(projectilePrefab);
+
+        // This is the part that's not working. We'll need another flag to play other animations
+
+        if(IsMoving == false)
+        {
+            animator.Play("Playe_Idle");
+        }
+
+        if(moveSpeed == 0f)
+        {
+            IsMoving = false;
+        }
+        else
+        {
+            IsMoving = true;
+        }
 
     }
 
@@ -77,6 +98,7 @@ public class PlayerController : MonoBehaviour
             UpdateSpriteDirection(moveDirection);
             shootDirection = moveDirection;
         }
+
 
         //if (Input.GetKey(KeyCode.LeftShift))
         //{
@@ -147,20 +169,28 @@ public class PlayerController : MonoBehaviour
 
     void UpdateSpriteDirection(Vector2 direction)
     {
+        IsMoving = true;
+
         if (direction == Vector2.left)
         {
+            animator.Play("Playe_WalkSide");
             spriteRenderer.sprite = leftSprite;
+            spriteRenderer.flipX = false;
         }
         else if (direction == Vector2.right)
         {
+            animator.Play("Playe_WalkSide");
             spriteRenderer.sprite = rightSprite;
+            spriteRenderer.flipX = true;
         }
         else if (direction == Vector2.up)
         {
+            animator.Play("Playe_WalkBack");
             spriteRenderer.sprite = upSprite;
         }
         else if (direction == Vector2.down)
         {
+            animator.Play("Playe_WalkFront");
             spriteRenderer.sprite = downSprite;
         }
     }

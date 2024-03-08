@@ -2140,8 +2140,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2052458540637418385, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2052458540637418385, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f66c983f1b6a88d4b85587f505bfe844, type: 2}
     - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_Size.y
       value: 3.1183908
