@@ -2856,6 +2856,10 @@ PrefabInstance:
       value: 5.88
       objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2124201210}
+    - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 784068438}
@@ -5826,6 +5830,11 @@ Transform:
 --- !u!4 &2124201209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+  m_PrefabInstance: {fileID: 876547016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2124201210 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2052458540637418385, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
   m_PrefabInstance: {fileID: 876547016}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2124454987

@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         if (isFrozen == true)
         {
-            animator.Play("Playe_Shaking");
+            animator.Play("Playe_Freeze");
         }
 
     }

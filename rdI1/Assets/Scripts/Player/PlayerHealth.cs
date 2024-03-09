@@ -20,6 +20,8 @@ public class PlayerHealth : MonoBehaviour
 
     private bool isHiding = false;
 
+    public Animator animator;
+
     void Start()
     {
         // Initialize health
@@ -58,6 +60,8 @@ public class PlayerHealth : MonoBehaviour
                 Destroy(effect, effect.GetComponent<ParticleSystem>().main.duration);
             }
 
+            animator.Play("Playe_Hurt");
+
             gradeSystem.CounterTakeHit();
 
             if (currentHealth <= 0)
@@ -75,6 +79,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            animator.Play("Playe_Death");
             AudioManager.Instance.Play(5, "playerKill", false);
             Debug.Log("Player Died");
             gameOverMenu.SetActive(true);
