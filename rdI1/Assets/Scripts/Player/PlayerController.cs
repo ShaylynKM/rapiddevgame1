@@ -80,6 +80,11 @@ public class PlayerController : MonoBehaviour
             IsMoving = true;
         }
 
+        if (isFrozen == true)
+        {
+            animator.Play("Playe_Shaking");
+        }
+
     }
 
 
