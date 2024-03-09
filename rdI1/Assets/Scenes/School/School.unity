@@ -662,6 +662,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 752398996}
     m_Modifications:
+    - target: {fileID: 2052458540637418385, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646081, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 3
@@ -690,6 +694,10 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 769772034785550346, guid: c899914a1f8104cdda1743aadbdfa4c6, type: 3}
+    - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1292149221}
     - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: healthBar
       value: 
@@ -3381,6 +3389,11 @@ Transform:
   m_Father: {fileID: 1334262035}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1292149221 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2052458540637418385, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+  m_PrefabInstance: {fileID: 233041555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1334262034
 GameObject:
   m_ObjectHideFlags: 0

@@ -2155,6 +2155,10 @@ PrefabInstance:
       value: -1.0068523
       objectReference: {fileID: 0}
     - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1218481773}
+    - target: {fileID: 4994431930617646083, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1873749218}
@@ -2235,6 +2239,11 @@ PrefabInstance:
 --- !u!4 &1218481772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4994431930617646109, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
+  m_PrefabInstance: {fileID: 1218481771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1218481773 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2052458540637418385, guid: 72dc49007b2a1404ca45f47fcb4b5d47, type: 3}
   m_PrefabInstance: {fileID: 1218481771}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1260728869

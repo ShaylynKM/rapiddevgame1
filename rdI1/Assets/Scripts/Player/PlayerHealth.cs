@@ -66,7 +66,7 @@ public class PlayerHealth : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-                Die();
+                StartCoroutine(Die());
             }
 
             Debug.Log("Player Health Decreased by: " + damage);
@@ -75,13 +75,16 @@ public class PlayerHealth : MonoBehaviour
 
     
 
-    private void Die()
+    IEnumerator Die()
     {
+        Debug.Log("die");
         if (currentHealth <= 0)
         {
-            animator.Play("Playe_Death");
+            
             AudioManager.Instance.Play(5, "playerKill", false);
             Debug.Log("Player Died");
+            animator.Play("Playe_Death");
+            yield return new WaitForSeconds(3);
             gameOverMenu.SetActive(true);
             Time.timeScale = 0f;
         }
